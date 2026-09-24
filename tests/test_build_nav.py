@@ -205,6 +205,43 @@ class TestLinkedImageFiles:
 
 
 # ---------------------------------------------------------------------------
+# Section index generation
+# ---------------------------------------------------------------------------
+
+class TestWriteSectionIndex:
+    def test_body_links_use_relative_path_from_sections_dir(self, tmp_path):
+        # Patch SECTIONS_DIR to write into tmp_path
+        import build_nav as bn
+        original = bn.SECTIONS_DIR
+        bn.SECTIONS_DIR = str(tmp_path)
+        try:
+            repos = [("service-foo", "_repos/service-foo/index.md")]
+            bn._write_section_index("Services", repos)
+            content = (tmp_path / "services" / "index.md").read_text()
+            # Body link must be ../../_repos/service-foo/ not the raw docs path
+            assert "../../_repos/service-foo/" in content
+            assert "_repos/service-foo/index.md" not in content
+        finally:
+            bn.SECTIONS_DIR = original
+
+    def test_body_links_for_multiple_repos(self, tmp_path):
+        import build_nav as bn
+        original = bn.SECTIONS_DIR
+        bn.SECTIONS_DIR = str(tmp_path)
+        try:
+            repos = [
+                ("service-foo", "_repos/service-foo/index.md"),
+                ("service-bar", "_repos/service-bar/index.md"),
+            ]
+            bn._write_section_index("Services", repos)
+            content = (tmp_path / "services" / "index.md").read_text()
+            assert "../../_repos/service-foo/" in content
+            assert "../../_repos/service-bar/" in content
+        finally:
+            bn.SECTIONS_DIR = original
+
+
+# ---------------------------------------------------------------------------
 # Readme renaming
 # ---------------------------------------------------------------------------
 

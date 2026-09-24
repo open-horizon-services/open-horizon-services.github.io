@@ -387,8 +387,11 @@ def _write_section_index(label: str, repos: list[tuple[str, str]], dry_run: bool
     nav_path = f"_sections/{slug}/index.md"
 
     lines = [f"# {label}", ""]
-    for repo_name, link_path in repos:
-        lines.append(f"- [{repo_name}]({link_path})")
+    for repo_name, _ in repos:
+        # link_path is relative to docs/ (e.g. "_repos/foo/index.md").
+        # This file lives at _sections/<slug>/index.md, so we need to go up
+        # two levels to reach the docs/ root, giving "../../_repos/foo/".
+        lines.append(f"- [{repo_name}](../../_repos/{repo_name}/)")
     lines.append("")
 
     if dry_run:
