@@ -281,9 +281,43 @@ def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
 # Navigation generation
 # ---------------------------------------------------------------------------
 
+SECTIONS_DIR = "docs/_sections"
+
+
+def _write_section_index(label: str, repos: list, dry_run: bool = False) -> str:
+    """
+    Create docs/_sections/<label>/index.md listing the repos in that group.
+    Returns the nav path relative to docs/: '_sections/<label>/index.md'.
+    """
+    slug = label.lower()
+    section_dir = Path(SECTIONS_DIR) / slug
+    out_path = section_dir / "index.md"
+    nav_path = f"_sections/{slug}/index.md"
+
+    lines = [f"# {label}", ""]
+    for repo_entry in repos:
+        for repo_name, sub_nav in repo_entry.items():
+            readme_entry = next(
+                (p for entry in sub_nav for p in entry.values()
+                 if p.lower().endswith("readme.md")),
+                None,
+            )
+            link_path = readme_entry or (list(sub_nav[0].values())[0] if sub_nav else "#")
+            lines.append(f"- [{repo_name}]({link_path})")
+    lines.append("")
+
+    if dry_run:
+        return nav_path
+
+    section_dir.mkdir(parents=True, exist_ok=True)
+    out_path.write_text("\n".join(lines))
+    return nav_path
+
+
 def build_nav(
     staged: dict[str, str],
     prefixes: list[str],
+    dry_run: bool = False,
 ) -> list:
     """
     Build the MkDocs nav list.
@@ -306,7 +340,7 @@ def build_nav(
                     for md in md_files:
                         rel = md.relative_to(staging_path)
                         entry_path = f"_repos/{repo_name}/{rel}"
-                        # Use stem for simple single files, relative path for sub-dirs
+                        # Use stem for single-file repos, relative path otherwise
                         if len(md_files) == 1:
                             label = md.stem.replace("-", " ").replace("_", " ").title()
                         else:
@@ -319,7 +353,9 @@ def build_nav(
         label = PREFIX_LABELS.get(prefix, prefix.rstrip("-").title() + "s")
         entries = groups[prefix]
         if entries:
-            nav.append({label: entries})
+            # Generate a section index page so the tab links there, not into a repo
+            section_index_path = _write_section_index(label, entries, dry_run=dry_run)
+            nav.append({label: [{"Overview": section_index_path}] + entries})
 
     return nav
 
@@ -503,6 +539,7 @@ def main() -> None:
         staged if not args.dry_run
         else {r["name"]: f"{DOCS_STAGING_DIR}/{r['name']}" for r in [rs[0] for rs in repo_sources]},
         prefixes,
+        dry_run=args.dry_run,
     )
 
     # Write config and regenerate home page index
