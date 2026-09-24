@@ -284,7 +284,29 @@ def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
 SECTIONS_DIR = "docs/_sections"
 
 
-def _write_section_index(label: str, repos: list, dry_run: bool = False) -> str:
+def _get_repo_entry_doc(repo_path: Path, repo_name: str) -> Optional[str]:
+    """Find the primary documentation entry point for a staged repository."""
+    md_files = sorted(repo_path.rglob("*.md"))
+    if not md_files:
+        return None
+
+    # Priority 1: Top-level readme.md or index.md
+    for filename in ("readme.md", "index.md"):
+        for md in md_files:
+            if md.parent == repo_path and md.name.lower() == filename:
+                return f"_repos/{repo_name}/{md.relative_to(repo_path)}"
+
+    # Priority 2: Any readme.md or index.md within the repo
+    for filename in ("readme.md", "index.md"):
+        for md in md_files:
+            if md.name.lower() == filename:
+                return f"_repos/{repo_name}/{md.relative_to(repo_path)}"
+
+    # Fallback to the first markdown file
+    return f"_repos/{repo_name}/{md_files[0].relative_to(repo_path)}"
+
+
+def _write_section_index(label: str, repos: list[tuple[str, str]], dry_run: bool = False) -> str:
     """
     Create docs/_sections/<label>/index.md listing the repos in that group.
     Returns the nav path relative to docs/: '_sections/<label>/index.md'.
@@ -295,15 +317,8 @@ def _write_section_index(label: str, repos: list, dry_run: bool = False) -> str:
     nav_path = f"_sections/{slug}/index.md"
 
     lines = [f"# {label}", ""]
-    for repo_entry in repos:
-        for repo_name, sub_nav in repo_entry.items():
-            readme_entry = next(
-                (p for entry in sub_nav for p in entry.values()
-                 if p.lower().endswith("readme.md")),
-                None,
-            )
-            link_path = readme_entry or (list(sub_nav[0].values())[0] if sub_nav else "#")
-            lines.append(f"- [{repo_name}]({link_path})")
+    for repo_name, link_path in repos:
+        lines.append(f"- [{repo_name}]({link_path})")
     lines.append("")
 
     if dry_run:
@@ -327,26 +342,14 @@ def build_nav(
     nav: list = [{"Home": "index.md"}]
 
     # Group repos by their matched prefix, preserving prefix order
-    groups: dict[str, list] = {p: [] for p in prefixes}
+    groups: dict[str, list[tuple[str, str]]] = {p: [] for p in prefixes}
     for repo_name, path in sorted(staged.items()):
         for prefix in prefixes:
             if repo_name.startswith(prefix):
-                # Collect all .md files relative to the staging dir
                 staging_path = Path(path)
-                md_files = sorted(staging_path.rglob("*.md"))
-                if md_files:
-                    # Build sub-nav entries relative to docs_dir (docs/)
-                    sub_nav = []
-                    for md in md_files:
-                        rel = md.relative_to(staging_path)
-                        entry_path = f"_repos/{repo_name}/{rel}"
-                        # Use stem for single-file repos, relative path otherwise
-                        if len(md_files) == 1:
-                            label = md.stem.replace("-", " ").replace("_", " ").title()
-                        else:
-                            label = str(rel)
-                        sub_nav.append({label: entry_path})
-                    groups[prefix].append({repo_name: sub_nav})
+                doc_path = _get_repo_entry_doc(staging_path, repo_name)
+                if doc_path:
+                    groups[prefix].append((repo_name, doc_path))
                 break
 
     for prefix in prefixes:
@@ -355,7 +358,8 @@ def build_nav(
         if entries:
             # Generate a section index page so the tab links there, not into a repo
             section_index_path = _write_section_index(label, entries, dry_run=dry_run)
-            nav.append({label: [{"Overview": section_index_path}] + entries})
+            repo_nav_entries = [{repo_name: doc_path} for repo_name, doc_path in entries]
+            nav.append({label: [{"Overview": section_index_path}] + repo_nav_entries})
 
     return nav
 
@@ -427,19 +431,14 @@ def write_index_page(
 
     # nav[0] is {"Home": "index.md"} — skip it
     for section in nav[1:]:
-        for group_label, repos in section.items():
+        for group_label, items in section.items():
             lines.append(f"## {group_label}")
             lines.append("")
-            for repo_entry in repos:
-                for repo_name, sub_nav in repo_entry.items():
-                    # Prefer README.md; fall back to first entry in sub-nav
-                    readme_entry = next(
-                        (p for entry in sub_nav for p in entry.values()
-                         if p.lower().endswith("readme.md")),
-                        None,
-                    )
-                    link_path = readme_entry or (list(sub_nav[0].values())[0] if sub_nav else "#")
-                    lines.append(f"- [{repo_name}]({link_path})")
+            for item in items:
+                for label, link_path in item.items():
+                    if label == "Overview":
+                        continue
+                    lines.append(f"- [{label}]({link_path})")
             lines.append("")
             lines.append("---")
             lines.append("")

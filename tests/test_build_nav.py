@@ -186,19 +186,31 @@ class TestBuildNav:
         staged = {
             "service-foo": self._make_staged(tmp_path, "service-foo", ["index.md"]),
         }
-        # Patch DOCS_STAGING_DIR to use tmp_path so rglob works
-        original = build_nav.DOCS_STAGING_DIR
-        build_nav.DOCS_STAGING_DIR = str(tmp_path)
-        try:
-            nav = build_nav.build_nav(staged, ["service-"])
-        finally:
-            build_nav.DOCS_STAGING_DIR = original
+        nav = build_nav.build_nav(staged, ["service-"])
         # Find the Services section entries
         services = next(item["Services"] for item in nav if "Services" in item)
         foo_entry = next(item for item in services if "service-foo" in item)
-        sub_nav = foo_entry["service-foo"]
-        assert any(str(tmp_path) in list(e.values())[0] or "index.md" in list(e.values())[0]
-                   for e in sub_nav)
+        assert foo_entry["service-foo"] == "_repos/service-foo/index.md"
+
+    def test_repo_entry_prefers_readme_or_index_without_subpages(self, tmp_path):
+        staged = {
+            "service-foo": self._make_staged(tmp_path, "service-foo", ["guide.md", "README.md", "extra.md"]),
+        }
+        nav = build_nav.build_nav(staged, ["service-"])
+        services = next(item["Services"] for item in nav if "Services" in item)
+        # Should only contain Overview and repo link, no nested sub-pages list
+        foo_entry = next(item for item in services if "service-foo" in item)
+        assert foo_entry == {"service-foo": "_repos/service-foo/README.md"}
+        assert len(services) == 2  # Overview + service-foo
+
+    def test_repo_entry_prefers_toplevel_readme(self, tmp_path):
+        staged = {
+            "service-foo": self._make_staged(tmp_path, "service-foo", ["subdir/readme.md", "readme.md"]),
+        }
+        nav = build_nav.build_nav(staged, ["service-"])
+        services = next(item["Services"] for item in nav if "Services" in item)
+        foo_entry = next(item for item in services if "service-foo" in item)
+        assert foo_entry == {"service-foo": "_repos/service-foo/readme.md"}
 
     def test_no_repos_produces_only_home(self, tmp_path):
         nav = build_nav.build_nav({}, ["service-", "utility-"])
