@@ -131,6 +131,33 @@ def _linked_md_files(readme_text: str) -> list[str]:
     return linked
 
 
+_IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".bmp", ".ico"}
+
+
+def _linked_image_files(text: str) -> list[str]:
+    """
+    Parse markdown/HTML text and return relative paths to locally referenced images.
+    Handles both Markdown ![alt](path) and HTML <img src="path"> syntax.
+    Only returns relative paths (no http/https, no leading /).
+    """
+    candidates: list[str] = []
+    # Markdown: ![alt](path)
+    candidates += re.findall(r'!\[[^\]]*\]\(([^)]+)\)', text)
+    # HTML: <img ... src="path"> or src='path'
+    candidates += re.findall(r'<img\b[^>]*\bsrc=["\']([^"\']+)["\']', text, re.IGNORECASE)
+    result = []
+    for raw in candidates:
+        path = raw.split("?")[0].split("#")[0].strip()  # strip query strings and anchors
+        if (
+            path
+            and not path.startswith(("http://", "https://", "/"))
+            and Path(path).suffix.lower() in _IMAGE_EXTS
+            and not any(part.startswith(".") for part in Path(path).parts)
+        ):
+            result.append(path)
+    return result
+
+
 def stage_repo(
     repo: dict,
     source: str = "docs",
@@ -246,12 +273,21 @@ def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
-    # Determine which .md files to keep: README + locally linked files
+    # Determine which files to keep: README + locally linked .md files + referenced images
     readme_text = readme_path.read_text(encoding="utf-8", errors="replace")
-    linked = set(_linked_md_files(readme_text))
-    keep = {readme_path.name} | linked
+    linked_md = set(_linked_md_files(readme_text))
+    linked_imgs = set(_linked_image_files(readme_text))
 
-    # Delete everything that isn't a kept .md file or its parent directory tree
+    # Also collect images referenced from any linked .md files
+    for md_rel in linked_md:
+        md_path = dest / md_rel
+        if md_path.exists():
+            sub_text = md_path.read_text(encoding="utf-8", errors="replace")
+            linked_imgs |= set(_linked_image_files(sub_text))
+
+    keep = {readme_path.name} | linked_md | linked_imgs
+
+    # Delete everything that isn't a kept file
     # Strategy: collect absolute paths to keep, delete all other files
     keep_abs = set()
     for k in keep:

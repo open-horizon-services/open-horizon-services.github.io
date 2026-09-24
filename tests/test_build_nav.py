@@ -133,6 +133,54 @@ class TestLinkedMdFiles:
 
 
 # ---------------------------------------------------------------------------
+# Linked image file parser
+# ---------------------------------------------------------------------------
+
+class TestLinkedImageFiles:
+    def test_finds_markdown_image(self):
+        text = "![diagram](imgs/arch.png)"
+        assert "imgs/arch.png" in build_nav._linked_image_files(text)
+
+    def test_finds_html_img_double_quotes(self):
+        text = '<img width="100" src="imgs/oh_deploy.png">'
+        assert "imgs/oh_deploy.png" in build_nav._linked_image_files(text)
+
+    def test_finds_html_img_single_quotes(self):
+        text = "<img src='logo.svg' alt='logo'>"
+        assert "logo.svg" in build_nav._linked_image_files(text)
+
+    def test_ignores_http_images(self):
+        text = "![remote](https://example.com/image.png)"
+        assert build_nav._linked_image_files(text) == []
+
+    def test_ignores_absolute_path_images(self):
+        text = "![abs](/static/image.jpg)"
+        assert build_nav._linked_image_files(text) == []
+
+    def test_ignores_non_image_extensions(self):
+        text = "![file](document.pdf)"
+        assert build_nav._linked_image_files(text) == []
+
+    def test_strips_query_and_anchor(self):
+        text = "![img](imgs/photo.jpg?v=2#section)"
+        assert "imgs/photo.jpg" in build_nav._linked_image_files(text)
+
+    def test_empty_text(self):
+        assert build_nav._linked_image_files("") == []
+
+    def test_multiple_images(self):
+        text = (
+            '<img src="imgs/a.png">\n'
+            "![b](imgs/b.gif)\n"
+            "![external](https://cdn.example.com/c.png)\n"
+        )
+        result = build_nav._linked_image_files(text)
+        assert "imgs/a.png" in result
+        assert "imgs/b.gif" in result
+        assert len([r for r in result if "cdn.example.com" in r]) == 0
+
+
+# ---------------------------------------------------------------------------
 # Nav generation
 # ---------------------------------------------------------------------------
 
