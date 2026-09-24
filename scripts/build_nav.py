@@ -33,7 +33,7 @@ GITHUB_API = "https://api.github.com"
 ORG = "open-horizon-services"
 MKDOCS_TEMPLATE = "mkdocs.yml"
 MKDOCS_BUILD = "mkdocs_build.yml"
-DOCS_STAGING_DIR = "_docs"
+DOCS_STAGING_DIR = "docs/_repos"
 DEFAULT_PREFIXES = ["service-", "utility-", "skills-", "web-"]
 
 PREFIX_LABELS = {
@@ -106,7 +106,7 @@ def filter_by_prefix(repos: list[dict], prefixes: list[str]) -> list[dict]:
 
 def stage_repo(repo: dict, staging_root: str = DOCS_STAGING_DIR, dry_run: bool = False) -> Optional[str]:
     """
-    Shallow-clone the repo's /docs directory into _docs/<repo-name>/.
+    Shallow-clone the repo's /docs directory into docs/_repos/<repo-name>/.
     Returns the staging path on success, None if /docs is absent or clone fails.
     """
     name = repo["name"]
@@ -194,11 +194,11 @@ def build_nav(
                 staging_path = Path(path)
                 md_files = sorted(staging_path.rglob("*.md"))
                 if md_files:
-                    # Build sub-nav entries relative to docs_dir
+                    # Build sub-nav entries relative to docs_dir (docs/)
                     sub_nav = []
                     for md in md_files:
                         rel = md.relative_to(staging_path)
-                        entry_path = f"{DOCS_STAGING_DIR}/{repo_name}/{rel}"
+                        entry_path = f"_repos/{repo_name}/{rel}"
                         # Use stem for simple single files, relative path for sub-dirs
                         if len(md_files) == 1:
                             label = md.stem.replace("-", " ").replace("_", " ").title()
@@ -230,9 +230,8 @@ def write_build_config(
 ) -> None:
     """
     Merge nav into the template mkdocs.yml and write mkdocs_build.yml.
-    The build config uses a combined docs_dir that includes both `docs/` and
-    `_docs/` by pointing docs_dir at the repo root and adjusting paths.
-    We keep docs_dir as-is and rely on symlinks / path references in nav.
+    Staged repo docs live inside docs/_repos/, so docs_dir stays as 'docs'
+    and nav paths are relative to that directory.
     """
     with open(template_path) as f:
         cfg = yaml.safe_load(f)
@@ -240,13 +239,9 @@ def write_build_config(
     # Override nav with generated structure
     cfg["nav"] = nav
 
-    # For the build config, the staging dir must be accessible from docs_dir.
-    # We keep docs_dir: docs and prefix staging paths accordingly.
-    # The monorepo plugin handles cross-directory includes if needed.
-    # Since we flatten into _docs/<repo>/  we need docs_dir at repo root.
-    cfg["docs_dir"] = "."
-    # Tell MkDocs to exclude non-docs files from the build
-    cfg.setdefault("exclude_docs", "")
+    # docs_dir remains 'docs' — staged content is inside docs/_repos/
+    # so MkDocs can find everything without any special plugin.
+    cfg["docs_dir"] = "docs"
 
     if dry_run:
         print("\n--- Generated nav (dry-run) ---")
@@ -322,8 +317,13 @@ def main() -> None:
         else:
             print(f"  – {name} skipped")
 
-    # Build nav
-    nav = build_nav(staged if not args.dry_run else {r["name"]: f"{DOCS_STAGING_DIR}/{r['name']}" for r in with_docs}, prefixes)
+    # Build nav — dry-run uses a synthetic path so build_nav can rglob; use
+    # the actual staging path pattern so nav paths are still correct.
+    nav = build_nav(
+        staged if not args.dry_run
+        else {r["name"]: f"{DOCS_STAGING_DIR}/{r['name']}" for r in with_docs},
+        prefixes,
+    )
 
     # Write config
     write_build_config(nav, dry_run=args.dry_run)

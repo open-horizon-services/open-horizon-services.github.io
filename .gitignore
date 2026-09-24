@@ -1,5 +1,5 @@
 # Staged docs from discovered repos (generated at build time)
-_docs/
+docs/_repos/
 
 # MkDocs build output
 site/
