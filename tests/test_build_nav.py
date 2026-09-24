@@ -68,36 +68,60 @@ class TestFilterByPrefix:
 # ---------------------------------------------------------------------------
 
 class TestGetRepoDocsSource:
-    def _mock_get(self, docs_status: int, readme_status: int):
-        """Return a side_effect function that returns different codes per URL."""
+    # docs_entries: list of filenames in the docs/ dir (None = 404)
+    def _mock_get(self, docs_entries, readme_status: int = 404):
+        """Return a side_effect function that returns different responses per URL."""
         def side_effect(url, **kwargs):
             resp = MagicMock()
             if "/contents/docs" in url:
-                resp.status_code = docs_status
+                if docs_entries is None:
+                    resp.status_code = 404
+                else:
+                    resp.status_code = 200
+                    resp.json.return_value = [{"name": n} for n in docs_entries]
             else:
                 resp.status_code = readme_status
             return resp
         return side_effect
 
-    def test_returns_docs_when_docs_dir_exists(self):
-        with patch("build_nav.requests.get", side_effect=self._mock_get(200, 404)):
+    def test_returns_docs_when_docs_has_readme(self):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(["README.md", "guide.md"])):
             assert build_nav.get_repo_docs_source("service-foo") == "docs"
 
+    def test_returns_docs_when_docs_has_index(self):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(["index.md", "extra.md"])):
+            assert build_nav.get_repo_docs_source("service-foo") == "docs"
+
+    def test_returns_readme_when_docs_has_no_index(self):
+        # docs/ exists but only has supplementary files — fall back to root README
+        with patch("build_nav.requests.get", side_effect=self._mock_get(
+            ["MCP_VALUE_PROPOSITION.md", "blog.md"], readme_status=200
+        )):
+            assert build_nav.get_repo_docs_source("service-foo") == "readme"
+
+    def test_returns_none_when_docs_no_index_and_no_readme(self):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(
+            ["supplementary.md"], readme_status=404
+        )):
+            assert build_nav.get_repo_docs_source("service-foo") is None
+
     def test_returns_readme_when_no_docs_dir(self):
-        with patch("build_nav.requests.get", side_effect=self._mock_get(404, 200)):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(None, readme_status=200)):
             assert build_nav.get_repo_docs_source("service-foo") == "readme"
 
     def test_returns_none_when_neither_exists(self):
-        with patch("build_nav.requests.get", side_effect=self._mock_get(404, 404)):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(None, readme_status=404)):
             assert build_nav.get_repo_docs_source("service-foo") is None
 
     def test_docs_takes_priority_over_readme(self):
-        # Even if README also exists, docs/ wins
-        with patch("build_nav.requests.get", side_effect=self._mock_get(200, 200)):
+        # docs/ with readme.md wins even if root README also exists
+        with patch("build_nav.requests.get", side_effect=self._mock_get(
+            ["readme.md"], readme_status=200
+        )):
             assert build_nav.get_repo_docs_source("service-foo") == "docs"
 
     def test_correct_docs_url_called(self):
-        with patch("build_nav.requests.get", side_effect=self._mock_get(200, 404)) as mock_get:
+        with patch("build_nav.requests.get", side_effect=self._mock_get(["index.md"])) as mock_get:
             build_nav.get_repo_docs_source("service-foo", "my-org")
             first_url = mock_get.call_args_list[0][0][0]
             assert "my-org/service-foo/contents/docs" in first_url

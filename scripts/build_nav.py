@@ -74,13 +74,29 @@ def list_org_repos(org: str = ORG) -> list[dict]:
 def get_repo_docs_source(repo_name: str, org: str = ORG) -> Optional[str]:
     """
     Return how docs should be sourced for this repo:
-      "docs"   — repo has a /docs directory
-      "readme" — no /docs, but a README.md exists at root
+      "docs"   — repo has a /docs directory that contains a readme.md or index.md
+      "readme" — no qualifying /docs, but a README.md exists at root
       None     — nothing usable found
+
+    A /docs directory without a readme.md/index.md entry point (e.g. only
+    supplementary pages) is treated the same as no /docs directory, so the
+    root README.md becomes the landing page instead of an arbitrary doc file.
     """
     url_docs = f"{GITHUB_API}/repos/{org}/{repo_name}/contents/docs"
-    if requests.get(url_docs, headers=_headers(), timeout=30).status_code == 200:
-        return "docs"
+    resp = requests.get(url_docs, headers=_headers(), timeout=30)
+    if resp.status_code == 200:
+        # Only treat as a docs-source if the directory has a readme/index entry
+        try:
+            entries = resp.json()
+            has_index = any(
+                e.get("name", "").lower() in ("readme.md", "index.md")
+                for e in entries
+                if isinstance(e, dict)
+            )
+            if has_index:
+                return "docs"
+        except (ValueError, AttributeError):
+            return "docs"  # can't parse listing; assume it's valid
     url_readme = f"{GITHUB_API}/repos/{org}/{repo_name}/contents/README.md"
     if requests.get(url_readme, headers=_headers(), timeout=30).status_code == 200:
         return "readme"
