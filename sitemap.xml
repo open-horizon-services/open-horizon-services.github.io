@@ -5,14 +5,6 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/MAINTAINERS/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
          <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/10-excel/readme/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
@@ -82,14 +74,6 @@
     </url>
     <url>
          <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/90-blog/readme/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/MAINTAINERS/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
@@ -165,26 +149,6 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/LICENSE/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/MAINTAINERS/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/issue-1-implementation/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/issue-1-plan/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
          <loc>https://open-horizon-services.github.io/_repos/service-ollama/deployment/prerequisites/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
@@ -217,23 +181,11 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-open-horizon-mcp-server/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
          <loc>https://open-horizon-services.github.io/_repos/service-open-horizon-mcp-server/MCP_VALUE_PROPOSITION/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
          <loc>https://open-horizon-services.github.io/_repos/service-open-horizon-mcp-server/open-horizon-mcp-blog/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-container-converter/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-container-converter/AGENTS/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
@@ -249,31 +201,11 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
          <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/ARCHITECTURE/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/CODE_OF_CONDUCT/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/CONTRIBUTING/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
          <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/INSTALL/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/LICENSE/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/MAINTAINERS/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
