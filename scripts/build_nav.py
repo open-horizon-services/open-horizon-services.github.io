@@ -210,6 +210,22 @@ def _clone_sparse(clone_url: str, dest: Path, paths: list[str]) -> bool:
         return False
 
 
+def _rename_readmes(root: Path) -> None:
+    """
+    Rename every readme.md (case-insensitive) to index.md within *root*.
+
+    MkDocs serves foo/readme.md at the URL foo/readme/ which shifts relative
+    image paths one directory deeper than the actual files.  Renaming to
+    index.md makes MkDocs serve it at foo/ so sibling assets stay reachable.
+    Files already named index.md are left untouched.
+    """
+    for md in list(root.rglob("*.md")):
+        if md.name.lower() == "readme.md":
+            target = md.parent / "index.md"
+            if not target.exists():
+                md.rename(target)
+
+
 def _stage_docs(repo: dict, dest: Path) -> Optional[str]:
     """Sparse-clone /docs and promote its contents to dest/."""
     name = repo["name"]
@@ -233,6 +249,7 @@ def _stage_docs(repo: dict, dest: Path) -> Optional[str]:
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
+    _rename_readmes(dest)
     return str(dest)
 
 
@@ -310,6 +327,7 @@ def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
+    _rename_readmes(dest)
     return str(dest)
 
 

@@ -181,6 +181,53 @@ class TestLinkedImageFiles:
 
 
 # ---------------------------------------------------------------------------
+# Readme renaming
+# ---------------------------------------------------------------------------
+
+class TestRenameReadmes:
+    def test_renames_readme_to_index(self, tmp_path):
+        readme = tmp_path / "README.md"
+        readme.write_text("# hello")
+        build_nav._rename_readmes(tmp_path)
+        assert (tmp_path / "index.md").exists()
+        assert not readme.exists()
+
+    def test_renames_lowercase_readme(self, tmp_path):
+        readme = tmp_path / "readme.md"
+        readme.write_text("# hello")
+        build_nav._rename_readmes(tmp_path)
+        assert (tmp_path / "index.md").exists()
+        assert not readme.exists()
+
+    def test_renames_nested_readme(self, tmp_path):
+        sub = tmp_path / "10-excel"
+        sub.mkdir()
+        (sub / "readme.md").write_text("# sub")
+        build_nav._rename_readmes(tmp_path)
+        assert (sub / "index.md").exists()
+        assert not (sub / "readme.md").exists()
+
+    def test_does_not_overwrite_existing_index(self, tmp_path):
+        (tmp_path / "index.md").write_text("# existing index")
+        readme = tmp_path / "README.md"
+        readme.write_text("# readme")
+        build_nav._rename_readmes(tmp_path)
+        # index.md must keep original content; README.md must still exist
+        assert (tmp_path / "index.md").read_text() == "# existing index"
+        assert readme.exists()
+
+    def test_leaves_non_readme_md_untouched(self, tmp_path):
+        guide = tmp_path / "guide.md"
+        guide.write_text("# guide")
+        build_nav._rename_readmes(tmp_path)
+        assert guide.exists()
+        assert not (tmp_path / "index.md").exists()
+
+    def test_empty_directory(self, tmp_path):
+        build_nav._rename_readmes(tmp_path)  # should not raise
+
+
+# ---------------------------------------------------------------------------
 # Nav generation
 # ---------------------------------------------------------------------------
 
