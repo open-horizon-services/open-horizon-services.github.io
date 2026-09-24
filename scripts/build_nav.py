@@ -242,6 +242,34 @@ def _rename_readmes(root: Path) -> None:
                 md.rename(target)
 
 
+def _inject_repo_front_matter(root: Path, repo_name: str, repo_html_url: str) -> None:
+    """
+    Prepend YAML front matter to the top-level index.md in *root* so that the
+    MkDocs Material theme override can display the correct GitHub repository
+    link in the top nav bar for each repo's documentation page.
+
+    Only touches the root-level index.md (the landing page for the repo).
+    Skips files that already have a front matter block.
+    """
+    index = root / "index.md"
+    if not index.exists():
+        return
+
+    content = index.read_text(encoding="utf-8", errors="replace")
+    if content.startswith("---"):
+        # Front matter already present — do not overwrite
+        return
+
+    short_name = f"open-horizon-services/{repo_name}"
+    front_matter = (
+        f"---\n"
+        f"repo_url: {repo_html_url}\n"
+        f"repo_name: {short_name}\n"
+        f"---\n\n"
+    )
+    index.write_text(front_matter + content, encoding="utf-8")
+
+
 def _stage_docs(repo: dict, dest: Path) -> Optional[str]:
     """Sparse-clone /docs and promote its contents to dest/."""
     name = repo["name"]
@@ -266,6 +294,7 @@ def _stage_docs(repo: dict, dest: Path) -> Optional[str]:
         return None
 
     _rename_readmes(dest)
+    _inject_repo_front_matter(dest, name, repo["html_url"])
     return str(dest)
 
 
@@ -344,6 +373,7 @@ def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
         return None
 
     _rename_readmes(dest)
+    _inject_repo_front_matter(dest, name, repo["html_url"])
     return str(dest)
 
 

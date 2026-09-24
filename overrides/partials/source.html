@@ -1,0 +1,20 @@
+{#-
+  Override of partials/source.html — allows per-page front matter to set
+  repo_url and repo_name so the top-nav GitHub link points to the repo
+  being displayed rather than the documentation site repo.
+
+  Front matter keys (set by build_nav.py during staging):
+    repo_url:  https://github.com/open-horizon-services/<repo-name>
+    repo_name: open-horizon-services/<repo-name>
+-#}
+{% set effective_repo_url  = page.meta.get('repo_url',  config.repo_url)  if page and page.meta else config.repo_url %}
+{% set effective_repo_name = page.meta.get('repo_name', config.repo_name) if page and page.meta else config.repo_name %}
+<a href="{{ effective_repo_url }}" title="{{ lang.t('source') }}" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    {% set icon = config.theme.icon.repo or "fontawesome/brands/git-alt" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </div>
+  <div class="md-source__repository">
+    {{ effective_repo_name }}
+  </div>
+</a>

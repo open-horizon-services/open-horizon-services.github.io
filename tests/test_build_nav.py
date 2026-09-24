@@ -242,6 +242,47 @@ class TestWriteSectionIndex:
 
 
 # ---------------------------------------------------------------------------
+# Front matter injection
+# ---------------------------------------------------------------------------
+
+class TestInjectRepoFrontMatter:
+    def test_injects_front_matter(self, tmp_path):
+        (tmp_path / "index.md").write_text("# Hello\n")
+        build_nav._inject_repo_front_matter(
+            tmp_path, "service-foo", "https://github.com/open-horizon-services/service-foo"
+        )
+        content = (tmp_path / "index.md").read_text()
+        assert content.startswith("---\n")
+        assert "repo_url: https://github.com/open-horizon-services/service-foo\n" in content
+        assert "repo_name: open-horizon-services/service-foo\n" in content
+        assert "# Hello\n" in content
+
+    def test_does_not_overwrite_existing_front_matter(self, tmp_path):
+        original = "---\nrepo_url: https://custom.example.com\n---\n\n# Hello\n"
+        (tmp_path / "index.md").write_text(original)
+        build_nav._inject_repo_front_matter(
+            tmp_path, "service-foo", "https://github.com/open-horizon-services/service-foo"
+        )
+        assert (tmp_path / "index.md").read_text() == original
+
+    def test_no_op_when_no_index_md(self, tmp_path):
+        # Should not raise and should not create any file
+        build_nav._inject_repo_front_matter(
+            tmp_path, "service-foo", "https://github.com/open-horizon-services/service-foo"
+        )
+        assert not (tmp_path / "index.md").exists()
+
+    def test_original_content_preserved_after_injection(self, tmp_path):
+        body = "# My Repo\n\nSome content here.\n"
+        (tmp_path / "index.md").write_text(body)
+        build_nav._inject_repo_front_matter(
+            tmp_path, "service-bar", "https://github.com/open-horizon-services/service-bar"
+        )
+        content = (tmp_path / "index.md").read_text()
+        assert body in content
+
+
+# ---------------------------------------------------------------------------
 # Readme renaming
 # ---------------------------------------------------------------------------
 
