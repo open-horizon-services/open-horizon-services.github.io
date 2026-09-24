@@ -121,7 +121,12 @@ def _linked_md_files(readme_text: str) -> list[str]:
     linked = []
     for path in re.findall(r'\[(?:[^\]]*)\]\(([^)]+)\)', readme_text):
         path = path.split("#")[0].strip()   # strip anchors and whitespace
-        if path and not path.startswith(("http://", "https://", "/")) and path.lower().endswith(".md"):
+        if (
+            path
+            and not path.startswith(("http://", "https://", "/"))
+            and path.lower().endswith(".md")
+            and not any(part.startswith(".") for part in Path(path).parts)  # skip hidden dirs
+        ):
             linked.append(path)
     return linked
 
@@ -391,10 +396,14 @@ def write_index_page(
             lines.append("")
             for repo_entry in repos:
                 for repo_name, sub_nav in repo_entry.items():
-                    # Link to the first page in the sub-nav
-                    first_path = list(sub_nav[0].values())[0] if sub_nav else "#"
-                    display = repo_name
-                    lines.append(f"- [{display}]({first_path})")
+                    # Prefer README.md; fall back to first entry in sub-nav
+                    readme_entry = next(
+                        (p for entry in sub_nav for p in entry.values()
+                         if p.lower().endswith("readme.md")),
+                        None,
+                    )
+                    link_path = readme_entry or (list(sub_nav[0].values())[0] if sub_nav else "#")
+                    lines.append(f"- [{repo_name}]({link_path})")
             lines.append("")
             lines.append("---")
             lines.append("")
