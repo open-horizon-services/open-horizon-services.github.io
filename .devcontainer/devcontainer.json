@@ -1,0 +1,28 @@
+{
+  "name": "Open Horizon Services Docs",
+  "image": "mcr.microsoft.com/devcontainers/python:3",
+  "postCreateCommand": "pip install -r requirements.txt",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "MkDocs Preview",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "remoteEnv": {
+    "ORG_READ_TOKEN": "${localEnv:ORG_READ_TOKEN}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "ms-python.python"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true
+      }
+    }
+  }
+}

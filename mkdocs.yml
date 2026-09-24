@@ -1,0 +1,51 @@
+site_name: Open Horizon Services Documentation
+site_url: https://open-horizon-services.github.io
+site_description: >-
+  Unified documentation portal for the Open Horizon Services organization.
+  Aggregates docs from all service, utility, skills, and web repositories.
+site_author: Open Horizon Services
+
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+plugins:
+  - search
+  - monorepo
+
+# Prefix groups used by scripts/build_nav.py to discover org repos.
+# Add or remove prefixes here without changing any scripts.
+extra:
+  repo_prefixes:
+    - service-
+    - utility-
+    - skills-
+    - web-
+
+repo_url: https://github.com/open-horizon-services/open-horizon-services.github.io
+repo_name: open-horizon-services/open-horizon-services.github.io

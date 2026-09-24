@@ -1,0 +1,20 @@
+# Staged docs from discovered repos (generated at build time)
+_docs/
+
+# MkDocs build output
+site/
+
+# Dynamically generated MkDocs build config
+mkdocs_build.yml
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Local environment variables (never commit real tokens)
+.env
