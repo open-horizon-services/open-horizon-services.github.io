@@ -148,17 +148,18 @@ def stage_repo(repo: dict, staging_root: str = DOCS_STAGING_DIR, dry_run: bool =
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
-    # Flatten: move docs/* up one level so _docs/<name>/<file>.md
+    # Extract docs/ subtree: copy docs/* into dest/, then remove the .git clone
     docs_sub = dest / "docs"
     if not docs_sub.is_dir():
         print(f"  ⚠ no docs/ found after clone for {name}", file=sys.stderr)
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
-    # Move contents out of the docs/ subdirectory
-    for item in docs_sub.iterdir():
-        shutil.move(str(item), str(dest / item.name))
-    docs_sub.rmdir()
+    # Copy entire docs/ tree into a temp location, then replace dest
+    tmp = dest.parent / f"_tmp_{name}"
+    shutil.copytree(str(docs_sub), str(tmp))
+    shutil.rmtree(dest)
+    tmp.rename(dest)
 
     # Verify at least one markdown file exists
     md_files = list(dest.rglob("*.md"))
