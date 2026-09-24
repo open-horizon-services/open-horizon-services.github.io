@@ -2323,7 +2323,7 @@
 <p>Open Horizon service container demonstrating Node-RED.</p>
 <p>This is an Open Horizon configuration to deploy an instance of the open-source <a href="https://nodered.org">Node-RED</a> project. The Node-RED flow is designed to run in a web browser, so you will need to navigate to <a href="http://localhost:1880/">http://localhost:1880/</a> to use the software once it has been deployed.</p>
 <p>The Node-RED flow demonstrates a most simplistic Hello World flow.  This template could be used to deploy any Node-RED container to your edge devices.</p>
-<p><img alt="Node-RED flow Hello World" src="./Screenshots/Node-RED-helloworld-flow.png" /></p>
+<p><img alt="Node-RED flow Hello World" src="Screenshots/Node-RED-helloworld-flow.png" /></p>
 <p>As you add nodes to your flow, add the npm packages to the package.json (or, better, if you have enabled <a href="https://nodered.org/docs/user-guide/projects/">Node-RED Projects</a> in your development Node-RED editor, use the Node-RED Projects settings to add the required dependencies)</p>
 <ul>
 <li>From the right hand Node-RED menu, select <code>Projects</code> -&gt; <code>Project Settings</code></li>
@@ -2332,7 +2332,7 @@
 <li>Click on Close</li>
 </ul>
 <p>When you <code>make build</code> the container, the package.json will now include the npm packages / Node-RED nodes used in your flow.</p>
-<p><img alt="Node-RED Projects dependencies" src="./Screenshots/Node-RED-Project-Dependencies.png" /></p>
+<p><img alt="Node-RED Projects dependencies" src="Screenshots/Node-RED-Project-Dependencies.png" /></p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p><strong>Management Hub</strong>: <a href="https://open-horizon.github.io/quick-start">Install the Open Horizon Management Hub</a> or have access to an existing hub in order to publish this service and register your edge node.  You may also choose to use a downstream commercial distribution based on Open Horizon, such as IBM's Edge Application Manager.  If you'd like to use the Open Horizon community hub, you may <a href="https://wiki.lfedge.org/display/LE/Open+Horizon+Management+Hub+Developer+Instance">apply for a temporary account</a> and have credentials sent to you.</p>
 <p><strong>Edge Node</strong>: You will need an x86 computer running Linux or macOS, or a Raspberry Pi computer (arm64) running Raspberry Pi OS, Ubuntu or Fedora to install and use Node-RED deployed by Open Horizon.  You will need to install the Open Horizon agent software, anax, on the edge node and register it with a hub.</p>
