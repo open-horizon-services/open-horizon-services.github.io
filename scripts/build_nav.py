@@ -71,11 +71,20 @@ def list_org_repos(org: str = ORG) -> list[dict]:
     return repos
 
 
-def has_docs_dir(repo_name: str, org: str = ORG) -> bool:
-    """Return True if *repo_name* has a /docs directory."""
-    url = f"{GITHUB_API}/repos/{org}/{repo_name}/contents/docs"
-    resp = requests.get(url, headers=_headers(), timeout=30)
-    return resp.status_code == 200
+def get_repo_docs_source(repo_name: str, org: str = ORG) -> Optional[str]:
+    """
+    Return how docs should be sourced for this repo:
+      "docs"   — repo has a /docs directory
+      "readme" — no /docs, but a README.md exists at root
+      None     — nothing usable found
+    """
+    url_docs = f"{GITHUB_API}/repos/{org}/{repo_name}/contents/docs"
+    if requests.get(url_docs, headers=_headers(), timeout=30).status_code == 200:
+        return "docs"
+    url_readme = f"{GITHUB_API}/repos/{org}/{repo_name}/contents/README.md"
+    if requests.get(url_readme, headers=_headers(), timeout=30).status_code == 200:
+        return "readme"
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -104,17 +113,39 @@ def filter_by_prefix(repos: list[dict], prefixes: list[str]) -> list[dict]:
 # Staging
 # ---------------------------------------------------------------------------
 
-def stage_repo(repo: dict, staging_root: str = DOCS_STAGING_DIR, dry_run: bool = False) -> Optional[str]:
+def _linked_md_files(readme_text: str) -> list[str]:
     """
-    Shallow-clone the repo's /docs directory into docs/_repos/<repo-name>/.
-    Returns the staging path on success, None if /docs is absent or clone fails.
+    Parse a README and return relative paths to locally linked .md files.
+    Matches [label](path) where path is a relative .md (no scheme, no leading /).
+    """
+    linked = []
+    for path in re.findall(r'\[(?:[^\]]*)\]\(([^)]+)\)', readme_text):
+        path = path.split("#")[0].strip()   # strip anchors and whitespace
+        if path and not path.startswith(("http://", "https://", "/")) and path.lower().endswith(".md"):
+            linked.append(path)
+    return linked
+
+
+def stage_repo(
+    repo: dict,
+    source: str = "docs",
+    staging_root: str = DOCS_STAGING_DIR,
+    dry_run: bool = False,
+) -> Optional[str]:
+    """
+    Stage a repo's documentation into docs/_repos/<repo-name>/.
+
+    source="docs"   — sparse-clone the /docs tree (original behaviour)
+    source="readme" — sparse-clone README.md plus any locally linked .md files
+
+    Returns the staging path on success, None on failure.
     """
     name = repo["name"]
     clone_url = repo["clone_url"]
     dest = Path(staging_root) / name
 
     if dry_run:
-        print(f"  [dry-run] would clone {clone_url} → {dest}/")
+        print(f"  [dry-run] would clone {clone_url} ({source}) → {dest}/")
         return str(dest)
 
     # Clean previous staging
@@ -122,49 +153,98 @@ def stage_repo(repo: dict, staging_root: str = DOCS_STAGING_DIR, dry_run: bool =
         shutil.rmtree(dest)
     dest.mkdir(parents=True, exist_ok=True)
 
-    # Shallow sparse clone — only the docs/ tree
+    if source == "docs":
+        return _stage_docs(repo, dest)
+    else:
+        return _stage_readme(repo, dest)
+
+
+def _clone_sparse(clone_url: str, dest: Path, paths: list[str]) -> bool:
+    """Shallow sparse-clone and check out the given path list. Returns True on success."""
     try:
         subprocess.run(
-            [
-                "git", "clone",
-                "--depth", "1",
-                "--filter=blob:none",
-                "--sparse",
-                "--no-local",
-                clone_url,
-                str(dest),
-            ],
-            check=True,
-            capture_output=True,
+            ["git", "clone", "--depth", "1", "--filter=blob:none",
+             "--sparse", "--no-local", clone_url, str(dest)],
+            check=True, capture_output=True,
         )
         subprocess.run(
-            ["git", "sparse-checkout", "set", "docs"],
-            cwd=str(dest),
-            check=True,
-            capture_output=True,
+            ["git", "sparse-checkout", "set"] + paths,
+            cwd=str(dest), check=True, capture_output=True,
         )
+        return True
     except subprocess.CalledProcessError as exc:
-        print(f"  ⚠ clone failed for {name}: {exc.stderr.decode().strip()}", file=sys.stderr)
+        print(f"  ⚠ clone failed for {dest.name}: {exc.stderr.decode().strip()}",
+              file=sys.stderr)
+        return False
+
+
+def _stage_docs(repo: dict, dest: Path) -> Optional[str]:
+    """Sparse-clone /docs and promote its contents to dest/."""
+    name = repo["name"]
+    if not _clone_sparse(repo["clone_url"], dest, ["docs"]):
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
-    # Extract docs/ subtree: copy docs/* into dest/, then remove the .git clone
     docs_sub = dest / "docs"
     if not docs_sub.is_dir():
         print(f"  ⚠ no docs/ found after clone for {name}", file=sys.stderr)
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
-    # Copy entire docs/ tree into a temp location, then replace dest
     tmp = dest.parent / f"_tmp_{name}"
     shutil.copytree(str(docs_sub), str(tmp))
     shutil.rmtree(dest)
     tmp.rename(dest)
 
-    # Verify at least one markdown file exists
-    md_files = list(dest.rglob("*.md"))
-    if not md_files:
-        print(f"  ⚠ no .md files found for {name}, skipping", file=sys.stderr)
+    if not list(dest.rglob("*.md")):
+        print(f"  ⚠ no .md files in docs/ for {name}, skipping", file=sys.stderr)
+        shutil.rmtree(dest, ignore_errors=True)
+        return None
+
+    return str(dest)
+
+
+def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
+    """
+    Sparse-clone README.md, parse it for locally linked .md files, then
+    re-checkout with those files included so relative links resolve.
+    """
+    name = repo["name"]
+    clone_url = repo["clone_url"]
+
+    # First pass: clone README.md only
+    if not _clone_sparse(clone_url, dest, ["README.md"]):
+        shutil.rmtree(dest, ignore_errors=True)
+        return None
+
+    readme_path = dest / "README.md"
+    if not readme_path.exists():
+        print(f"  ⚠ README.md not found after clone for {name}", file=sys.stderr)
+        shutil.rmtree(dest, ignore_errors=True)
+        return None
+
+    # Parse README for locally linked .md files
+    readme_text = readme_path.read_text(encoding="utf-8", errors="replace")
+    linked = _linked_md_files(readme_text)
+
+    if linked:
+        # Second pass: expand sparse-checkout to include linked files
+        paths = ["README.md"] + linked
+        try:
+            subprocess.run(
+                ["git", "sparse-checkout", "set"] + paths,
+                cwd=str(dest), check=True, capture_output=True,
+            )
+        except subprocess.CalledProcessError:
+            pass  # non-fatal: README alone is still useful
+
+    # Remove .git directory — we only need the working tree files
+    git_dir = dest / ".git"
+    if git_dir.exists():
+        shutil.rmtree(git_dir)
+
+    if not list(dest.rglob("*.md")):
+        print(f"  ⚠ no .md files for {name}, skipping", file=sys.stderr)
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
@@ -285,21 +365,26 @@ def main() -> None:
     matched = filter_by_prefix(all_repos, prefixes)
     print(f"Matched {len(matched)} repos (from {len(all_repos)} total)")
 
-    # Check /docs existence
-    print("Checking /docs availability…")
-    with_docs = []
+    # Determine docs source for each matched repo
+    print("Checking docs source…")
+    repo_sources: list[tuple[dict, str]] = []  # (repo, source)
     for repo in matched:
         name = repo["name"]
         if args.dry_run:
-            print(f"  [dry-run] would check {name}/docs")
-            with_docs.append(repo)
-        elif has_docs_dir(name, args.org):
-            print(f"  ✓ {name}")
-            with_docs.append(repo)
+            print(f"  [dry-run] would check {name}")
+            repo_sources.append((repo, "docs"))  # assume docs for dry-run nav
         else:
-            print(f"  – {name} (no /docs, skipping)")
+            src = get_repo_docs_source(name, args.org)
+            if src == "docs":
+                print(f"  ✓ {name} (docs/)")
+            elif src == "readme":
+                print(f"  ✓ {name} (README.md fallback)")
+            else:
+                print(f"  – {name} (nothing to include, skipping)")
+            if src:
+                repo_sources.append((repo, src))
 
-    print(f"\n{len(with_docs)} repos have /docs")
+    print(f"\n{len(repo_sources)} repos will be staged")
 
     # Stage docs
     staged: dict[str, str] = {}
@@ -308,13 +393,13 @@ def main() -> None:
         staging_root.mkdir(exist_ok=True)
 
     print("\nStaging docs…")
-    for repo in with_docs:
+    for repo, src in repo_sources:
         name = repo["name"]
-        path = stage_repo(repo, dry_run=args.dry_run)
+        path = stage_repo(repo, source=src, dry_run=args.dry_run)
         if path:
             staged[name] = path
             if not args.dry_run:
-                print(f"  ✓ staged {name}")
+                print(f"  ✓ staged {name} ({src})")
         else:
             print(f"  – {name} skipped")
 
@@ -322,7 +407,7 @@ def main() -> None:
     # the actual staging path pattern so nav paths are still correct.
     nav = build_nav(
         staged if not args.dry_run
-        else {r["name"]: f"{DOCS_STAGING_DIR}/{r['name']}" for r in with_docs},
+        else {r["name"]: f"{DOCS_STAGING_DIR}/{r['name']}" for r in [rs[0] for rs in repo_sources]},
         prefixes,
     )
 

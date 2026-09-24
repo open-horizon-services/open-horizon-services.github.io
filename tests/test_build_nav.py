@@ -64,35 +64,72 @@ class TestFilterByPrefix:
 
 
 # ---------------------------------------------------------------------------
-# /docs existence check (mocked)
+# Docs source detection (mocked)
 # ---------------------------------------------------------------------------
 
-class TestHasDocsDir:
-    def test_returns_true_when_api_200(self):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 200
-        with patch("build_nav.requests.get", return_value=mock_resp):
-            assert build_nav.has_docs_dir("service-foo") is True
+class TestGetRepoDocsSource:
+    def _mock_get(self, docs_status: int, readme_status: int):
+        """Return a side_effect function that returns different codes per URL."""
+        def side_effect(url, **kwargs):
+            resp = MagicMock()
+            if "/contents/docs" in url:
+                resp.status_code = docs_status
+            else:
+                resp.status_code = readme_status
+            return resp
+        return side_effect
 
-    def test_returns_false_when_api_404(self):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 404
-        with patch("build_nav.requests.get", return_value=mock_resp):
-            assert build_nav.has_docs_dir("service-no-docs") is False
+    def test_returns_docs_when_docs_dir_exists(self):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(200, 404)):
+            assert build_nav.get_repo_docs_source("service-foo") == "docs"
 
-    def test_returns_false_when_api_403(self):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 403
-        with patch("build_nav.requests.get", return_value=mock_resp):
-            assert build_nav.has_docs_dir("private-repo") is False
+    def test_returns_readme_when_no_docs_dir(self):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(404, 200)):
+            assert build_nav.get_repo_docs_source("service-foo") == "readme"
 
-    def test_correct_url_called(self):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 200
-        with patch("build_nav.requests.get", return_value=mock_resp) as mock_get:
-            build_nav.has_docs_dir("service-foo", "my-org")
-            called_url = mock_get.call_args[0][0]
-            assert "my-org/service-foo/contents/docs" in called_url
+    def test_returns_none_when_neither_exists(self):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(404, 404)):
+            assert build_nav.get_repo_docs_source("service-foo") is None
+
+    def test_docs_takes_priority_over_readme(self):
+        # Even if README also exists, docs/ wins
+        with patch("build_nav.requests.get", side_effect=self._mock_get(200, 200)):
+            assert build_nav.get_repo_docs_source("service-foo") == "docs"
+
+    def test_correct_docs_url_called(self):
+        with patch("build_nav.requests.get", side_effect=self._mock_get(200, 404)) as mock_get:
+            build_nav.get_repo_docs_source("service-foo", "my-org")
+            first_url = mock_get.call_args_list[0][0][0]
+            assert "my-org/service-foo/contents/docs" in first_url
+
+
+# ---------------------------------------------------------------------------
+# Linked md file parser
+# ---------------------------------------------------------------------------
+
+class TestLinkedMdFiles:
+    def test_finds_relative_md_links(self):
+        text = "See [setup](SETUP.md) and [guide](docs/guide.md) for details."
+        assert build_nav._linked_md_files(text) == ["SETUP.md", "docs/guide.md"]
+
+    def test_ignores_http_links(self):
+        text = "[external](https://example.com/README.md)"
+        assert build_nav._linked_md_files(text) == []
+
+    def test_ignores_absolute_paths(self):
+        text = "[abs](/docs/README.md)"
+        assert build_nav._linked_md_files(text) == []
+
+    def test_ignores_non_md_links(self):
+        text = "[image](./logo.png) [script](run.sh)"
+        assert build_nav._linked_md_files(text) == []
+
+    def test_strips_anchors(self):
+        text = "[section](CONTRIBUTING.md#setup)"
+        assert build_nav._linked_md_files(text) == ["CONTRIBUTING.md"]
+
+    def test_empty_readme(self):
+        assert build_nav._linked_md_files("") == []
 
 
 # ---------------------------------------------------------------------------
