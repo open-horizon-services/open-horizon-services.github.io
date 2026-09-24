@@ -1,0 +1,8128 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified documentation portal for the Open Horizon Services organization. Aggregates docs from all service, utility, skills, and web repositories.">
+      
+      
+        <meta name="author" content="Open Horizon Services">
+      
+      
+        <link rel="canonical" href="https://open-horizon-services.github.io/_repos/utility-hzn-mgmt/">
+      
+      
+        <link rel="prev" href="../utility-container-converter/phase2-compose-sdf-generation/">
+      
+      
+        <link rel="next" href="../utility-raspberry-pi-image-builder/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Readme - Open Horizon Services Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#open-horizon-admin-utilities" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open Horizon Services Documentation" class="md-header__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Horizon Services Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Readme
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../service-agent-dashboard/" class="md-tabs__link">
+          
+  
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../utility-container-converter/docker-compose-support-plan/" class="md-tabs__link">
+          
+  
+  
+  Utilities
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../skills-open-horizon/.agent/skills/init-obsidian/SKILL/" class="md-tabs__link">
+          
+  
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../web-helloworld-c/" class="md-tabs__link">
+          
+  
+  
+  Web
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open Horizon Services Documentation" class="md-nav__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Open Horizon Services Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-agent-dashboard
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-agent-dashboard
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-agent-dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-anylog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-anylog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-anylog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-contextforge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-contextforge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-contextforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-detectron2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-detectron2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-detectron2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgelake
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-edgelake
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgelake/Documentation/EdgeLake_KubeArmor_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation/EdgeLake_KubeArmor_integration.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgelake/Documentation/Import_Grafana_Dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation/Import_Grafana_Dashboards.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgelake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgelake/deploy_edgelake_service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deploy_edgelake_service.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgelake-federated-learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-edgelake-federated-learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgelake-federated-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgex-foundry
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-edgex-foundry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgex-foundry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub-backend
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub-backend
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-fledge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-fledge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-fledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-grafana
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-grafana
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-grafana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-helloMMS-go
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-helloMMS-go
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-helloMMS-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-homeassistant
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-homeassistant
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-homeassistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-kubearmor-security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-kubearmor-security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-kubearmor-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-liquid-prep
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-liquid-prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-liquid-prep/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-liquid-prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-minecraft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-minecraft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-minecraft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_17" id="__nav_2_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-mongodb
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-mongodb
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-mqtt
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-mqtt
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_19" id="__nav_2_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-nginx
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-nginx
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-nginx/CONTRIBUTORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONTRIBUTORS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-nginx/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_20" id="__nav_2_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-node-red-hello-world
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-node-red-hello-world
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-node-red-hello-world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_21" id="__nav_2_21_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-node-red-object-detection
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_21">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-node-red-object-detection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-node-red-object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_22" id="__nav_2_22_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-nvcsi-restcam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-nvcsi-restcam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-nvcsi-restcam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_23" id="__nav_2_23_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-ollama
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_23">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-ollama
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/deployment/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/prerequisites.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/deployment/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/quickstart.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/deployment/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/troubleshooting.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/operations/api-access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/api-access.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/operations/model-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/model-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/operations/monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/monitoring.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/operations/service-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/service-updates.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/operations/storage-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/storage-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_24" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_24" id="__nav_2_24_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-open-horizon-mcp-server
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_24">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-open-horizon-mcp-server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-open-horizon-mcp-server/MCP_VALUE_PROPOSITION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP_VALUE_PROPOSITION.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-open-horizon-mcp-server/open-horizon-mcp-blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    open-horizon-mcp-blog.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_25" id="__nav_2_25_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-postgresql
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_25">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-postgresql
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-postgresql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_26" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_26" id="__nav_2_26_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-qiskit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_26_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_26">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-qiskit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-qiskit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_27" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_27" id="__nav_2_27_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-qr-code-generator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_27">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-qr-code-generator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-qr-code-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_28" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_28" id="__nav_2_28_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-restcam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_28_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_28">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-restcam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-restcam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_29" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_29" id="__nav_2_29_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-sbom-policy-generator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_29_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_29">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-sbom-policy-generator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-sbom-policy-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_30" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_30" id="__nav_2_30_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-sms-me
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_30_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_30">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-sms-me
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-sms-me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_31" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_31" id="__nav_2_31_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-speak-ip
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_31_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_31">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-speak-ip
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-speak-ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_32" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_32" id="__nav_2_32_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-cpu
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_32_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_32">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-yolo-cpu
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-yolo-cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_33" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_33" id="__nav_2_33_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-cuda
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_33_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_33">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-yolo-cuda
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-yolo-cuda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_34" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_34" id="__nav_2_34_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-vino
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_34_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_34">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-yolo-vino
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-yolo-vino/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-container-converter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-container-converter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-container-converter/docker-compose-support-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker-compose-support-plan.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-container-converter/mcp-compose-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mcp-compose-tools.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-container-converter/phase2-compose-sdf-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    phase2-compose-sdf-generation.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-hzn-mgmt
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-hzn-mgmt
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Scripts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-scripts-using-hzn-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Scripts (using hzn CLI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-based-scripts-using-rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API-Based Scripts (using REST API)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-compatibility-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Compatibility Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Compatibility Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-version-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash Version Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-the-cli-installed-configured-and-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Is the CLI installed, configured, and running?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Is the CLI installed, configured, and running?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-and-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed and location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configured
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configured">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node configured?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-reachable-and-user-authenticated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange reachable and user authenticated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Script Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-i-do-anythingsh-comprehensive-permission-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-do-anything.sh (Comprehensive Permission Checker)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-orgssh-interactive-organization-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-orgs.sh (Interactive Organization Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-userssh-interactive-user-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-users.sh (Interactive User Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-a-orgssh-api-based-organization-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-a-orgs.sh (API-Based Organization Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-a-userssh-api-based-user-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-a-users.sh (API-Based User Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-credentialssh-credential-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test-credentials.sh (Credential Testing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-list-orgssh-organization-permission-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-list-orgs.sh (Organization Permission Verification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-list-userssh-user-permission-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-list-users.sh (User Permission Verification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-list-servicessh-service-permission-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-list-services.sh (Service Permission Verification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-blessed-samplessh-blessed-samples-validator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test-blessed-samples.sh (Blessed Samples Validator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-file-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment File Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment File Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing Organizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-common-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Common Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-workflow-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Workflow Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Style Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-raspberry-pi-image-builder
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-raspberry-pi-image-builder
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-raspberry-pi-image-builder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-secrets-manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-secrets-manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-secrets-manager/ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARCHITECTURE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-secrets-manager/INSTALL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSTALL.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-secrets-manager/RATIONALE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RATIONALE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-secrets-manager/USAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    USAGE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    skills-open-horizon
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    skills-open-horizon
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-open-horizon/.agent/skills/init-obsidian/SKILL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    .agent/skills/init-obsidian/SKILL.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-open-horizon/LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-open-horizon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-c
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    web-helloworld-c
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-cpp
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    web-helloworld-cpp
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-go
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    web-helloworld-go
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    web-helloworld-java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    web-helloworld-python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-ruby
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    web-helloworld-ruby
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-ruby/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Scripts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-scripts-using-hzn-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Scripts (using hzn CLI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-based-scripts-using-rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API-Based Scripts (using REST API)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-compatibility-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Compatibility Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Compatibility Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-version-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash Version Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-the-cli-installed-configured-and-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Is the CLI installed, configured, and running?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Is the CLI installed, configured, and running?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed-and-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed and location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configured
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configured">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node configured?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-reachable-and-user-authenticated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange reachable and user authenticated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Script Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-i-do-anythingsh-comprehensive-permission-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-do-anything.sh (Comprehensive Permission Checker)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-orgssh-interactive-organization-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-orgs.sh (Interactive Organization Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-userssh-interactive-user-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-users.sh (Interactive User Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-a-orgssh-api-based-organization-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-a-orgs.sh (API-Based Organization Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-a-userssh-api-based-user-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list-a-users.sh (API-Based User Listing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-credentialssh-credential-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test-credentials.sh (Credential Testing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-list-orgssh-organization-permission-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-list-orgs.sh (Organization Permission Verification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-list-userssh-user-permission-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-list-users.sh (User Permission Verification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-list-servicessh-service-permission-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        can-i-list-services.sh (Service Permission Verification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-blessed-samplessh-blessed-samples-validator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test-blessed-samples.sh (Blessed Samples Validator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-file-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment File Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment File Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing Organizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-common-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Common Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-workflow-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Workflow Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Style Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="open-horizon-admin-utilities">Open Horizon Admin Utilities</h1>
+<p>The purpose of this repo is to collect scripts that will automate creation, listing, and removing of organizations, users, services, and nodes in an Open Horizon instance.</p>
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>hzn-utils/
+├── lib/
+│   └── common.sh              # Shared library with common functions
+├── list-orgs.sh               # Interactive organization listing (hzn CLI)
+├── list-users.sh              # Interactive user listing (hzn CLI)
+├── list-user.sh               # Current user info (hzn CLI)
+├── list-a-orgs.sh             # API-based organization listing
+├── list-a-users.sh            # API-based user listing
+├── list-a-user.sh             # API-based current user info
+├── can-i-list-users.sh        # Permission verification script
+├── can-i-list-orgs.sh         # Organization permission verification
+├── can-i-list-services.sh     # Service permission verification
+├── can-i-do-anything.sh       # Comprehensive permission checker
+├── list-a-org-nodes.sh        # API-based organization node listing
+├── list-a-user-nodes.sh       # API-based user node listing
+├── list-a-user-services.sh    # API-based user service listing
+├── list-a-user-deployment.sh  # API-based user deployment policy listing
+├── monitor-nodes.sh           # Real-time node monitoring utility
+├── test-credentials.sh        # Credential validation tool
+├── test-hzn.sh                # CLI installation test
+├── test-blessed-samples.sh    # Validate blessedSamples.txt files
+└── *.env                      # Credential files (not in git)
+</code></pre>
+<h2 id="available-scripts">Available Scripts</h2>
+<p>This repository contains several utility scripts for managing Open Horizon instances:</p>
+<h3 id="interactive-scripts-using-hzn-cli">Interactive Scripts (using hzn CLI)</h3>
+<ul>
+<li><strong><code>list-orgs.sh</code></strong> - Interactive script to list organizations and optionally view users</li>
+<li><strong><code>list-users.sh</code></strong> - Interactive script to list users in an organization</li>
+<li><strong><code>list-user.sh</code></strong> - Display current authenticated user info and validate credentials</li>
+<li><strong><code>test-credentials.sh</code></strong> - Test and validate your Open Horizon credentials</li>
+</ul>
+<h3 id="permission-scripts">Permission Scripts</h3>
+<ul>
+<li><strong><code>can-i-list-users.sh</code></strong> - Check if user can list users in an organization</li>
+<li><strong><code>can-i-list-orgs.sh</code></strong> - Check if user can list organizations</li>
+<li><strong><code>can-i-list-services.sh</code></strong> - Check if user can list services at different levels</li>
+<li><strong><code>can-i-do-anything.sh</code></strong> - Comprehensive checker showing all runnable scripts</li>
+</ul>
+<h3 id="api-based-scripts-using-rest-api">API-Based Scripts (using REST API)</h3>
+<ul>
+<li><strong><code>list-a-orgs.sh</code></strong> - List organizations using REST API with multiple output modes</li>
+<li><strong><code>list-a-users.sh</code></strong> - List users using REST API with multiple output modes</li>
+<li><strong><code>list-a-user.sh</code></strong> - Display current authenticated user info using REST API</li>
+<li><strong><code>list-a-org-nodes.sh</code></strong> - List nodes in an organization using REST API</li>
+<li><strong><code>list-a-user-nodes.sh</code></strong> - List nodes for a specific user using REST API</li>
+<li><strong><code>list-a-user-services.sh</code></strong> - List services for a specific user using REST API</li>
+<li><strong><code>list-a-user-deployment.sh</code></strong> - List deployment policies for a specific user using REST API</li>
+</ul>
+<h3 id="monitoring-scripts">Monitoring Scripts</h3>
+<ul>
+<li><strong><code>monitor-nodes.sh</code></strong> - Real-time node monitoring utility (like 'top' for nodes)</li>
+</ul>
+<h3 id="testing-scripts">Testing Scripts</h3>
+<ul>
+<li><strong><code>test-hzn.sh</code></strong> - Test Open Horizon CLI installation and configuration</li>
+<li><strong><code>test-blessed-samples.sh</code></strong> - Validate blessedSamples.txt files used by exchangePublish.sh</li>
+</ul>
+<h3 id="shared-library">Shared Library</h3>
+<ul>
+<li><strong><code>lib/common.sh</code></strong> - Common functions used across all scripts including:</li>
+<li>Color-coded output functions</li>
+<li>Credential management and validation</li>
+<li>Environment file selection</li>
+<li>Tool availability checks (curl, jq, hzn)</li>
+<li>Error handling and cleanup</li>
+<li>API key authentication support with automatic username resolution</li>
+</ul>
+<h2 id="shell-compatibility-notes">Shell Compatibility Notes</h2>
+<h3 id="bash-version-requirements">Bash Version Requirements</h3>
+<p><strong>CRITICAL: All scripts in this repository MUST be compatible with Bash 3.2+</strong></p>
+<p>These scripts are designed to work with Bash 3.2+ for maximum compatibility across different systems (including older macOS versions). This is a hard requirement - do not use features that require Bash 4.0+.</p>
+<p><strong>Bash 4.0+ Features That Are NOT ALLOWED:</strong>
+- <strong>Associative Arrays (<code>declare -A</code>)</strong>: NOT AVAILABLE in Bash 3.x. Use indexed arrays instead.
+- <strong><code>mapfile</code> / <code>readarray</code></strong>: NOT AVAILABLE in Bash 3.x. Use <code>while read</code> loops instead for array population.
+- <strong><code>&amp;&gt;&gt;</code> redirect operator</strong>: NOT AVAILABLE in Bash 3.x. Use <code>&gt;&gt; file 2&gt;&amp;1</code> instead.
+- <strong><code>**</code> globstar pattern</strong>: NOT AVAILABLE in Bash 3.x without <code>shopt -s globstar</code>.
+- <strong>Negative array indices</strong>: NOT AVAILABLE in Bash 3.x. Use <code>${array[@]: -1}</code> workarounds.</p>
+<p><strong>Bash 3.2+ Features That ARE ALLOWED:</strong>
+- <strong>Process substitution</strong> (<code>&lt; &lt;(command)</code>): Available in Bash 3.2+ and used throughout scripts.
+- <strong>Indexed arrays</strong> with <code>+=()</code> operator: Available in Bash 3.2+.
+- <strong><code>[[ ]]</code> test operator</strong>: Available in Bash 3.2+.
+- <strong><code>${var//pattern/replacement}</code> substitution</strong>: Available in Bash 3.2+.</p>
+<p><strong>Portable Array Population Pattern:</strong></p>
+<pre><code class="language-bash"># Instead of: mapfile -t array &lt; &lt;(command)
+# Use this portable approach:
+array=()
+while IFS= read -r item; do
+    [ -n &quot;$item&quot; ] &amp;&amp; array+=(&quot;$item&quot;)
+done &lt; &lt;(command)
+</code></pre>
+<p>This pattern is used throughout the scripts to ensure compatibility with Bash 3.2+ while maintaining functionality.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="is-the-cli-installed-configured-and-running">Is the CLI installed, configured, and running?</h3>
+<h4 id="installed-and-location">Installed and location</h4>
+<p><code>which hzn</code> should tell you if the binary is installed and available.</p>
+<h4 id="running">Running</h4>
+<p><code>hzn version</code> should tell you if the CLI is running.  You should receive values for both the CLI and the agent.  If the agent is not running, you will receive an error message like below:</p>
+<pre><code class="language-bash">$ hzn version
+Horizon CLI version: 2.31.0-1528
+Horizon Agent version: failed to get.
+</code></pre>
+<p>On macOS, you can try running the agent with IF docker desktop or podman desktop is installed and running:</p>
+<pre><code class="language-bash">horizon-container start
+</code></pre>
+<p>If that throws an error message like the following, then start Docker Desktop or Podman Desktop:</p>
+<pre><code class="language-bash">Starting the Horizon agent container openhorizon/amd64_anax:2.31.0-1528...
+failed to connect to the docker API at unix:///Users/josephpearson/.docker/run/docker.sock; check if the path is correct and if the daemon is running: dial unix /Users/josephpearson/.docker/run/docker.sock: connect: no such file or directory
+Error: exit code 1 from: docker run
+</code></pre>
+<p>IF running <code>horizon-contain start</code> results in an error message like the following, then you need to stop and restart the container:</p>
+<pre><code class="language-bash">Starting the Horizon agent container openhorizon/amd64_anax:2.31.0-1528...
+docker: Error response from daemon: Conflict. The container name &quot;/horizon1&quot; is already in use by container &quot;1ff9c8e008e5c9900108db92570b564efac8b2d72f08d30bf32de3502d8c7c72&quot;. You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Error: exit code 125 from: docker run
+</code></pre>
+<p>Then <code>horizon-container stop</code> and <code>horizon-container start</code> should resolve the issue.  NOTE: Stopping the container may require you to enter your password.</p>
+<p>When it is running properly, you should see something like the following:</p>
+<pre><code class="language-bash">% hzn version
+Horizon CLI version: 2.31.0-1528
+Horizon Agent version: 2.31.0-1528
+</code></pre>
+<h4 id="configured">Configured</h4>
+<h5 id="node-configured">Node configured?</h5>
+<pre><code class="language-bash">hzn node ls
+</code></pre>
+<p>Should return something like the following:</p>
+<pre><code class="language-bash">% hzn node ls
+{
+  &quot;id&quot;: &quot;joeinteel&quot;,
+  &quot;organization&quot;: null,
+  &quot;pattern&quot;: null,
+  &quot;name&quot;: null,
+  &quot;nodeType&quot;: null,
+  &quot;clusterNamespace&quot;: null,
+  &quot;token_last_valid_time&quot;: &quot;&quot;,
+  &quot;token_valid&quot;: null,
+  &quot;ha_group&quot;: null,
+  &quot;configstate&quot;: {
+    &quot;state&quot;: &quot;unconfigured&quot;,
+    &quot;last_update_time&quot;: &quot;&quot;
+  },
+  &quot;configuration&quot;: {
+    &quot;exchange_api&quot;: &quot;http://open-horizon.lfedge.iol.unh.edu:3090/v1/&quot;,
+    &quot;exchange_version&quot;: &quot;2.110.4&quot;,
+    &quot;required_minimum_exchange_version&quot;: &quot;2.90.1&quot;,
+    &quot;preferred_exchange_version&quot;: &quot;2.110.1&quot;,
+    &quot;mms_api&quot;: &quot;http://open-horizon.lfedge.iol.unh.edu:9443&quot;,
+    &quot;architecture&quot;: &quot;amd64&quot;,
+    &quot;horizon_version&quot;: &quot;2.31.0-1528&quot;
+  }
+}
+</code></pre>
+<h5 id="exchange-reachable-and-user-authenticated">Exchange reachable and user authenticated?</h5>
+<pre><code class="language-bash">hzn ex user ls
+</code></pre>
+<p>If you see something like the following, you do not have the proper environment variables set:</p>
+<pre><code class="language-bash">Error: organization ID must be specified with either the -o flag or HZN_ORG_ID
+</code></pre>
+<p>If it is properly configured and reachable, the response will be similar to the following:</p>
+<pre><code class="language-bash">{
+  &quot;examples/joewxboy&quot;: {
+    &quot;password&quot;: &quot;********&quot;,
+    &quot;email&quot;: &quot;joe.pearson@us.ibm.com&quot;,
+    &quot;admin&quot;: true,
+    &quot;hubAdmin&quot;: false,
+    &quot;lastUpdated&quot;: &quot;2025-04-25T18:26:34.773362847Z[UTC]&quot;,
+    &quot;updatedBy&quot;: &quot;root/root&quot;
+  }
+}
+</code></pre>
+<p>Where "examples/joewxboy" is your org ID and user ID, "email" is your email address, and "admin" is true if you are an admin.</p>
+<h2 id="script-documentation">Script Documentation</h2>
+<h3 id="can-i-do-anythingsh-comprehensive-permission-checker">can-i-do-anything.sh (Comprehensive Permission Checker)</h3>
+<p>Determines which Open Horizon admin utility scripts you can run based on your authenticated role and permissions.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash"># Interactive mode (default)
+./can-i-do-anything.sh
+
+# Use specific .env file
+./can-i-do-anything.sh mycreds.env
+
+# JSON output for automation
+./can-i-do-anything.sh --json mycreds.env
+
+# Verbose mode with detailed explanations
+./can-i-do-anything.sh --verbose
+</code></pre>
+<p><strong>Options:</strong>
+- <code>-v, --verbose</code> - Show detailed output with permission explanations
+- <code>-j, --json</code> - Output JSON only (for scripting/automation)
+- <code>-h, --help</code> - Show help message</p>
+<p><strong>Features:</strong>
+- Analyzes user role and permissions
+- Tests access to organizations, users, and services
+- Groups scripts by category (org, user, node, service, deployment, test)
+- Shows which scripts are runnable based on current permissions
+- Three output modes for different use cases</p>
+<p><strong>Output Modes:</strong>
+1. <strong>Interactive</strong> (Default): Numbered list grouped by category with brief descriptions
+2. <strong>JSON</strong>: Machine-readable structured output for automation
+3. <strong>Verbose</strong>: Detailed descriptions with permission requirements and explanations</p>
+<p><strong>Example Output (Interactive):</strong></p>
+<pre><code>Available Scripts for User: myuser (Organization: myorg)
+
+Your Role: Org Admin
+
+Organization Management (3 scripts)
+  1. list-orgs.sh              - List organizations interactively
+  2. list-a-orgs.sh            - List organizations via API
+  3. can-i-list-orgs.sh        - Check organization listing permissions
+
+User Management (5 scripts)
+  4. list-users.sh             - List users in organization
+  ...
+
+Total: 16 scripts available
+</code></pre>
+<h3 id="list-orgssh-interactive-organization-listing">list-orgs.sh (Interactive Organization Listing)</h3>
+<p>Interactive script that allows you to select credentials from multiple .env files and list organizations. After listing organizations, it prompts you to select one to view its users.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">./list-orgs.sh
+</code></pre>
+<p><strong>Features:</strong>
+- Interactive .env file selection
+- Lists all organizations
+- Prompts to select an organization to view users
+- Automatically calls list-users.sh for the selected organization
+- Color-coded output with status indicators</p>
+<p><strong>Workflow:</strong>
+1. Searches for .env files in current directory
+2. Prompts user to select credentials
+3. Loads and validates credentials
+4. Lists all organizations
+5. Prompts to select an organization
+6. Calls list-users.sh to display users in selected organization</p>
+<h3 id="list-userssh-interactive-user-listing">list-users.sh (Interactive User Listing)</h3>
+<p>Interactive script to list users in a specific organization. Can be called standalone or from list-orgs.sh.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash"># Interactive mode (prompts for .env file)
+./list-users.sh
+
+# Specify organization (uses environment credentials)
+./list-users.sh &lt;org-id&gt;
+
+# Called from list-orgs.sh (credentials passed via environment)
+# Automatically uses credentials from parent script
+</code></pre>
+<p><strong>Features:</strong>
+- Interactive .env file selection (if not called from another script)
+- Lists users with email addresses
+- Shows admin and hub admin status
+- Can query different organization than auth organization
+- Reuses credentials when called from list-orgs.sh</p>
+<h3 id="list-a-orgssh-api-based-organization-listing">list-a-orgs.sh (API-Based Organization Listing)</h3>
+<p>Advanced script using REST API directly with multiple output modes for automation and scripting.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash"># Interactive mode
+./list-a-orgs.sh
+
+# Use specific .env file
+./list-a-orgs.sh mycreds.env
+
+# JSON output only (for piping/automation)
+./list-a-orgs.sh --json mycreds.env
+
+# Verbose mode with full JSON details
+./list-a-orgs.sh --verbose
+</code></pre>
+<p><strong>Options:</strong>
+- <code>-v, --verbose</code> - Show detailed JSON response with headers
+- <code>-j, --json</code> - Output raw JSON only (no colors, headers, or messages)
+- <code>-h, --help</code> - Show help message</p>
+<p><strong>Features:</strong>
+- Direct REST API calls using curl
+- Multiple output modes (simple, verbose, JSON-only)
+- Access permission checking for each organization
+- Supports both interactive and non-interactive modes
+- Detailed error messages and troubleshooting tips
+- Optional jq support for better JSON parsing</p>
+<p><strong>Output Modes:</strong>
+1. <strong>Default</strong>: Simple list of organization names
+2. <strong>Verbose</strong> (<code>--verbose</code>): Full JSON response with formatting
+3. <strong>JSON-only</strong> (<code>--json</code>): Raw JSON for automation/piping</p>
+<h3 id="list-a-userssh-api-based-user-listing">list-a-users.sh (API-Based User Listing)</h3>
+<p>Advanced script using REST API directly with multiple output modes for automation and scripting.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash"># Interactive mode
+./list-a-users.sh
+
+# Use specific .env file
+./list-a-users.sh mycreds.env
+
+# Query a different organization
+./list-a-users.sh -o target-org
+
+# JSON output only (for piping/automation)
+./list-a-users.sh --json mycreds.env
+
+# Verbose mode with full JSON details
+./list-a-users.sh --verbose
+</code></pre>
+<p><strong>Options:</strong>
+- <code>-o, --org ORG</code> - Target organization to query (default: auth org from HZN_ORG_ID)
+- <code>-v, --verbose</code> - Show detailed JSON response with headers
+- <code>-j, --json</code> - Output raw JSON only (no colors, headers, or messages)
+- <code>-h, --help</code> - Show help message</p>
+<p><strong>Features:</strong>
+- Direct REST API calls using curl
+- Multiple output modes (simple, verbose, JSON-only)
+- User role analysis (admin, hub admin, regular users)
+- Email address display
+- Color-coded role indicators
+- Supports both interactive and non-interactive modes
+- Optional jq support for better JSON parsing</p>
+<p><strong>User Role Legend:</strong>
+- <code>[Org Admin]</code> (Yellow) - Administrative access within the organization
+- <code>[Hub Admin]</code> (Magenta) - Hub-level administrative access
+- (no badge) - Regular user with standard permissions</p>
+<h3 id="test-credentialssh-credential-testing">test-credentials.sh (Credential Testing)</h3>
+<p>Test and validate Open Horizon credentials from .env files.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">./test-credentials.sh
+</code></pre>
+<p><strong>Features:</strong>
+- Interactive .env file selection
+- Validates all required environment variables
+- Tests Exchange connectivity
+- Verifies user authentication
+- Checks user permissions
+- Displays credential summary
+- Provides detailed troubleshooting tips on failure</p>
+<p><strong>Validation Checks:</strong>
+- ✓ Exchange URL is reachable
+- ✓ Organization exists
+- ✓ User is authenticated
+- ✓ User has permission to list users
+- ✓ Counts users in organization</p>
+<h3 id="can-i-list-orgssh-organization-permission-verification">can-i-list-orgs.sh (Organization Permission Verification)</h3>
+<p>Advanced script to check if the authenticated user can list organizations using two-phase verification.</p>
+<p><strong>Technical Implementation:</strong></p>
+<p><strong>Two-Phase Verification Process:</strong>
+1. <strong>Phase 1 - Predictive Check</strong>: Fetches user info from <code>/orgs/{HZN_ORG_ID}/users/{AUTH_USER}</code> and analyzes <code>admin</code> and <code>hubAdmin</code> status to predict permission
+2. <strong>Phase 2 - Actual Verification</strong>: Calls <code>GET /orgs</code> API endpoint to verify actual permission
+3. <strong>Phase 3 - Comparison</strong>: Compares predicted vs actual results and reports status (CONFIRMED or MISMATCH)</p>
+<p><strong>Permission Logic:</strong>
+- <strong>Hub Admin</strong> (<code>hubAdmin: true</code>): Can list ALL organizations (predicted: YES, scope: ALL)
+- <strong>Org Admin</strong> (<code>admin: true</code>, <code>hubAdmin: false</code>): Can only list their own organization (predicted: YES, scope: OWN)
+- <strong>Regular User</strong> (<code>admin: false</code>, <code>hubAdmin: false</code>): Cannot list organizations (predicted: NO, scope: NONE)</p>
+<p><strong>Key Differences from can-i-list-users.sh:</strong>
+1. <strong>No target organization parameter</strong>: Listing orgs is a global operation, not org-specific
+2. <strong>Different API endpoint</strong>: Uses <code>/orgs</code> instead of <code>/orgs/{org}/users</code>
+3. <strong>Simpler permission model</strong>: Only hubAdmin can list ALL orgs; org admins see only their own
+4. <strong>Organization count tracking</strong>: Counts and displays number of organizations returned
+5. <strong>Scope indication</strong>: Shows whether user can see ALL orgs or just OWN org</p>
+<p><strong>Output Modes:</strong>
+- <strong>Default</strong>: Human-readable with color-coded status indicators
+- <strong>Verbose</strong> (<code>--verbose</code>): Includes full API responses with JSON formatting
+- <strong>JSON</strong> (<code>--json</code>): Machine-readable output for automation</p>
+<p><strong>Exit Codes:</strong>
+- <code>0</code>: User CAN list organizations (actual permission granted)
+- <code>1</code>: User CANNOT list organizations (actual permission denied)
+- <code>2</code>: Error (invalid arguments, API error, authentication failure)</p>
+<p><strong>API Key Authentication:</strong>
+Like <code>can-i-list-users.sh</code>, this script supports API key authentication and automatically resolves the username before performing permission checks.</p>
+<p><strong>Integration Points:</strong>
+- Uses <code>lib/common.sh</code> for credential management and output formatting
+- Shares credential loading logic with other API-based scripts
+- Compatible with multiple <code>.env</code> file support
+- Supports API key authentication with automatic username resolution</p>
+<h3 id="can-i-list-userssh-user-permission-verification">can-i-list-users.sh (User Permission Verification)</h3>
+<p>Advanced script to check if the authenticated user can list users using three-level verification (general to specific).</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash"># Check permission in auth organization
+./can-i-list-users.sh
+
+# Check permission in different organization
+./can-i-list-users.sh -o other-org
+
+# JSON output for automation
+./can-i-list-users.sh --json mycreds.env
+
+# Verbose mode for debugging
+./can-i-list-users.sh --verbose
+</code></pre>
+<p><strong>Options:</strong>
+- <code>-o, --org ORG</code> - Target organization to check (default: auth org)
+- <code>-v, --verbose</code> - Show detailed output with API responses
+- <code>-j, --json</code> - Output JSON only (for scripting/automation)
+- <code>-h, --help</code> - Show help message</p>
+<p><strong>Three-Level Verification (General → Specific):</strong></p>
+<p><strong>Level 1: List ALL Users (across all organizations)</strong>
+- <strong>Endpoint</strong>: Tests access to different organization's users
+- <strong>Permission Required</strong>: Hub Admin only
+- <strong>Purpose</strong>: Verify if user can access users across ALL organizations</p>
+<p><strong>Level 2: List Users in Target Organization</strong>
+- <strong>Endpoint</strong>: <code>GET /orgs/{target_org}/users</code>
+- <strong>Permission Required</strong>: Org Admin (in target org) or Hub Admin
+- <strong>Purpose</strong>: Verify if user can list users in the specified organization</p>
+<p><strong>Level 3: View Own User Information</strong>
+- <strong>Endpoint</strong>: <code>GET /orgs/{auth_org}/users/{auth_user}</code>
+- <strong>Permission Required</strong>: Any authenticated user (self-access)
+- <strong>Purpose</strong>: Verify user can at least access their own information</p>
+<p><strong>Features:</strong>
+- Progressive permission testing from broadest to narrowest scope
+- Shows exactly what the user can and cannot access
+- Detailed troubleshooting showing where permissions break down
+- Multiple output modes (human-readable, JSON, verbose)
+- <strong>API key authentication support</strong> - Automatically resolves username from API key
+- Exit codes: 0 (can list org users), 1 (cannot list), 2 (error)</p>
+<p><strong>API Key Authentication:</strong>
+When using API key authentication (<code>HZN_EXCHANGE_USER_AUTH=apikey:&lt;key&gt;</code>), the script automatically:
+1. Detects the API key format
+2. Queries <code>/orgs/{org}/users/apikey</code> to resolve the actual username
+3. Uses the resolved username for permission checks</p>
+<h3 id="can-i-list-servicessh-service-permission-verification">can-i-list-services.sh (Service Permission Verification)</h3>
+<p>Advanced script to check if the authenticated user can list services at different access levels using three-level verification (general to specific).</p>
+<p><strong>Technical Implementation:</strong></p>
+<p><strong>Three-Level Verification Process:</strong>
+1. <strong>Level 1 - IBM Public Services</strong>: Tests <code>GET /orgs/{ibm_org}/services</code> to verify access to IBM's public service catalog
+2. <strong>Level 2 - Org Public Services</strong>: Tests <code>GET /orgs/{target_org}/services</code> to verify access to organization's public services
+3. <strong>Level 3 - Own Services</strong>: Tests <code>GET /orgs/{auth_org}/services?owner={auth_org}/{auth_user}</code> to verify access to user's own services</p>
+<p><strong>Service Visibility Model:</strong>
+- <strong>Public Services</strong>: Visible to all authenticated users across all organizations
+- <strong>Private Services</strong>: Only visible to the service owner
+- <strong>IBM Services</strong>: Special organization containing shared public services accessible to all users</p>
+<p><strong>Permission Logic:</strong></p>
+<p><strong>Level 1: IBM Public Services</strong>
+- <strong>Prediction</strong>: Always YES for authenticated users
+- <strong>Reason</strong>: IBM public services are accessible to all authenticated users
+- <strong>Filtering</strong>: Counts only services where <code>public: true</code>
+- <strong>Scope</strong>: IBM organization (configurable via <code>--ibm-org</code> flag)</p>
+<p><strong>Level 2: Organization Public Services</strong>
+- <strong>Prediction</strong>: Always YES for authenticated users
+- <strong>Reason</strong>: Public services in any organization are accessible to all users
+- <strong>Filtering</strong>: Counts only services where <code>public: true</code>
+- <strong>Scope</strong>: Target organization (specified via <code>--org</code> flag or defaults to auth org)</p>
+<p><strong>Level 3: Own Services (Public + Private)</strong>
+- <strong>Prediction</strong>: Always YES for authenticated users
+- <strong>Reason</strong>: Users can always list their own services
+- <strong>Filtering</strong>: Counts all services (both public and private)
+- <strong>Scope</strong>: Services owned by authenticated user in auth organization</p>
+<p><strong>Key Differences from Other Permission Scripts:</strong></p>
+<ol>
+<li><strong>No Admin Requirements</strong>: Unlike user/org listing, service listing doesn't require admin privileges</li>
+<li><strong>Public/Private Filtering</strong>: Must accurately filter and count services by visibility</li>
+<li><strong>IBM Organization</strong>: Special handling for IBM org as a shared service catalog</li>
+<li><strong>Owner Parameter</strong>: Uses <code>owner={org}/{user}</code> format for Level 3 queries</li>
+<li><strong>Service Counting</strong>: Tracks total, public, and private service counts separately</li>
+</ol>
+<p><strong>Output Modes:</strong>
+- <strong>Default</strong>: Human-readable with service counts at each level
+- <strong>Verbose</strong> (<code>--verbose</code>): Includes full API responses with JSON formatting
+- <strong>JSON</strong> (<code>--json</code>): Machine-readable output for automation</p>
+<p><strong>Exit Codes:</strong>
+- <code>0</code>: User CAN list services at all tested levels
+- <code>1</code>: User CANNOT list services at one or more levels (but can list own)</p>
+<h3 id="test-blessed-samplessh-blessed-samples-validator">test-blessed-samples.sh (Blessed Samples Validator)</h3>
+<p>Validates <code>blessedSamples.txt</code> files used by the Open Horizon <code>exchangePublish.sh</code> script. Checks file format and verifies GitHub repository accessibility using the GitHub API.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash"># Test default file (./blessedSamples.txt)
+./test-blessed-samples.sh
+
+# Test specific file
+./test-blessed-samples.sh tools/blessedSamples.txt
+
+# Verbose output with detailed checks
+./test-blessed-samples.sh --verbose tools/blessedSamples.txt
+
+# JSON output for CI/CD
+./test-blessed-samples.sh --json tools/blessedSamples.txt
+
+# Skip network checks (format validation only)
+./test-blessed-samples.sh --skip-network tools/blessedSamples.txt
+
+# With GitHub token for higher rate limits
+export GITHUB_TOKEN=ghp_xxxxxxxxxxxx
+./test-blessed-samples.sh tools/blessedSamples.txt
+</code></pre>
+<p><strong>Options:</strong>
+- <code>-v, --verbose</code> - Show detailed validation output with API responses
+- <code>-j, --json</code> - Output JSON only (for scripting/automation)
+- <code>-b, --branch BRANCH</code> - Branch to check (default: master)
+- <code>-s, --skip-network</code> - Skip network checks (validate format only)
+- <code>-h, --help</code> - Show help message</p>
+<p><strong>Environment Variables:</strong>
+- <code>GITHUB_TOKEN</code> - Optional GitHub personal access token for authenticated API calls (increases rate limit from 60 to 5000 requests/hour)</p>
+<p><strong>File Format:</strong>
+The <code>blessedSamples.txt</code> file supports two formats:
+- <strong>Relative paths</strong>: <code>edge/services/helloworld</code> (always refers to <code>https://github.com/open-horizon/examples/</code>)
+- <strong>Absolute URLs</strong>: <code>https://github.com/open-horizon-services/web-helloworld-python</code>
+- Blank lines and comments (lines starting with <code>#</code>) are ignored</p>
+<p><strong>Validation Checks:</strong>
+1. <strong>Format Validation</strong>: Checks syntax of each entry
+2. <strong>Type Detection</strong>: Identifies relative vs absolute URLs
+3. <strong>Format Consistency</strong>: Warns if file contains mixed formats
+4. <strong>GitHub API Verification</strong>: Confirms repositories/paths exist (unless <code>--skip-network</code>)</p>
+<p><strong>Output Modes:</strong></p>
+<p><strong>1. Interactive (Default):</strong></p>
+<pre><code>═══════════════════════════════════════════════════════════
+  Validating Blessed Samples File
+═══════════════════════════════════════════════════════════
+
+File: tools/blessedSamples.txt
+Format: relative
+Base Repository: https://github.com/open-horizon/examples (for relative paths)
+Branch: master
+
+ℹ Validating entries...
+
+✓ Line 1: edge/services/cpu_percent
+✓ Line 2: edge/services/gps
+✗ Line 3: edge/services/invalid_path
+  Error: Path not found in repository (HTTP 404)
+
+═══════════════════════════════════════════════════════════
+  Validation Summary
+═══════════════════════════════════════════════════════════
+
+Total Entries: 3
+Valid: 2
+Invalid: 1
+Warnings: 0
+
+Status: FAILED (1 error(s) found)
+</code></pre>
+<p><strong>2. Verbose Mode (<code>--verbose</code>):</strong>
+Shows detailed information for each entry including:
+- Entry type (relative/absolute)
+- Full GitHub URL being checked
+- HTTP response codes
+- API rate limit information</p>
+<p><strong>3. JSON Mode (<code>--json</code>):</strong></p>
+<pre><code class="language-json">{
+  &quot;file&quot;: &quot;tools/blessedSamples.txt&quot;,
+  &quot;format&quot;: &quot;relative&quot;,
+  &quot;base_repository&quot;: &quot;https://github.com/open-horizon/examples&quot;,
+  &quot;branch&quot;: &quot;master&quot;,
+  &quot;skip_network&quot;: false,
+  &quot;github_token_set&quot;: true,
+  &quot;total_entries&quot;: 3,
+  &quot;valid_count&quot;: 2,
+  &quot;invalid_count&quot;: 1,
+  &quot;warning_count&quot;: 0,
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;entries&quot;: [
+    {
+      &quot;line&quot;: 1,
+      &quot;content&quot;: &quot;edge/services/cpu_percent&quot;,
+      &quot;type&quot;: &quot;relative&quot;,
+      &quot;status&quot;: &quot;valid&quot;,
+      &quot;message&quot;: &quot;Path exists in repository&quot;,
+      &quot;http_code&quot;: 200
+    }
+  ]
+}
+</code></pre>
+<p><strong>Exit Codes:</strong>
+- <code>0</code> - All validations passed
+- <code>1</code> - Validation failures found
+- <code>2</code> - Script error (invalid arguments, missing file, missing dependencies)</p>
+<p><strong>Use Cases:</strong>
+- <strong>Pre-commit validation</strong>: Verify blessedSamples.txt before committing changes
+- <strong>CI/CD integration</strong>: Automated validation in GitHub Actions or other CI systems
+- <strong>Local development</strong>: Quick check before running exchangePublish.sh
+- <strong>Troubleshooting</strong>: Identify broken repository links or invalid paths</p>
+<p><strong>GitHub API Rate Limits:</strong>
+- <strong>Unauthenticated</strong>: 60 requests/hour
+- <strong>Authenticated</strong> (with <code>GITHUB_TOKEN</code>): 5000 requests/hour
+- The script displays current rate limit status in verbose mode</p>
+<p><strong>Example Workflow:</strong></p>
+<pre><code class="language-bash"># 1. Validate format only (fast, no network)
+./test-blessed-samples.sh --skip-network tools/blessedSamples.txt
+
+# 2. Full validation with GitHub API
+export GITHUB_TOKEN=your_token_here
+./test-blessed-samples.sh tools/blessedSamples.txt
+
+# 3. Use in CI/CD pipeline
+./test-blessed-samples.sh --json tools/blessedSamples.txt | jq '.status'
+</code></pre>
+<ul>
+<li><code>2</code>: Error (invalid arguments, API error, authentication failure)</li>
+</ul>
+<h2 id="environment-file-configuration">Environment File Configuration</h2>
+<p>All scripts use <code>.env</code> files for credential management. Create one or more <code>.env</code> files with the following format:</p>
+<pre><code class="language-bash">HZN_EXCHANGE_URL=https://open-horizon.lfedge.iol.unh.edu:3090/v1/
+HZN_ORG_ID=myorg
+HZN_EXCHANGE_USER_AUTH=myuser:mypassword
+</code></pre>
+<p><strong>Multiple Environment Support:</strong>
+You can create multiple <code>.env</code> files for different environments:
+- <code>production.env</code>
+- <code>staging.env</code>
+- <code>development.env</code>
+- <code>mycreds.env</code>
+- etc.</p>
+<p><strong>Security Note:</strong> Never commit <code>.env</code> files to version control. Add <code>*.env</code> to <code>.gitignore</code> (except <code>example.env</code>).</p>
+<h3 id="listing-organizations">Listing Organizations</h3>
+<p><strong>Using the hzn CLI:</strong></p>
+<pre><code class="language-bash"># Set required environment variables
+export HZN_EXCHANGE_URL=&quot;https://&lt;exchange-host&gt;/api/v1&quot;
+export HZN_ORG_ID=&quot;&lt;your-org-id&gt;&quot;
+export HZN_EXCHANGE_USER_AUTH=&quot;&lt;user&gt;:&lt;password&gt;&quot;
+
+# List all organizations
+hzn exchange org list
+
+# List organizations with detailed info
+hzn exchange org list -l
+
+# List a specific organization
+hzn exchange org list &lt;org-id&gt;
+</code></pre>
+<p><strong>Required Configuration:</strong>
+- <code>HZN_EXCHANGE_URL</code>: The Horizon Exchange API URL
+- <code>HZN_ORG_ID</code>: Your organization ID
+- <code>HZN_EXCHANGE_USER_AUTH</code>: User credentials in format <code>&lt;user&gt;:&lt;password&gt;</code></p>
+<p><strong>Using the REST API:</strong></p>
+<pre><code class="language-bash"># List all organizations
+curl -u &quot;&lt;org&gt;/&lt;user&gt;:&lt;password&gt;&quot; \
+  &quot;https://&lt;exchange-host&gt;/api/v1/orgs&quot;
+
+# List only IBM-managed organizations
+curl -u &quot;&lt;org&gt;/&lt;user&gt;:&lt;password&gt;&quot; \
+  &quot;https://&lt;exchange-host&gt;/api/v1/orgs?orgtype=IBM&quot;
+</code></pre>
+<p><strong>Configuration File:</strong>
+You can also configure these settings in <code>~/.hzn/hzn.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;HZN_EXCHANGE_URL&quot;: &quot;https://my-exchange.example.com/api/v1&quot;,
+  &quot;HZN_ORG_ID&quot;: &quot;myorg&quot;,
+  &quot;HZN_EXCHANGE_USER_AUTH&quot;: &quot;myuser:mypassword&quot;
+}
+</code></pre>
+<h3 id="other-common-operations">Other Common Operations</h3>
+<p><strong>Create an organization:</strong></p>
+<pre><code class="language-bash">hzn exchange org create --description=&quot;My Organization&quot; myorg
+</code></pre>
+<p><strong>List users:</strong></p>
+<pre><code class="language-bash">hzn exchange user list
+</code></pre>
+<p><strong>List nodes:</strong></p>
+<pre><code class="language-bash">hzn exchange node list
+</code></pre>
+<p><strong>List services:</strong></p>
+<pre><code class="language-bash">hzn exchange service list
+</code></pre>
+<p><strong>Note:</strong> Version numbers shown in examples (e.g., 2.31.0-1528) may vary based on your Open Horizon installation.</p>
+<h2 id="development-workflow">Development Workflow</h2>
+<h3 id="git-workflow-pattern">Git Workflow Pattern</h3>
+<p>When performing new work in this repository:</p>
+<ol>
+<li><strong>Check for open issues first</strong> - Ask the user if unsure whether to use an existing issue</li>
+<li><strong>If no open issue exists:</strong></li>
+<li>Open a new issue describing the work</li>
+<li>Label it <code>bug</code> or <code>enhancement</code> depending on the type of work</li>
+<li>Create the label if it doesn't exist in the repository</li>
+<li><strong>Create a branch</strong> with the pattern <code>issue-#</code> (e.g., <code>issue-3</code>)</li>
+<li><strong>Before committing changes:</strong></li>
+<li><strong>Always update <code>README.md</code> and <code>AGENTS.md</code></strong> to document any new scripts or features</li>
+<li>Run tests: <code>./run-tests.sh</code></li>
+<li>Run shellcheck: <code>shellcheck *.sh</code></li>
+<li><strong>When committing changes:</strong></li>
+<li>Use the <code>-s</code> sign-off flag</li>
+<li>Prefix the commit title with <code>Issue #:</code> (e.g., <code>Issue #3: Fix false failure report</code>)</li>
+<li><strong>When opening the PR:</strong></li>
+<li>Use the same <code>Issue #:</code> prefix in the PR title</li>
+<li>Link to the issue in the PR description</li>
+<li>Ensure CI/CD tests pass</li>
+</ol>
+<h3 id="design-principles">Design Principles</h3>
+<ol>
+<li><strong>Three operation modes:</strong></li>
+<li><strong>Default</strong>: Interactive exploration with prompts and helpful output</li>
+<li><strong>Verbose</strong>: Exhaustive details for troubleshooting (<code>--verbose</code>)</li>
+<li>
+<p><strong>Minimal</strong>: Machine-readable JSON for automation (<code>--json</code>)</p>
+</li>
+<li>
+<p><strong>Minimal dependencies:</strong></p>
+</li>
+<li>Bash 3.2+ compatibility (macOS support)</li>
+<li>curl (required for API scripts)</li>
+<li>jq (optional but recommended for JSON parsing)</li>
+<li>
+<p>hzn CLI (optional, only for CLI-based scripts)</p>
+</li>
+<li>
+<p><strong>Security first:</strong></p>
+</li>
+<li>Never commit <code>.env</code> files to version control</li>
+<li>Support multiple credential files for different environments</li>
+<li>Clear error messages for authentication failures</li>
+<li>
+<p>Validate SSL certificates (with option to skip for dev environments)</p>
+</li>
+<li>
+<p><strong>Error handling:</strong></p>
+</li>
+<li>Use <code>set -euo pipefail</code> for strict error handling</li>
+<li>Implement trap handlers for cleanup</li>
+<li>Provide helpful error messages with troubleshooting tips</li>
+<li>
+<p>Exit with appropriate status codes</p>
+</li>
+<li>
+<p><strong>Testing:</strong></p>
+</li>
+<li>Write unit tests for shared library functions</li>
+<li>Write integration tests for complete scripts</li>
+<li>Run tests before committing: <code>./run-tests.sh</code></li>
+<li>Maintain test fixtures in <code>tests/fixtures/</code></li>
+</ol>
+<h3 id="code-style-guidelines">Code Style Guidelines</h3>
+<ul>
+<li>Use consistent indentation (2 spaces)</li>
+<li>Add comments for complex logic</li>
+<li>Use descriptive variable names</li>
+<li>Follow existing patterns in the codebase</li>
+<li>Use color-coded output for user-facing messages</li>
+<li>Implement cleanup functions with trap handlers</li>
+<li>Validate inputs before processing</li>
+<li>Provide multiple output modes where appropriate</li>
+</ul>
+<h3 id="testing-requirements">Testing Requirements</h3>
+<p>Before submitting a PR:</p>
+<pre><code class="language-bash"># Run all tests
+./run-tests.sh
+
+# Run specific test types
+./run-tests.sh --unit          # Unit tests only
+./run-tests.sh --integration   # Integration tests only
+./run-tests.sh --shellcheck    # Static analysis only
+
+# Run shellcheck manually
+shellcheck *.sh lib/*.sh
+</code></pre>
+<h3 id="documentation-requirements">Documentation Requirements</h3>
+<p>When adding new features:</p>
+<ol>
+<li>Update <code>README.md</code> with:</li>
+<li>Script description and usage examples</li>
+<li>Available options and flags</li>
+<li>Output format examples</li>
+<li>
+<p>Troubleshooting tips</p>
+</li>
+<li>
+<p>Update <code>AGENTS.md</code> with:</p>
+</li>
+<li>Technical implementation details</li>
+<li>Design decisions</li>
+<li>
+<p>Integration points with other scripts</p>
+</li>
+<li>
+<p>Update <code>.cursor/scratchpad.md</code> (project roadmap) if:</p>
+</li>
+<li>Completing a roadmap item</li>
+<li>
+<p>Identifying new improvement opportunities</p>
+</li>
+<li>
+<p>Add inline comments for:</p>
+</li>
+<li>Complex logic or algorithms</li>
+<li>Non-obvious design decisions</li>
+<li>Workarounds for compatibility issues</li>
+</ol>
+<p>This guide ensures consistent, maintainable, and secure code across all Open Horizon admin utilities.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
