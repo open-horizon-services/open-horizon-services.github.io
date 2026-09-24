@@ -45,147 +45,11 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/10-excel/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/11-webhook/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/20-invoices/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/21-utility-bills/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/30-turbonomic/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/50-developer/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/50-developer/01-create-data-services-in-envizi/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/50-developer/02-prepare-configuration-file/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/50-developer/03-start-app-in-local/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/50-developer/04-update-config-settings-in-app/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/50-developer/05-run-in-docker/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/50-developer/06-create-docker-image/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/60-demo/01-excel/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/60-demo/02-webhook/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/62-faqs/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/90-blog/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub/90-blog/readme-developer/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/10-excel/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/11-webhook/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/20-invoices/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/21-utility-bills/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/30-turbonomic/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/50-developer/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/50-developer/01-create-data-services-in-envizi/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/50-developer/02-prepare-configuration-file/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/50-developer/03-start-app-in-local/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/50-developer/04-update-config-settings-in-app/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/50-developer/05-run-in-docker/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/50-developer/06-create-docker-image/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/60-demo/01-excel/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/60-demo/02-webhook/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/62-faqs/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/90-blog/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/90-blog/readme-developer/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-envizi-integration-hub-backend/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
@@ -253,43 +117,47 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/deployment/prerequisites/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/deployment/quickstart/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/LICENSE/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/deployment/troubleshooting/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/deployment/prerequisites/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/operations/api-access/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/deployment/quickstart/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/operations/model-management/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/deployment/troubleshooting/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/operations/monitoring/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/operations/api-access/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/operations/service-updates/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/operations/model-management/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-ollama/operations/storage-management/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/operations/monitoring/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-open-horizon-mcp-server/MCP_VALUE_PROPOSITION/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/operations/service-updates/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/service-open-horizon-mcp-server/open-horizon-mcp-blog/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/service-ollama/docs/operations/storage-management/</loc>
+         <lastmod>2026-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://open-horizon-services.github.io/_repos/service-open-horizon-mcp-server/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
@@ -341,15 +209,7 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-container-converter/docker-compose-support-plan/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-container-converter/mcp-compose-tools/</loc>
-         <lastmod>2026-09-24</lastmod>
-    </url>
-    <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-container-converter/phase2-compose-sdf-generation/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/utility-container-converter/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
@@ -361,19 +221,23 @@
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/ARCHITECTURE/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/INSTALL/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/docs/ARCHITECTURE/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/RATIONALE/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/docs/INSTALL/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>
-         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/USAGE/</loc>
+         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/docs/RATIONALE/</loc>
+         <lastmod>2026-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://open-horizon-services.github.io/_repos/utility-secrets-manager/docs/USAGE/</loc>
          <lastmod>2026-09-24</lastmod>
     </url>
     <url>

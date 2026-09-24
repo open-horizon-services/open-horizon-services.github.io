@@ -1,0 +1,5508 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified documentation portal for the Open Horizon Services organization. Aggregates docs from all service, utility, skills, and web repositories.">
+      
+      
+        <meta name="author" content="Open Horizon Services">
+      
+      
+        <link rel="canonical" href="https://open-horizon-services.github.io/_repos/utility-container-converter/">
+      
+      
+        <link rel="prev" href="../../_sections/utilities/">
+      
+      
+        <link rel="next" href="../utility-hzn-mgmt/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>utility-container-converter - Open Horizon Services Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#container-converter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open Horizon Services Documentation" class="md-header__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Horizon Services Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              utility-container-converter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../_sections/services/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../_sections/utilities/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Utilities
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../_sections/skills/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../_sections/web/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Web
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open Horizon Services Documentation" class="md-nav__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Open Horizon Services Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../_sections/services/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-agent-dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-agent-dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-anylog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-anylog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-contextforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-contextforge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-detectron2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-detectron2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgelake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgelake
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgelake-federated-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgelake-federated-learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-edgex-foundry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgex-foundry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-envizi-integration-hub-backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub-backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-fledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-fledge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-grafana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-grafana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-helloMMS-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-helloMMS-go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-homeassistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-homeassistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-kubearmor-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-kubearmor-security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-liquid-prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-liquid-prep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-minecraft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-minecraft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-mongodb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-mqtt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-nginx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-node-red-hello-world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-node-red-hello-world
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-node-red-object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-node-red-object-detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-nvcsi-restcam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-nvcsi-restcam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-ollama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-ollama
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-open-horizon-mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-open-horizon-mcp-server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-postgresql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-postgresql
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-qiskit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-qiskit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-qr-code-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-qr-code-generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-restcam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-restcam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-sbom-policy-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-sbom-policy-generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-sms-me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-sms-me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-speak-ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-speak-ip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-yolo-cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-cpu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-yolo-cuda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-cuda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-yolo-vino/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-vino
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../_sections/utilities/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-container-converter
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-container-converter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install from npm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install from source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specify-output-and-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Specify Output and Metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-with-open-horizon-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate with Open Horizon CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-and-publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert and Publish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-simple-nodejs-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Simple Node.js Application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-multi-port-service-with-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Multi-port Service with Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-publishing-to-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Publishing to Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Compose Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-compose-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Compose Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-simple-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Simple Compose File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variable-substitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variable Substitution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compose-format-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compose Format Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-example-wordpress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Example: WordPress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-strategies-single-sdf-vs-multi-sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation Strategies: Single-SDF vs Multi-SDF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generation Strategies: Single-SDF vs Multi-SDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-sdf-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-SDF Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sdf-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-SDF Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-selection-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy Selection Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sdf-workflow-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-SDF Workflow Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-SDF Workflow Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-convert-and-validate-all-sdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Convert and Validate All SDFs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-publish-all-services-to-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Publish All Services to Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-complex-edgex-style-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Complex EdgeX-Style Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-graph-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Graph Visualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-from-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration from Docker Compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration from Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-pre-flight-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Pre-flight Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-choose-generation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Choose Generation Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-validate-generated-sdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Validate Generated SDFs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-publish-to-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Publish to Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-deployment-policy-or-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Create Deployment Policy or Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-migration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Migration Challenges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-complete-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complete Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-mcp-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available MCP Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convert_dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convert_dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validate_sdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish_sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        publish_sdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-configuration-for-ai-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Configuration for AI Assistants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive TUI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive TUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the TUI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Library API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfileparser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DockerfileParser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdfgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDFGenerator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdfvalidator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDFValidator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hzn-cli-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "hzn CLI not found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-exchange-credentials-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "No Exchange credentials found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-connection-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Exchange connection failed"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-validation-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Schema validation failed"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Message Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-hzn-mgmt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-hzn-mgmt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-raspberry-pi-image-builder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-raspberry-pi-image-builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-secrets-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-secrets-manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../_sections/skills/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-open-horizon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    skills-open-horizon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../_sections/web/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-c
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-cpp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-helloworld-ruby/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-ruby
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install from npm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install from source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specify-output-and-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Specify Output and Metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-with-open-horizon-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate with Open Horizon CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-and-publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert and Publish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-simple-nodejs-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Simple Node.js Application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-multi-port-service-with-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Multi-port Service with Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-publishing-to-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Publishing to Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Compose Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-compose-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Compose Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-simple-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Simple Compose File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variable-substitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variable Substitution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compose-format-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compose Format Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-example-wordpress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Example: WordPress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-strategies-single-sdf-vs-multi-sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation Strategies: Single-SDF vs Multi-SDF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generation Strategies: Single-SDF vs Multi-SDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-sdf-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-SDF Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sdf-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-SDF Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy-selection-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy Selection Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sdf-workflow-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-SDF Workflow Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-SDF Workflow Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-convert-and-validate-all-sdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Convert and Validate All SDFs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-publish-all-services-to-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Publish All Services to Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-complex-edgex-style-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Complex EdgeX-Style Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-graph-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Graph Visualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-from-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration from Docker Compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration from Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-pre-flight-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Pre-flight Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-choose-generation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Choose Generation Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-validate-generated-sdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Validate Generated SDFs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-publish-to-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Publish to Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-deployment-policy-or-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Create Deployment Policy or Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-migration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Migration Challenges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-complete-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complete Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-mcp-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available MCP Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convert_dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convert_dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validate_sdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish_sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        publish_sdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-configuration-for-ai-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Configuration for AI Assistants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive TUI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive TUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the TUI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Library API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfileparser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DockerfileParser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdfgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDFGenerator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdfvalidator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDFValidator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hzn-cli-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "hzn CLI not found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-exchange-credentials-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "No Exchange credentials found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-connection-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Exchange connection failed"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-validation-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Schema validation failed"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Message Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="container-converter">Container Converter</h1>
+<p>Convert Dockerfiles to Open Horizon Service Definition Files (SDFs) for edge computing deployments.</p>
+<h2 id="overview">Overview</h2>
+<p>Container Converter is a TypeScript/Node.js tool that automates the conversion of Dockerfiles and Docker Compose files into Open Horizon Service Definition Files (SDFs). It parses container definitions, extracts service metadata, and generates valid SDF JSON files ready for deployment on Open Horizon edge computing platforms.</p>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>Dockerfile Parsing</strong>: Extracts base images, exposed ports, environment variables, commands, volumes, and more</li>
+<li><strong>Docker Compose Support</strong>: Parses docker-compose.yml files (v2.x and Compose Specification) with full support for multi-service applications</li>
+<li><strong>Intelligent Inference</strong>: Automatically infers service name, version, and architecture from container definitions</li>
+<li><strong>SDF Validation</strong>: Validates generated SDFs against schema and optionally with the Open Horizon CLI</li>
+<li><strong>Exchange Publishing</strong>: Publish validated SDFs directly to an Open Horizon Exchange</li>
+<li><strong>Multiple Interfaces</strong>:</li>
+<li>Command-line interface (CLI) for scripting and automation</li>
+<li>MCP Server for AI assistant integration</li>
+<li>Interactive TUI for conversational workflows</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Node.js 18.0.0 or higher</li>
+<li>npm or yarn</li>
+<li>(Optional) Open Horizon CLI (<code>hzn</code>) for validation and publishing</li>
+</ul>
+<h3 id="install-from-npm">Install from npm</h3>
+<pre><code class="language-bash">npm install -g container-converter
+</code></pre>
+<h3 id="install-from-source">Install from source</h3>
+<pre><code class="language-bash">git clone https://github.com/your-org/container-converter.git
+cd container-converter
+npm install
+npm run build
+npm link  # Makes CLI commands available globally
+</code></pre>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="basic-conversion">Basic Conversion</h3>
+<p>Convert a Dockerfile to an SDF:</p>
+<pre><code class="language-bash">container-converter Dockerfile
+</code></pre>
+<p>This creates a file named <code>Dockerfile-sdf.json</code> with the generated service definition.</p>
+<h3 id="specify-output-and-metadata">Specify Output and Metadata</h3>
+<pre><code class="language-bash">container-converter Dockerfile \
+  -o my-service.json \
+  -n my-edge-service \
+  --svc-version 2.0.0 \
+  -a arm64 \
+  --org myorg \
+  --description &quot;My edge computing service&quot;
+</code></pre>
+<h3 id="validate-with-open-horizon-cli">Validate with Open Horizon CLI</h3>
+<pre><code class="language-bash">container-converter Dockerfile --validate
+</code></pre>
+<h3 id="convert-and-publish">Convert and Publish</h3>
+<pre><code class="language-bash">container-converter Dockerfile --publish --config agent-install.cfg --creds mycreds.env
+</code></pre>
+<h2 id="cli-reference">CLI Reference</h2>
+<h3 id="usage">Usage</h3>
+<pre><code>container-converter [options] &lt;dockerfile&gt;
+</code></pre>
+<h3 id="arguments">Arguments</h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;input&gt;</code></td>
+<td>Path to Dockerfile or docker-compose.yml to convert</td>
+</tr>
+</tbody>
+</table>
+<h3 id="options">Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o, --output &lt;path&gt;</code></td>
+<td>Output path for generated SDF (default: <code>&lt;input&gt;-sdf.json</code>)</td>
+</tr>
+<tr>
+<td><code>-t, --type &lt;type&gt;</code></td>
+<td>Input type: <code>dockerfile</code> or <code>compose</code> (auto-detected if omitted)</td>
+</tr>
+<tr>
+<td><code>--strategy &lt;strategy&gt;</code></td>
+<td>SDF generation strategy: <code>single-sdf</code> or <code>multi-sdf</code> (auto-inferred for compose)</td>
+</tr>
+<tr>
+<td><code>--output-dir &lt;dir&gt;</code></td>
+<td>Output directory for multi-SDF generation (used with <code>--strategy multi-sdf</code>)</td>
+</tr>
+<tr>
+<td><code>-n, --name &lt;name&gt;</code></td>
+<td>Service name (inferred from input if not provided)</td>
+</tr>
+<tr>
+<td><code>--svc-version &lt;version&gt;</code></td>
+<td>Service version (default: 1.0.0)</td>
+</tr>
+<tr>
+<td><code>-a, --arch &lt;arch&gt;</code></td>
+<td>Target architecture: amd64, arm64, arm (default: amd64)</td>
+</tr>
+<tr>
+<td><code>--org &lt;org&gt;</code></td>
+<td>Organization ID</td>
+</tr>
+<tr>
+<td><code>--description &lt;desc&gt;</code></td>
+<td>Service description</td>
+</tr>
+<tr>
+<td><code>--validate</code></td>
+<td>Validate generated SDF(s) with Open Horizon CLI</td>
+</tr>
+<tr>
+<td><code>--publish</code></td>
+<td>Publish to Open Horizon Exchange after conversion</td>
+</tr>
+<tr>
+<td><code>--config &lt;path&gt;</code></td>
+<td>Path to Exchange configuration file (.cfg format)</td>
+</tr>
+<tr>
+<td><code>--creds &lt;path&gt;</code></td>
+<td>Path to credentials file (.env format)</td>
+</tr>
+<tr>
+<td><code>--overwrite</code></td>
+<td>Overwrite if service already exists in Exchange</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Validate publish without actually publishing</td>
+</tr>
+<tr>
+<td><code>-V, --version</code></td>
+<td>Output version number</td>
+</tr>
+<tr>
+<td><code>-h, --help</code></td>
+<td>Display help</td>
+</tr>
+</tbody>
+</table>
+<h3 id="environment-variables">Environment Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HZN_ORG_ID</code></td>
+<td>Organization ID for Exchange</td>
+</tr>
+<tr>
+<td><code>HZN_EXCHANGE_USER_AUTH</code></td>
+<td>User credentials in <code>user:password</code> format</td>
+</tr>
+<tr>
+<td><code>HZN_EXCHANGE_URL</code></td>
+<td>Exchange URL (e.g., <code>http://exchange.example.com:3090/v1</code>)</td>
+</tr>
+<tr>
+<td><code>DEBUG</code></td>
+<td>Set to any value to enable stack traces on errors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-simple-nodejs-application">Example 1: Simple Node.js Application</h3>
+<p><strong>Input Dockerfile:</strong></p>
+<pre><code class="language-dockerfile">FROM node:18-alpine
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+
+EXPOSE 3000
+CMD [&quot;node&quot;, &quot;index.js&quot;]
+</code></pre>
+<p><strong>Command:</strong></p>
+<pre><code class="language-bash">container-converter Dockerfile -n my-node-app --svc-version 1.0.0
+</code></pre>
+<p><strong>Generated SDF:</strong></p>
+<pre><code class="language-json">{
+  &quot;label&quot;: &quot;my-node-app&quot;,
+  &quot;description&quot;: &quot;Service generated from Dockerfile&quot;,
+  &quot;url&quot;: &quot;my-node-app&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;arch&quot;: &quot;amd64&quot;,
+  &quot;sharable&quot;: &quot;multiple&quot;,
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;my-node-app&quot;: {
+        &quot;image&quot;: &quot;node:18-alpine&quot;,
+        &quot;ports&quot;: [
+          {
+            &quot;HostIP&quot;: &quot;0.0.0.0&quot;,
+            &quot;HostPort&quot;: &quot;3000:3000/tcp&quot;
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="example-2-multi-port-service-with-environment-variables">Example 2: Multi-port Service with Environment Variables</h3>
+<p><strong>Input Dockerfile:</strong></p>
+<pre><code class="language-dockerfile">FROM python:3.11-slim
+
+ENV APP_PORT=8080
+ENV DEBUG=false
+ENV LOG_LEVEL=info
+
+EXPOSE 8080
+EXPOSE 9090
+
+WORKDIR /app
+COPY . .
+
+CMD [&quot;python&quot;, &quot;app.py&quot;]
+</code></pre>
+<p><strong>Command:</strong></p>
+<pre><code class="language-bash">container-converter Dockerfile -n python-api --org myorg --validate
+</code></pre>
+<h3 id="example-3-publishing-to-exchange">Example 3: Publishing to Exchange</h3>
+<pre><code class="language-bash"># Using environment variables
+export HZN_ORG_ID=myorg
+export HZN_EXCHANGE_USER_AUTH=admin:password123
+export HZN_EXCHANGE_URL=http://exchange.example.com:3090/v1
+
+container-converter Dockerfile --publish
+
+# Or using config files
+container-converter Dockerfile \
+  --publish \
+  --config ~/agent-install.cfg \
+  --creds ~/mycreds.env
+</code></pre>
+<h2 id="docker-compose-support">Docker Compose Support</h2>
+<p>Container Converter supports parsing docker-compose.yml files (both legacy v2.x format and the modern Compose Specification). This enables conversion of multi-container applications to Open Horizon SDFs.</p>
+<h3 id="quick-start_1">Quick Start</h3>
+<p>Convert a docker-compose.yml file:</p>
+<pre><code class="language-bash">container-converter docker-compose.yml -o services.json
+</code></pre>
+<h3 id="supported-compose-features">Supported Compose Features</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Support</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>✅ Full</td>
+<td>Required - images must be pre-built and pushed to a registry</td>
+</tr>
+<tr>
+<td><code>ports</code></td>
+<td>✅ Full</td>
+<td>Converted to Open Horizon port mappings</td>
+</tr>
+<tr>
+<td><code>environment</code></td>
+<td>✅ Full</td>
+<td>Supports both array and object formats</td>
+</tr>
+<tr>
+<td><code>volumes</code> (bind mounts)</td>
+<td>✅ Full</td>
+<td>Mapped to Open Horizon binds</td>
+</tr>
+<tr>
+<td><code>command</code> / <code>entrypoint</code></td>
+<td>✅ Full</td>
+<td>Combined into SDF command array</td>
+</tr>
+<tr>
+<td><code>depends_on</code></td>
+<td>✅ Full</td>
+<td>Mapped to <code>requiredServices</code> in multi-SDF mode</td>
+</tr>
+<tr>
+<td><code>privileged</code></td>
+<td>✅ Full</td>
+<td>Directly mapped</td>
+</tr>
+<tr>
+<td><code>tmpfs</code></td>
+<td>✅ Full</td>
+<td>Mapped to tmpfs mounts</td>
+</tr>
+<tr>
+<td><code>networks</code></td>
+<td>⚠️ Limited</td>
+<td>Open Horizon manages networking</td>
+</tr>
+<tr>
+<td><code>build</code></td>
+<td>❌ Not supported</td>
+<td>Pre-build images and use <code>image</code> field</td>
+</tr>
+<tr>
+<td><code>secrets</code> / <code>configs</code></td>
+<td>❌ Not supported</td>
+<td>Use environment variables or bind mounts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-simple-compose-file">Example: Simple Compose File</h3>
+<p><strong>Input docker-compose.yml:</strong></p>
+<pre><code class="language-yaml">services:
+  web:
+    image: nginx:alpine
+    ports:
+      - '8080:80'
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+</code></pre>
+<p><strong>Command:</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml
+</code></pre>
+<p><strong>Generated SDF:</strong></p>
+<pre><code class="language-json">{
+  &quot;label&quot;: &quot;compose-project&quot;,
+  &quot;description&quot;: &quot;Multi-container service generated from docker-compose.yml&quot;,
+  &quot;url&quot;: &quot;compose-project&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;arch&quot;: &quot;amd64&quot;,
+  &quot;sharable&quot;: &quot;multiple&quot;,
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;web&quot;: {
+        &quot;image&quot;: &quot;nginx:alpine&quot;,
+        &quot;ports&quot;: [
+          {
+            &quot;HostIP&quot;: &quot;0.0.0.0&quot;,
+            &quot;HostPort&quot;: &quot;8080:80/tcp&quot;
+          }
+        ],
+        &quot;environment&quot;: [&quot;NGINX_HOST=localhost&quot;, &quot;NGINX_PORT=80&quot;]
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="environment-variable-substitution">Environment Variable Substitution</h3>
+<p>Docker Compose environment variable syntax is fully supported:</p>
+<pre><code class="language-yaml">services:
+  app:
+    image: ${APP_IMAGE:-myapp:latest}
+    ports:
+      - '${APP_PORT:-3000}:3000'
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+</code></pre>
+<p>Supported formats:</p>
+<ul>
+<li><code>${VAR}</code> - Simple substitution</li>
+<li><code>${VAR:-default}</code> - Use default if VAR is unset or empty</li>
+<li><code>${VAR-default}</code> - Use default only if VAR is unset</li>
+</ul>
+<h3 id="compose-format-support">Compose Format Support</h3>
+<p>Both legacy and modern Compose formats are supported:</p>
+<p><strong>Legacy v2.x format:</strong></p>
+<pre><code class="language-yaml">version: '2.4'
+services:
+  web:
+    image: nginx
+</code></pre>
+<p><strong>Modern Compose Specification (recommended):</strong></p>
+<pre><code class="language-yaml">services:
+  web:
+    image: nginx
+</code></pre>
+<p>Note: The <code>version</code> field is deprecated in the Compose Specification and will trigger a warning.</p>
+<h3 id="real-world-example-wordpress">Real-World Example: WordPress</h3>
+<p><strong>Input docker-compose.yml:</strong></p>
+<pre><code class="language-yaml">services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - '8080:80'
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
+</code></pre>
+<p>The generated SDF will include both services with proper dependency mapping via <code>requiredServices</code>.</p>
+<h2 id="generation-strategies-single-sdf-vs-multi-sdf">Generation Strategies: Single-SDF vs Multi-SDF</h2>
+<p>When converting Docker Compose files, Container Converter supports two generation strategies:</p>
+<h3 id="single-sdf-strategy">Single-SDF Strategy</h3>
+<p><strong>What it does:</strong> Generates one SDF file containing all services in the <code>deployment.services</code> dictionary.</p>
+<p><strong>Best for:</strong>
+- Simple applications (1-3 services)
+- Services without complex dependencies
+- Tightly coupled services that should always deploy together
+- Development and testing scenarios</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml --strategy single-sdf -o app.json
+</code></pre>
+<p><strong>Generated structure:</strong></p>
+<pre><code class="language-json">{
+  &quot;label&quot;: &quot;my-app&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;web&quot;: { &quot;image&quot;: &quot;nginx:alpine&quot;, ... },
+      &quot;api&quot;: { &quot;image&quot;: &quot;myapi:1.0&quot;, ... },
+      &quot;cache&quot;: { &quot;image&quot;: &quot;redis:7&quot;, ... }
+    }
+  }
+}
+</code></pre>
+<p><strong>Advantages:</strong>
+- Single file to manage
+- All services deploy atomically
+- Simpler for small applications</p>
+<p><strong>Limitations:</strong>
+- Cannot version services independently
+- Cannot reuse services across patterns
+- All services must be on same architecture</p>
+<h3 id="multi-sdf-strategy">Multi-SDF Strategy</h3>
+<p><strong>What it does:</strong> Generates separate SDF files for each service, with dependencies mapped to <code>requiredServices</code>.</p>
+<p><strong>Best for:</strong>
+- Complex applications (4+ services)
+- Services with dependencies (<code>depends_on</code>)
+- Services that need independent versioning
+- Reusable service components
+- Production deployments</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml --strategy multi-sdf --output-dir ./sdfs/
+</code></pre>
+<p><strong>Generated structure:</strong></p>
+<pre><code>sdfs/
+├── web.json          # Web service SDF
+├── api.json          # API service SDF (requires: db)
+└── db.json           # Database service SDF
+</code></pre>
+<p>Each SDF includes <code>requiredServices</code> for dependencies:</p>
+<pre><code class="language-json">{
+  &quot;label&quot;: &quot;my-app - api&quot;,
+  &quot;url&quot;: &quot;my-app.api&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;requiredServices&quot;: [
+    {
+      &quot;url&quot;: &quot;my-app.db&quot;,
+      &quot;org&quot;: &quot;myorg&quot;,
+      &quot;versionRange&quot;: &quot;1.0.0&quot;,
+      &quot;arch&quot;: &quot;amd64&quot;
+    }
+  ],
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;api&quot;: { &quot;image&quot;: &quot;myapi:1.0&quot;, ... }
+    }
+  }
+}
+</code></pre>
+<p><strong>Advantages:</strong>
+- Independent service versioning
+- Service reusability across patterns
+- Better for microservices architecture
+- Follows Open Horizon best practices</p>
+<p><strong>Limitations:</strong>
+- Multiple files to manage
+- Requires understanding of service dependencies
+- More complex deployment workflow</p>
+<h3 id="strategy-selection-guidelines">Strategy Selection Guidelines</h3>
+<p>Container Converter automatically infers the best strategy based on your Compose file:</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Inferred Strategy</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≤3 services, no dependencies</td>
+<td><code>single-sdf</code></td>
+<td>Simple application</td>
+</tr>
+<tr>
+<td>&gt;3 services</td>
+<td><code>multi-sdf</code></td>
+<td>Complex application</td>
+</tr>
+<tr>
+<td>Has <code>depends_on</code></td>
+<td><code>multi-sdf</code></td>
+<td>Service dependencies</td>
+</tr>
+<tr>
+<td>Multiple networks</td>
+<td><code>multi-sdf</code></td>
+<td>Complex networking</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Override automatic inference:</strong></p>
+<pre><code class="language-bash"># Force single-SDF for a complex app
+container-converter docker-compose.yml --strategy single-sdf
+
+# Force multi-SDF for a simple app
+container-converter docker-compose.yml --strategy multi-sdf --output-dir ./sdfs/
+</code></pre>
+<h3 id="multi-sdf-workflow-examples">Multi-SDF Workflow Examples</h3>
+<h4 id="example-1-convert-and-validate-all-sdfs">Example 1: Convert and Validate All SDFs</h4>
+<pre><code class="language-bash"># Generate multi-SDF
+container-converter docker-compose.yml \
+  --strategy multi-sdf \
+  --output-dir ./sdfs/ \
+  --org myorg \
+  --validate
+
+# Output:
+# ✓ Generated: sdfs/web.json
+# ✓ Generated: sdfs/api.json
+# ✓ Generated: sdfs/db.json
+# ✓ Validated: sdfs/web.json
+# ✓ Validated: sdfs/api.json
+# ✓ Validated: sdfs/db.json
+</code></pre>
+<h4 id="example-2-publish-all-services-to-exchange">Example 2: Publish All Services to Exchange</h4>
+<pre><code class="language-bash"># Publish all SDFs (publishes in dependency order)
+container-converter docker-compose.yml \
+  --strategy multi-sdf \
+  --output-dir ./sdfs/ \
+  --publish \
+  --org myorg
+
+# Output:
+# ✓ Published: myorg/my-app.db@1.0.0
+# ✓ Published: myorg/my-app.api@1.0.0 (requires: my-app.db)
+# ✓ Published: myorg/my-app.web@1.0.0 (requires: my-app.api)
+</code></pre>
+<h4 id="example-3-complex-edgex-style-deployment">Example 3: Complex EdgeX-Style Deployment</h4>
+<pre><code class="language-bash"># Convert EdgeX-style compose with many services
+container-converter edgex-compose.yml \
+  --strategy multi-sdf \
+  --output-dir ./edgex-sdfs/ \
+  --org edgex \
+  --svc-version 3.0.0 \
+  -a arm64
+
+# Generates separate SDFs for:
+# - consul, redis, mqtt-broker (infrastructure)
+# - core-data, core-metadata, core-command (core services)
+# - device-virtual, device-rest (device services)
+# - app-rules-engine (application services)
+</code></pre>
+<h3 id="dependency-graph-visualization">Dependency Graph Visualization</h3>
+<p>When using multi-SDF strategy, Container Converter builds a dependency graph:</p>
+<pre><code>wordpress.db (no dependencies)
+    ↑
+    └── wordpress.wordpress (depends on: db)
+</code></pre>
+<p>Services are published in topological order (dependencies first) to ensure all <code>requiredServices</code> exist in the Exchange before dependent services are published.</p>
+<h3 id="migration-from-docker-compose">Migration from Docker Compose</h3>
+<p>When migrating from docker-compose to Open Horizon, follow this comprehensive guide:</p>
+<h4 id="step-1-pre-flight-preparation">Step 1: Pre-flight Preparation</h4>
+<p><strong>1.1 Build and Push Images</strong></p>
+<p>If your Compose file uses <code>build</code> sections, you must pre-build and push images:</p>
+<pre><code class="language-bash"># Build images
+docker-compose build
+
+# Tag for your registry
+docker tag myapp_web:latest myregistry.io/myapp-web:1.0.0
+docker tag myapp_api:latest myregistry.io/myapp-api:1.0.0
+
+# Push to registry
+docker push myregistry.io/myapp-web:1.0.0
+docker push myregistry.io/myapp-api:1.0.0
+</code></pre>
+<p><strong>1.2 Update Compose File</strong></p>
+<p>Replace <code>build</code> sections with <code>image</code> references:</p>
+<pre><code class="language-yaml"># Before
+services:
+  web:
+    build: ./web
+
+# After
+services:
+  web:
+    image: myregistry.io/myapp-web:1.0.0
+</code></pre>
+<p><strong>1.3 Handle Named Volumes</strong></p>
+<p>Replace named volumes with bind mounts for edge deployments:</p>
+<pre><code class="language-yaml"># Before (named volume)
+services:
+  db:
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data:
+
+# After (bind mount)
+services:
+  db:
+    volumes:
+      - /data/mysql:/var/lib/mysql:rw
+</code></pre>
+<p><strong>Why?</strong> Named volumes require Docker volume management, which may not be available on all edge devices. Bind mounts give you explicit control over data persistence.</p>
+<h4 id="step-2-choose-generation-strategy">Step 2: Choose Generation Strategy</h4>
+<p><strong>For simple applications (1-3 services, no dependencies):</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml --strategy single-sdf -o app.json
+</code></pre>
+<p><strong>For complex applications (4+ services, dependencies):</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml --strategy multi-sdf --output-dir ./sdfs/
+</code></pre>
+<p><strong>Let Container Converter decide (recommended):</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml  # Auto-infers best strategy
+</code></pre>
+<h4 id="step-3-validate-generated-sdfs">Step 3: Validate Generated SDFs</h4>
+<p><strong>Validate schema locally:</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml --validate
+</code></pre>
+<p><strong>Test on edge device:</strong></p>
+<pre><code class="language-bash"># Copy SDF to edge device
+scp app.json edge-device:/tmp/
+
+# On edge device, register the service
+hzn register -n edge-node -p /tmp/app.json
+</code></pre>
+<h4 id="step-4-publish-to-exchange">Step 4: Publish to Exchange</h4>
+<p><strong>Single-SDF:</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml \
+  --publish \
+  --org myorg \
+  --config agent-install.cfg
+</code></pre>
+<p><strong>Multi-SDF (publishes all in dependency order):</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml \
+  --strategy multi-sdf \
+  --output-dir ./sdfs/ \
+  --publish \
+  --org myorg
+</code></pre>
+<h4 id="step-5-create-deployment-policy-or-pattern">Step 5: Create Deployment Policy or Pattern</h4>
+<p>After publishing services, create a deployment policy or pattern:</p>
+<p><strong>Example Policy (policy.json):</strong></p>
+<pre><code class="language-json">{
+  &quot;label&quot;: &quot;My App Deployment Policy&quot;,
+  &quot;description&quot;: &quot;Deploy my-app services to edge nodes&quot;,
+  &quot;service&quot;: {
+    &quot;name&quot;: &quot;my-app.web&quot;,
+    &quot;org&quot;: &quot;myorg&quot;,
+    &quot;arch&quot;: &quot;amd64&quot;,
+    &quot;serviceVersions&quot;: [
+      {
+        &quot;version&quot;: &quot;1.0.0&quot;
+      }
+    ]
+  },
+  &quot;properties&quot;: [],
+  &quot;constraints&quot;: [
+    &quot;purpose == production&quot;
+  ]
+}
+</code></pre>
+<p><strong>Register policy:</strong></p>
+<pre><code class="language-bash">hzn exchange deployment addpolicy -f policy.json my-app-policy
+</code></pre>
+<h4 id="common-migration-challenges">Common Migration Challenges</h4>
+<p><strong>Challenge 1: Custom Networks</strong></p>
+<pre><code class="language-yaml"># Compose file with custom networks
+networks:
+  frontend:
+  backend:
+</code></pre>
+<p><strong>Solution:</strong> Open Horizon manages networking automatically. Services can communicate using service names as hostnames. Remove custom network definitions.</p>
+<p><strong>Challenge 2: Health Checks</strong></p>
+<pre><code class="language-yaml"># Compose healthcheck
+healthcheck:
+  test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost/health&quot;]
+  interval: 30s
+</code></pre>
+<p><strong>Solution:</strong> Open Horizon uses agreement-based health monitoring. Remove healthcheck definitions. Configure node health policies instead.</p>
+<p><strong>Challenge 3: Resource Limits</strong></p>
+<pre><code class="language-yaml"># Compose resource limits
+deploy:
+  resources:
+    limits:
+      cpus: '0.5'
+      memory: 512M
+</code></pre>
+<p><strong>Solution:</strong> Open Horizon handles resource management at the node level. Remove deploy sections. Configure node constraints in deployment policies.</p>
+<p><strong>Challenge 4: Secrets and Configs</strong></p>
+<pre><code class="language-yaml"># Compose secrets
+secrets:
+  db_password:
+    file: ./secrets/db_password.txt
+</code></pre>
+<p><strong>Solution:</strong> Use environment variables or Open Horizon's secret management:</p>
+<pre><code class="language-yaml"># Use environment variables instead
+environment:
+  DB_PASSWORD: ${DB_PASSWORD}
+</code></pre>
+<p>Then set on edge node:</p>
+<pre><code class="language-bash">export DB_PASSWORD=&quot;secure-password&quot;
+hzn register ...
+</code></pre>
+<h4 id="migration-checklist">Migration Checklist</h4>
+<ul>
+<li>[ ] All images built and pushed to accessible registry</li>
+<li>[ ] <code>build</code> sections removed from Compose file</li>
+<li>[ ] Named volumes replaced with bind mounts</li>
+<li>[ ] Custom networks removed (or documented as not needed)</li>
+<li>[ ] Health checks removed (or documented)</li>
+<li>[ ] Resource limits removed (or documented)</li>
+<li>[ ] Secrets/configs migrated to environment variables</li>
+<li>[ ] Generated SDF(s) validated with <code>--validate</code></li>
+<li>[ ] Tested on edge device</li>
+<li>[ ] Published to Exchange</li>
+<li>[ ] Deployment policy/pattern created</li>
+<li>[ ] Monitoring configured</li>
+</ul>
+<h4 id="best-practices">Best Practices</h4>
+<ol>
+<li><strong>Version Everything</strong>: Use explicit image tags (not <code>latest</code>) for reproducible deployments</li>
+<li><strong>Test Locally First</strong>: Use <code>docker-compose up</code> to verify your updated Compose file works</li>
+<li><strong>Start Simple</strong>: Begin with single-SDF for initial testing, migrate to multi-SDF for production</li>
+<li><strong>Document Dependencies</strong>: Clearly document service dependencies in your Compose file</li>
+<li><strong>Plan Data Persistence</strong>: Design your bind mount strategy before deployment</li>
+<li><strong>Monitor Edge Nodes</strong>: Set up monitoring for edge deployments (different from cloud monitoring)</li>
+<li><strong>Rollback Strategy</strong>: Keep previous SDF versions for quick rollback if needed</li>
+</ol>
+<h4 id="example-complete-migration">Example: Complete Migration</h4>
+<p><strong>Original docker-compose.yml:</strong></p>
+<pre><code class="language-yaml">version: '3.8'
+services:
+  web:
+    build: ./web
+    ports:
+      - &quot;8080:80&quot;
+    depends_on:
+      - api
+    networks:
+      - frontend
+
+  api:
+    build: ./api
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: postgres:15
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  db-data:
+
+networks:
+  frontend:
+  backend:
+</code></pre>
+<p><strong>Migrated docker-compose.yml:</strong></p>
+<pre><code class="language-yaml">services:
+  web:
+    image: myregistry.io/myapp-web:1.0.0
+    ports:
+      - &quot;8080:80&quot;
+    depends_on:
+      - api
+
+  api:
+    image: myregistry.io/myapp-api:1.0.0
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    volumes:
+      - /data/postgres:/var/lib/postgresql/data:rw
+</code></pre>
+<p><strong>Conversion command:</strong></p>
+<pre><code class="language-bash">container-converter docker-compose.yml \
+  --strategy multi-sdf \
+  --output-dir ./sdfs/ \
+  --org myorg \
+  --svc-version 1.0.0 \
+  --validate \
+  --publish
+</code></pre>
+<p><strong>Result:</strong> Three SDFs published to Exchange with proper dependencies, ready for edge deployment.</p>
+<h2 id="mcp-server">MCP Server</h2>
+<p>Container Converter includes an MCP (Model Context Protocol) server that exposes its functionality as tools for AI assistants.</p>
+<h3 id="running-the-mcp-server">Running the MCP Server</h3>
+<pre><code class="language-bash"># Run directly with tsx
+npx tsx src/mcp/server.ts
+
+# Or after building
+container-converter-mcp
+</code></pre>
+<h3 id="available-mcp-tools">Available MCP Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>convert_dockerfile</code></td>
+<td>Convert a Dockerfile to an SDF</td>
+</tr>
+<tr>
+<td><code>validate_sdf</code></td>
+<td>Validate an SDF (schema and/or CLI)</td>
+</tr>
+<tr>
+<td><code>publish_sdf</code></td>
+<td>Publish SDF to Open Horizon Exchange</td>
+</tr>
+<tr>
+<td><code>check_hzn_cli</code></td>
+<td>Check if hzn CLI is available and get version</td>
+</tr>
+<tr>
+<td><code>list_exchange_services</code></td>
+<td>List services in the Exchange</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tool-parameters">Tool Parameters</h3>
+<h4 id="convert_dockerfile">convert_dockerfile</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dockerfile_path</code></td>
+<td>Yes</td>
+<td>Path to Dockerfile</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>No</td>
+<td>Service name</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>No</td>
+<td>Service version (default: 1.0.0)</td>
+</tr>
+<tr>
+<td><code>arch</code></td>
+<td>No</td>
+<td>Target architecture (default: amd64)</td>
+</tr>
+<tr>
+<td><code>org</code></td>
+<td>No</td>
+<td>Organization ID</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>No</td>
+<td>Service description</td>
+</tr>
+<tr>
+<td><code>output_path</code></td>
+<td>No</td>
+<td>Path to save generated SDF</td>
+</tr>
+</tbody>
+</table>
+<h4 id="validate_sdf">validate_sdf</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sdf</code></td>
+<td>Yes</td>
+<td>File path or SDF object</td>
+</tr>
+<tr>
+<td><code>use_cli</code></td>
+<td>No</td>
+<td>Also validate with hzn CLI (default: true)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="publish_sdf">publish_sdf</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sdf</code></td>
+<td>Yes</td>
+<td>File path or SDF object</td>
+</tr>
+<tr>
+<td><code>config_path</code></td>
+<td>No</td>
+<td>Path to Exchange config file</td>
+</tr>
+<tr>
+<td><code>creds_path</code></td>
+<td>No</td>
+<td>Path to credentials file</td>
+</tr>
+<tr>
+<td><code>overwrite</code></td>
+<td>No</td>
+<td>Overwrite if service exists</td>
+</tr>
+<tr>
+<td><code>dry_run</code></td>
+<td>No</td>
+<td>Validate without publishing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mcp-configuration-for-ai-assistants">MCP Configuration for AI Assistants</h3>
+<p>Add to your MCP configuration:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;container-converter&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;tsx&quot;, &quot;/path/to/src/mcp/server.ts&quot;]
+    }
+  }
+}
+</code></pre>
+<h2 id="interactive-tui">Interactive TUI</h2>
+<p>The interactive Terminal User Interface provides a conversational workflow for container conversion.</p>
+<h3 id="running-the-tui">Running the TUI</h3>
+<pre><code class="language-bash"># Run directly with tsx
+npx tsx src/tui/index.tsx
+
+# Or after building
+container-converter-tui
+</code></pre>
+<h3 id="tui-commands">TUI Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>convert &lt;dockerfile&gt;</code></td>
+<td>Convert a Dockerfile to SDF</td>
+</tr>
+<tr>
+<td><code>validate &lt;sdf-file&gt;</code></td>
+<td>Validate an SDF file</td>
+</tr>
+<tr>
+<td><code>publish &lt;sdf-file&gt;</code></td>
+<td>Publish SDF to Exchange</td>
+</tr>
+<tr>
+<td><code>check cli</code></td>
+<td>Check hzn CLI availability</td>
+</tr>
+<tr>
+<td><code>list services</code></td>
+<td>List Exchange services</td>
+</tr>
+<tr>
+<td><code>preview</code></td>
+<td>Preview current SDF</td>
+</tr>
+<tr>
+<td><code>save &lt;path&gt;</code></td>
+<td>Save current SDF to file</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td>Show available commands</td>
+</tr>
+<tr>
+<td><code>quit</code></td>
+<td>Exit the application</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tui-features">TUI Features</h3>
+<ul>
+<li>Conversational interface with command history</li>
+<li>Visual progress indicators</li>
+<li>SDF preview and editing workflow</li>
+<li>Color-coded output (info, success, warning, error)</li>
+<li>Keyboard shortcuts (Ctrl+C to exit)</li>
+</ul>
+<h2 id="library-api">Library API</h2>
+<p>Container Converter can be used as a library in your Node.js projects.</p>
+<h3 id="installation_1">Installation</h3>
+<pre><code class="language-bash">npm install container-converter
+</code></pre>
+<h3 id="usage_1">Usage</h3>
+<pre><code class="language-typescript">import {
+  DockerfileParser,
+  SDFGenerator,
+  SDFValidator,
+  publishService,
+  getCredentials,
+} from 'container-converter';
+import { readFileSync } from 'fs';
+
+// Parse a Dockerfile
+const dockerfile = readFileSync('Dockerfile', 'utf-8');
+const parser = new DockerfileParser();
+const dockerfileData = parser.parse(dockerfile);
+
+// Generate SDF
+const generator = new SDFGenerator();
+const sdf = generator.generate(dockerfileData, {
+  name: 'my-service',
+  version: '1.0.0',
+  organization: 'myorg',
+});
+
+// Validate SDF
+const validator = new SDFValidator();
+const schemaResult = validator.validateSchema(sdf);
+if (!schemaResult.valid) {
+  console.error('Validation errors:', schemaResult.errors);
+}
+
+// Publish to Exchange
+const credentials = await getCredentials();
+if (credentials) {
+  const result = await publishService({
+    credentials,
+    sdf,
+  });
+  console.log('Published:', result.serviceId);
+}
+</code></pre>
+<h3 id="api-reference">API Reference</h3>
+<h4 id="dockerfileparser">DockerfileParser</h4>
+<pre><code class="language-typescript">class DockerfileParser {
+  parse(content: string): DockerfileData;
+}
+
+interface DockerfileData {
+  baseImage: string;
+  exposedPorts: number[];
+  environment: Record&lt;string, string&gt;;
+  commands: string[][];
+  workdir: string;
+  user: string;
+  volumes: string[];
+  labels: Record&lt;string, string&gt;;
+}
+</code></pre>
+<h4 id="sdfgenerator">SDFGenerator</h4>
+<pre><code class="language-typescript">class SDFGenerator {
+  generate(dockerfileData: DockerfileData, metadata?: Partial&lt;ServiceMetadata&gt;): ServiceDefinition;
+}
+
+interface ServiceMetadata {
+  name: string;
+  version: string;
+  architecture: string;
+  organization: string;
+  description: string;
+}
+</code></pre>
+<h4 id="sdfvalidator">SDFValidator</h4>
+<pre><code class="language-typescript">class SDFValidator {
+  validateSchema(sdf: ServiceDefinition): ValidationResult;
+  validateWithCli(sdf: ServiceDefinition): Promise&lt;ValidationResult&gt;;
+  validateFull(sdf: ServiceDefinition): Promise&lt;ValidationResult&gt;;
+}
+
+interface ValidationResult {
+  valid: boolean;
+  errors: Array&lt;{ field?: string; message: string }&gt;;
+  cliAvailable?: boolean;
+}
+</code></pre>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<h4 id="hzn-cli-not-found">"hzn CLI not found"</h4>
+<p>The Open Horizon CLI is required for validation and publishing. Install it from:
+https://github.com/open-horizon/anax</p>
+<pre><code class="language-bash"># Check if hzn is installed
+which hzn
+
+# Check version
+hzn version
+</code></pre>
+<h4 id="no-exchange-credentials-found">"No Exchange credentials found"</h4>
+<p>Ensure environment variables are set:</p>
+<pre><code class="language-bash">export HZN_ORG_ID=your-org
+export HZN_EXCHANGE_USER_AUTH=user:password
+export HZN_EXCHANGE_URL=http://your-exchange:3090/v1
+</code></pre>
+<p>Or provide config files:</p>
+<pre><code class="language-bash">container-converter Dockerfile --publish \
+  --config agent-install.cfg \
+  --creds mycreds.env
+</code></pre>
+<h4 id="exchange-connection-failed">"Exchange connection failed"</h4>
+<ol>
+<li>Verify the Exchange URL is correct and accessible</li>
+<li>Check network connectivity</li>
+<li>Ensure the Exchange service is running</li>
+</ol>
+<pre><code class="language-bash"># Test connectivity
+curl -s $HZN_EXCHANGE_URL/admin/status
+</code></pre>
+<h4 id="schema-validation-failed">"Schema validation failed"</h4>
+<p>The generated SDF is missing required fields. Check:</p>
+<ul>
+<li>The Dockerfile has a valid <code>FROM</code> instruction</li>
+<li>Required fields are provided via CLI options if not inferable</li>
+</ul>
+<h3 id="debug-mode">Debug Mode</h3>
+<p>Enable stack traces for detailed error information:</p>
+<pre><code class="language-bash">DEBUG=1 container-converter Dockerfile
+</code></pre>
+<h2 id="development">Development</h2>
+<h3 id="setup">Setup</h3>
+<pre><code class="language-bash">git clone https://github.com/your-org/container-converter.git
+cd container-converter
+npm install
+</code></pre>
+<h3 id="scripts">Scripts</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm run dev</code></td>
+<td>Start development server with hot reload</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Build production bundle</td>
+</tr>
+<tr>
+<td><code>npm test</code></td>
+<td>Run all tests</td>
+</tr>
+<tr>
+<td><code>npm run test:watch</code></td>
+<td>Run tests in watch mode</td>
+</tr>
+<tr>
+<td><code>npm run test:coverage</code></td>
+<td>Run tests with coverage report</td>
+</tr>
+<tr>
+<td><code>npm run lint</code></td>
+<td>Run ESLint</td>
+</tr>
+<tr>
+<td><code>npm run lint:fix</code></td>
+<td>Auto-fix ESLint issues</td>
+</tr>
+<tr>
+<td><code>npm run format</code></td>
+<td>Format code with Prettier</td>
+</tr>
+<tr>
+<td><code>npm run typecheck</code></td>
+<td>Run TypeScript type checking</td>
+</tr>
+<tr>
+<td><code>npm run validate</code></td>
+<td>Run full validation (lint + typecheck + test)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="project-structure">Project Structure</h3>
+<pre><code>src/
+├── cli/           # Command-line interface
+├── mcp/           # MCP Server implementation
+├── tui/           # Interactive terminal UI
+├── parser/        # Dockerfile parsing logic
+├── generator/     # SDF generation logic
+├── validator/     # SDF validation logic
+├── publisher/     # Exchange authentication and publishing
+├── types/         # TypeScript type definitions
+├── utils/         # Shared utilities
+└── index.ts       # Main entry point
+
+tests/
+├── unit/          # Unit tests
+├── integration/   # Integration tests
+└── fixtures/      # Test data and examples
+</code></pre>
+<h3 id="running-tests">Running Tests</h3>
+<pre><code class="language-bash"># Run all tests
+npm test
+
+# Run specific test file
+npm test -- --testPathPattern=&quot;sdf-generator&quot;
+
+# Run with coverage
+npm run test:coverage
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch (<code>git checkout -b feature/my-feature</code>)</li>
+<li>Make your changes</li>
+<li>Run validation (<code>npm run validate</code>)</li>
+<li>Commit your changes (<code>git commit -s -m "feat: add my feature"</code>)</li>
+<li>Push to the branch (<code>git push origin feature/my-feature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<h3 id="commit-message-format">Commit Message Format</h3>
+<p>We use <a href="https://www.conventionalcommits.org/">Conventional Commits</a>:</p>
+<ul>
+<li><code>feat:</code> New feature</li>
+<li><code>fix:</code> Bug fix</li>
+<li><code>docs:</code> Documentation changes</li>
+<li><code>test:</code> Test changes</li>
+<li><code>refactor:</code> Code refactoring</li>
+<li><code>chore:</code> Maintenance tasks</li>
+</ul>
+<h2 id="license">License</h2>
+<p>Apache-2.0</p>
+<h2 id="related-resources">Related Resources</h2>
+<ul>
+<li><a href="https://open-horizon.github.io/">Open Horizon Documentation</a></li>
+<li><a href="https://github.com/open-horizon/examples">Open Horizon Examples</a></li>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

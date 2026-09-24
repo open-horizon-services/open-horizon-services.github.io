@@ -1,0 +1,3324 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified documentation portal for the Open Horizon Services organization. Aggregates docs from all service, utility, skills, and web repositories.">
+      
+      
+        <meta name="author" content="Open Horizon Services">
+      
+      
+        <link rel="canonical" href="https://open-horizon-services.github.io/_repos/service-ollama/docs/operations/service-updates/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Service Updates - Open Horizon Services Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#service-updates" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Open Horizon Services Documentation" class="md-header__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Horizon Services Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Service Updates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../_sections/services/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../_sections/utilities/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Utilities
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../_sections/skills/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../_sections/web/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Web
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Open Horizon Services Documentation" class="md-nav__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.svg" alt="logo">
+
+    </a>
+    Open Horizon Services Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../_sections/services/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-agent-dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-agent-dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-anylog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-anylog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-contextforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-contextforge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-detectron2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-detectron2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-edgelake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgelake
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-edgelake-federated-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgelake-federated-learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-edgex-foundry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-edgex-foundry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-envizi-integration-hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-envizi-integration-hub-backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub-backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-fledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-fledge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-grafana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-grafana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-helloMMS-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-helloMMS-go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-homeassistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-homeassistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-kubearmor-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-kubearmor-security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-liquid-prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-liquid-prep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-minecraft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-minecraft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-mongodb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-mqtt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-nginx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-node-red-hello-world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-node-red-hello-world
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-node-red-object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-node-red-object-detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-nvcsi-restcam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-nvcsi-restcam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-ollama
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-open-horizon-mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-open-horizon-mcp-server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-postgresql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-postgresql
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-qiskit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-qiskit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-qr-code-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-qr-code-generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-restcam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-restcam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-sbom-policy-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-sbom-policy-generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-sms-me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-sms-me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-speak-ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-speak-ip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-yolo-cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-cpu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-yolo-cuda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-cuda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../service-yolo-vino/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-yolo-vino
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../_sections/utilities/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utility-container-converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-container-converter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utility-hzn-mgmt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-hzn-mgmt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utility-raspberry-pi-image-builder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-raspberry-pi-image-builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utility-secrets-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-secrets-manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../_sections/skills/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../skills-open-horizon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    skills-open-horizon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../_sections/web/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../web-helloworld-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-c
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../web-helloworld-cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-cpp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../web-helloworld-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../web-helloworld-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../web-helloworld-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../web-helloworld-ruby/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web-helloworld-ruby
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ollama-version-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama Version Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ollama Version Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-current-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Current Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-check-for-new-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Check for New Versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-service-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Update Service Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-arm64-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Update ARM64 Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-validate-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Validate Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-publish-updated-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Publish Updated Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-update-deployment-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Update Deployment Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-trigger-update-on-edge-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Trigger Update on Edge Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-verify-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Verify Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-pinning-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Pinning Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifying-service-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modifying Service Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifying Service Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-port-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Port Mappings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-volume-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Volume Mounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-configuration-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply Configuration Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-user-input-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating User Input Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-redeployment-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Redeployment Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service Redeployment Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#planned-redeployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planned Redeployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planned Redeployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-publish-during-maintenance-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Publish During Maintenance Window
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-monitor-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Monitor Rollout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Verify Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergency-redeployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergency Redeployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Procedures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Rollback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-identify-previous-working-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Identify Previous Working Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-deployment-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Update Deployment Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-publish-rollback-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Publish Rollback Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-trigger-rollback-on-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Trigger Rollback on Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify Rollback
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fast-rollback-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fast Rollback (Manual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-update-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Update Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#during-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        During Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-not-deploying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Not Deploying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-fails-mid-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Fails Mid-Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models-lost-after-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Models Lost After Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#track-update-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track Update Progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="service-updates">Service Updates</h1>
+<p>This guide covers procedures for updating the Ollama service itself, including version upgrades, configuration changes, and rollback procedures.</p>
+<h2 id="overview">Overview</h2>
+<p>Service updates involve changing the Ollama container version or modifying service configuration. Unlike model management, service updates require redeployment through Open Horizon.</p>
+<h2 id="update-types">Update Types</h2>
+<ol>
+<li><strong>Version Updates</strong>: Upgrading to a newer Ollama release</li>
+<li><strong>Configuration Changes</strong>: Modifying service parameters</li>
+<li><strong>Policy Updates</strong>: Changing deployment or service policies</li>
+<li><strong>Rollback</strong>: Reverting to a previous working version</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Access to Open Horizon Exchange</li>
+<li>Service publishing credentials</li>
+<li>Edge node access for verification</li>
+</ul>
+<h2 id="ollama-version-updates">Ollama Version Updates</h2>
+<h3 id="check-current-version">Check Current Version</h3>
+<pre><code class="language-bash"># From host machine
+curl -sS http://localhost:11434/api/version
+
+# Or inside container
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama --version
+</code></pre>
+<p><strong>Example Output:</strong></p>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;0.1.17&quot;
+}
+</code></pre>
+<h3 id="update-procedure">Update Procedure</h3>
+<h4 id="step-1-check-for-new-versions">Step 1: Check for New Versions</h4>
+<p>Visit <a href="https://github.com/ollama/ollama/releases">Ollama Releases</a> or check Docker Hub:</p>
+<pre><code class="language-bash"># Check available tags
+curl -sS https://hub.docker.com/v2/repositories/ollama/ollama/tags | jq '.results[].name' | head -10
+</code></pre>
+<h4 id="step-2-update-service-definition">Step 2: Update Service Definition</h4>
+<p>Update the image version in your service definition:</p>
+<pre><code class="language-bash"># Edit service definition
+vi horizon/service.definition.json
+
+# Update version in deployment section
+# Change: &quot;image&quot;: &quot;docker.io/ollama/ollama:latest&quot;
+# To: &quot;image&quot;: &quot;docker.io/ollama/ollama:0.1.20&quot;
+
+# Also update service version
+# Change: &quot;version&quot;: &quot;0.1.0&quot;
+# To: &quot;version&quot;: &quot;0.1.1&quot;
+</code></pre>
+<p><strong>Example Change:</strong></p>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;0.1.1&quot;,
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;ollama&quot;: {
+        &quot;image&quot;: &quot;docker.io/ollama/ollama:0.1.20&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<h4 id="step-3-update-arm64-definition">Step 3: Update ARM64 Definition</h4>
+<p>Don't forget to update the ARM64 service definition:</p>
+<pre><code class="language-bash">vi horizon/service.definition.arm64.json
+# Make the same changes as above
+</code></pre>
+<h4 id="step-4-validate-changes">Step 4: Validate Changes</h4>
+<pre><code class="language-bash"># Validate service definition
+make validate-service
+
+# Check for syntax errors
+cat horizon/service.definition.json | jq .
+</code></pre>
+<h4 id="step-5-publish-updated-service">Step 5: Publish Updated Service</h4>
+<pre><code class="language-bash"># Set new version
+export SERVICE_VERSION=&quot;0.1.1&quot;
+
+# Publish updated service
+make publish-service
+
+# Publish for ARM64 if needed
+export ARCH=&quot;arm64&quot;
+make publish-service
+export ARCH=&quot;amd64&quot;
+</code></pre>
+<p><strong>Expected Output:</strong></p>
+<pre><code>==================
+PUBLISHING SERVICE
+==================
+Publishing service definition...
+Service published: your-org-id/service-ollama_0.1.1_amd64
+</code></pre>
+<h4 id="step-6-update-deployment-policy">Step 6: Update Deployment Policy</h4>
+<p>Update the deployment policy to reference the new version:</p>
+<pre><code class="language-bash"># Edit deployment policy
+vi horizon/deployment.policy.json
+
+# Update serviceVersions
+# Add new version or update existing
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-json">{
+  &quot;service&quot;: {
+    &quot;serviceVersions&quot;: [
+      {
+        &quot;version&quot;: &quot;0.1.1&quot;,
+        &quot;priority&quot;: {},
+        &quot;upgradePolicy&quot;: {}
+      }
+    ]
+  }
+}
+</code></pre>
+<pre><code class="language-bash"># Publish updated deployment policy
+make publish-deployment-policy
+</code></pre>
+<h4 id="step-7-trigger-update-on-edge-nodes">Step 7: Trigger Update on Edge Nodes</h4>
+<p>The update will automatically deploy to registered nodes based on the deployment policy. Monitor the rollout:</p>
+<pre><code class="language-bash"># On edge node, watch for agreement updates
+watch hzn agreement list
+
+# Check service log for new version
+hzn service log -f service-ollama
+</code></pre>
+<p><strong>Automatic Update Process:</strong>
+1. Agbot detects new service version
+2. New agreement is proposed
+3. Old agreement is cancelled
+4. New container is deployed
+5. Old container is removed</p>
+<h4 id="step-8-verify-update">Step 8: Verify Update</h4>
+<pre><code class="language-bash"># Check new version
+curl -sS http://localhost:11434/api/version
+
+# Verify service is running
+docker ps | grep ollama
+
+# Test functionality
+curl -X POST http://localhost:11434/api/generate -d '{
+  &quot;model&quot;: &quot;llama2&quot;,
+  &quot;prompt&quot;: &quot;Test after update&quot;,
+  &quot;stream&quot;: false
+}'
+</code></pre>
+<h3 id="version-pinning-strategy">Version Pinning Strategy</h3>
+<p><strong>Production Best Practice:</strong> Pin to specific versions rather than using <code>latest</code>:</p>
+<pre><code class="language-json">{
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;ollama&quot;: {
+        &quot;image&quot;: &quot;docker.io/ollama/ollama:0.1.20&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p><strong>Benefits:</strong>
+- Predictable deployments
+- Easier rollback
+- Better testing control
+- Avoid unexpected breaking changes</p>
+<p><strong>Version Pinning Workflow:</strong>
+1. Test new version in staging environment
+2. Pin to tested version in production
+3. Document version in release notes
+4. Plan upgrade windows for version changes</p>
+<h2 id="configuration-changes">Configuration Changes</h2>
+<h3 id="modifying-service-parameters">Modifying Service Parameters</h3>
+<h4 id="update-environment-variables">Update Environment Variables</h4>
+<pre><code class="language-bash"># Edit service definition
+vi horizon/service.definition.json
+
+# Modify environment variables
+</code></pre>
+<p><strong>Example: Change Keep-Alive Duration</strong></p>
+<pre><code class="language-json">{
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;ollama&quot;: {
+        &quot;environment&quot;: [
+          &quot;OLLAMA_HOST=$OLLAMA_HOST&quot;,
+          &quot;OLLAMA_MODELS=$OLLAMA_MODELS&quot;,
+          &quot;OLLAMA_KEEP_ALIVE=10m&quot;
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<h4 id="update-port-mappings">Update Port Mappings</h4>
+<pre><code class="language-json">{
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;ollama&quot;: {
+        &quot;ports&quot;: [
+          {
+            &quot;HostPort&quot;: &quot;11435:11434/tcp&quot;,
+            &quot;HostIP&quot;: &quot;0.0.0.0&quot;
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<h4 id="update-volume-mounts">Update Volume Mounts</h4>
+<pre><code class="language-json">{
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;ollama&quot;: {
+        &quot;binds&quot;: [
+          &quot;/mnt/models:/root/.ollama:rw&quot;
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<h4 id="apply-configuration-changes">Apply Configuration Changes</h4>
+<pre><code class="language-bash"># Increment service version
+export SERVICE_VERSION=&quot;0.1.2&quot;
+
+# Update version in service definition
+sed -i 's/&quot;version&quot;: &quot;0.1.1&quot;/&quot;version&quot;: &quot;0.1.2&quot;/' horizon/service.definition.json
+
+# Validate and publish
+make validate-service
+make publish-service
+make publish-deployment-policy
+</code></pre>
+<h3 id="updating-user-input-variables">Updating User Input Variables</h3>
+<p>Modify default values for user-configurable parameters:</p>
+<pre><code class="language-json">{
+  &quot;userInput&quot;: [
+    {
+      &quot;name&quot;: &quot;OLLAMA_KEEP_ALIVE&quot;,
+      &quot;label&quot;: &quot;Duration to keep models loaded in memory&quot;,
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;defaultValue&quot;: &quot;10m&quot;
+    }
+  ]
+}
+</code></pre>
+<h2 id="service-redeployment-workflow">Service Redeployment Workflow</h2>
+<h3 id="planned-redeployment">Planned Redeployment</h3>
+<p>For scheduled updates with minimal disruption:</p>
+<h4 id="step-1-prepare-update">Step 1: Prepare Update</h4>
+<pre><code class="language-bash"># Update service definition
+# Update version number
+# Validate changes
+make validate-service
+</code></pre>
+<h4 id="step-2-publish-during-maintenance-window">Step 2: Publish During Maintenance Window</h4>
+<pre><code class="language-bash"># Publish new version
+make publish-service
+make publish-deployment-policy
+</code></pre>
+<h4 id="step-3-monitor-rollout">Step 3: Monitor Rollout</h4>
+<pre><code class="language-bash"># On edge nodes
+watch hzn agreement list
+
+# Check for new agreements
+# Verify old agreements are cancelled
+# Confirm new service is running
+</code></pre>
+<h4 id="step-4-verify-deployment">Step 4: Verify Deployment</h4>
+<pre><code class="language-bash"># Test service functionality
+curl http://localhost:11434/api/version
+
+# Check models are still available
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama&quot;) ollama list
+
+# Test inference
+curl -X POST http://localhost:11434/api/generate -d '{
+  &quot;model&quot;: &quot;llama2&quot;,
+  &quot;prompt&quot;: &quot;Test&quot;,
+  &quot;stream&quot;: false
+}'
+</code></pre>
+<h3 id="emergency-redeployment">Emergency Redeployment</h3>
+<p>For critical updates or fixes:</p>
+<pre><code class="language-bash"># Quick update process
+export SERVICE_VERSION=&quot;0.1.3&quot;
+
+# Update service definition with fix
+vi horizon/service.definition.json
+
+# Fast-track validation and publishing
+make validate-service &amp;&amp; make publish-service &amp;&amp; make publish-deployment-policy
+
+# Force immediate update on critical nodes
+# (Unregister and re-register to force new agreement)
+hzn unregister -f
+hzn register --policy=horizon/node.policy.json
+</code></pre>
+<h2 id="rollback-procedures">Rollback Procedures</h2>
+<h3 id="when-to-rollback">When to Rollback</h3>
+<ul>
+<li>New version causes service failures</li>
+<li>Performance degradation detected</li>
+<li>Compatibility issues with models</li>
+<li>Unexpected behavior or bugs</li>
+</ul>
+<h3 id="rollback-process">Rollback Process</h3>
+<h4 id="step-1-identify-previous-working-version">Step 1: Identify Previous Working Version</h4>
+<pre><code class="language-bash"># List published services
+make list-services
+
+# Identify last known good version
+# Example: service-ollama_0.1.0_amd64
+</code></pre>
+<h4 id="step-2-update-deployment-policy">Step 2: Update Deployment Policy</h4>
+<pre><code class="language-bash"># Edit deployment policy
+vi horizon/deployment.policy.json
+
+# Change to previous version
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-json">{
+  &quot;service&quot;: {
+    &quot;serviceVersions&quot;: [
+      {
+        &quot;version&quot;: &quot;0.1.0&quot;,
+        &quot;priority&quot;: {},
+        &quot;upgradePolicy&quot;: {}
+      }
+    ]
+  }
+}
+</code></pre>
+<h4 id="step-3-publish-rollback-policy">Step 3: Publish Rollback Policy</h4>
+<pre><code class="language-bash"># Publish updated deployment policy
+make publish-deployment-policy
+</code></pre>
+<h4 id="step-4-trigger-rollback-on-nodes">Step 4: Trigger Rollback on Nodes</h4>
+<p>The rollback will automatically deploy to nodes:</p>
+<pre><code class="language-bash"># On edge node, monitor rollback
+watch hzn agreement list
+
+# Verify old version is deployed
+curl http://localhost:11434/api/version
+</code></pre>
+<h4 id="step-5-verify-rollback">Step 5: Verify Rollback</h4>
+<pre><code class="language-bash"># Check service is running
+docker ps | grep ollama
+
+# Verify functionality
+curl -X POST http://localhost:11434/api/generate -d '{
+  &quot;model&quot;: &quot;llama2&quot;,
+  &quot;prompt&quot;: &quot;Test after rollback&quot;,
+  &quot;stream&quot;: false
+}'
+
+# Check models are intact
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama&quot;) ollama list
+</code></pre>
+<h3 id="fast-rollback-manual">Fast Rollback (Manual)</h3>
+<p>For immediate rollback on specific nodes:</p>
+<pre><code class="language-bash"># On edge node
+hzn unregister -f
+
+# Update node policy to pin to old version
+vi horizon/node.policy.json
+
+# Change service version preference
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-json">{
+  &quot;service&quot;: [
+    {
+      &quot;name&quot;: &quot;service-ollama&quot;,
+      &quot;org&quot;: &quot;$HZN_ORG_ID&quot;,
+      &quot;serviceVersions&quot;: [
+        {
+          &quot;version&quot;: &quot;0.1.0&quot;
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<pre><code class="language-bash"># Re-register with updated policy
+hzn register --policy=horizon/node.policy.json
+</code></pre>
+<h2 id="update-best-practices">Update Best Practices</h2>
+<h3 id="pre-update-checklist">Pre-Update Checklist</h3>
+<ul>
+<li>[ ] Review release notes for breaking changes</li>
+<li>[ ] Test update in staging environment</li>
+<li>[ ] Backup current configuration</li>
+<li>[ ] Document current version</li>
+<li>[ ] Plan rollback procedure</li>
+<li>[ ] Schedule maintenance window</li>
+<li>[ ] Notify stakeholders</li>
+</ul>
+<h3 id="during-update">During Update</h3>
+<ul>
+<li>[ ] Monitor agreement formation</li>
+<li>[ ] Watch service logs</li>
+<li>[ ] Verify container deployment</li>
+<li>[ ] Test basic functionality</li>
+<li>[ ] Check model availability</li>
+<li>[ ] Monitor resource usage</li>
+</ul>
+<h3 id="post-update">Post-Update</h3>
+<ul>
+<li>[ ] Verify all nodes updated</li>
+<li>[ ] Test full functionality</li>
+<li>[ ] Monitor for issues (24-48 hours)</li>
+<li>[ ] Document any issues encountered</li>
+<li>[ ] Update runbooks if needed</li>
+<li>[ ] Communicate completion</li>
+</ul>
+<h3 id="testing-strategy">Testing Strategy</h3>
+<ol>
+<li>
+<p><strong>Staging Environment:</strong>
+   <code>bash
+   # Deploy to test node first
+   export HZN_ORG_ID="staging-org"
+   make publish-service</code></p>
+</li>
+<li>
+<p><strong>Canary Deployment:</strong></p>
+</li>
+<li>Update single production node</li>
+<li>Monitor for 24 hours</li>
+<li>
+<p>Gradually roll out to more nodes</p>
+</li>
+<li>
+<p><strong>Blue-Green Deployment:</strong></p>
+</li>
+<li>Maintain two service versions</li>
+<li>Switch traffic between versions</li>
+<li>Quick rollback if needed</li>
+</ol>
+<h2 id="troubleshooting-updates">Troubleshooting Updates</h2>
+<h3 id="update-not-deploying">Update Not Deploying</h3>
+<p><strong>Symptom:</strong> New version not appearing on nodes</p>
+<p><strong>Solutions:</strong></p>
+<pre><code class="language-bash"># Check deployment policy is published
+hzn exchange deployment listpolicy
+
+# Verify service version exists
+make list-services
+
+# Check node policy compatibility
+make deploy-check
+
+# Force update
+hzn unregister -f
+hzn register --policy=horizon/node.policy.json
+</code></pre>
+<h3 id="update-fails-mid-deployment">Update Fails Mid-Deployment</h3>
+<p><strong>Symptom:</strong> Service stops working during update</p>
+<p><strong>Solutions:</strong></p>
+<pre><code class="language-bash"># Check event log
+hzn eventlog list | tail -20
+
+# Check container status
+docker ps -a | grep ollama
+
+# View container logs
+docker logs $(docker ps -aqf &quot;ancestor=ollama/ollama&quot;)
+
+# Rollback immediately
+# (Follow rollback procedure above)
+</code></pre>
+<h3 id="models-lost-after-update">Models Lost After Update</h3>
+<p><strong>Symptom:</strong> Models not available after service update</p>
+<p><strong>Solutions:</strong></p>
+<pre><code class="language-bash"># Check volume mount
+docker inspect $(docker ps -qf &quot;ancestor=ollama/ollama&quot;) | grep Mounts -A 10
+
+# Verify models directory
+ls -la /var/ollama
+
+# Re-pull models if necessary
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama&quot;) ollama pull llama2
+</code></pre>
+<h2 id="monitoring-updates">Monitoring Updates</h2>
+<h3 id="track-update-progress">Track Update Progress</h3>
+<pre><code class="language-bash"># Create monitoring script
+cat &gt; monitor-update.sh &lt;&lt; 'EOF'
+#!/bin/bash
+while true; do
+  clear
+  echo &quot;=== Service Status ===&quot;
+  hzn service list
+  echo &quot;&quot;
+  echo &quot;=== Agreements ===&quot;
+  hzn agreement list
+  echo &quot;&quot;
+  echo &quot;=== Container Status ===&quot;
+  docker ps | grep ollama
+  echo &quot;&quot;
+  echo &quot;=== Version ===&quot;
+  curl -sS http://localhost:11434/api/version
+  sleep 10
+done
+EOF
+
+chmod +x monitor-update.sh
+./monitor-update.sh
+</code></pre>
+<h3 id="update-metrics">Update Metrics</h3>
+<p>Track key metrics during updates:
+- Agreement formation time
+- Container startup time
+- API response time
+- Model availability
+- Resource usage</p>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Review <a href="../model-management/">Model Management</a> for managing models after updates</li>
+<li>See <a href="../monitoring/">Monitoring</a> for ongoing health checks</li>
+<li>Check <a href="../storage-management/">Storage Management</a> for persistent data</li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://github.com/ollama/ollama/releases">Ollama Release Notes</a></li>
+<li><a href="https://open-horizon.github.io/docs/service_update/">Open Horizon Service Updates</a></li>
+<li><a href="https://docs.docker.com/engine/reference/commandline/pull/">Docker Image Updates</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
