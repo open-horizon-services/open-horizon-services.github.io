@@ -1,0 +1,26 @@
+{
+  "org": "$HZN_ORG_ID",
+  "label": "$SERVICE_NAME for $ARCH",
+  "description": "A simple HTTP service to respond with a custom hello greeting in HTML format",
+  "documentation": "https://github.com/open-horizon-services/service-envizi-integration-hub/blob/main/readme.md",
+  "url": "$SERVICE_NAME",
+  "version": "$SERVICE_VERSION",
+  "arch": "$ARCH",
+  "public": true,
+  "sharable": "singleton",
+  "requiredServices": [],
+  "userInput": [],
+  "deployment": {
+    "services": {
+      "$SERVICE_NAME": {
+        "image": "$SERVICE_CONTAINER",
+        "ports": [ 
+          { 
+            "HostIP": "0.0.0.0", 
+            "HostPort": "3000:3000/tcp" 
+          }
+        ]
+      }
+    }
+  }
+}

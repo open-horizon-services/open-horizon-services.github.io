@@ -1,0 +1,6150 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified documentation portal for the Open Horizon Services organization. Aggregates docs from all service, utility, skills, and web repositories.">
+      
+      
+        <meta name="author" content="Open Horizon Services">
+      
+      
+        <link rel="canonical" href="https://open-horizon-services.github.io/_repos/utility-container-converter/AGENTS/">
+      
+      
+        <link rel="prev" href="../../service-open-horizon-mcp-server/open-horizon-mcp-blog/">
+      
+      
+        <link rel="next" href="../">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>AGENTS.md - Open Horizon Services Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#agent-guidelines-for-container-converter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Open Horizon Services Documentation" class="md-header__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Horizon Services Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AGENTS.md
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../service-envizi-integration-hub/10-excel/readme/" class="md-tabs__link">
+          
+  
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Utilities
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Open Horizon Services Documentation" class="md-nav__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Open Horizon Services Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub-backend
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub-backend
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-ollama
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-ollama
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/deployment/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/prerequisites.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/deployment/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/quickstart.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/deployment/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/troubleshooting.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/issue-1-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    issue-1-implementation.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/issue-1-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    issue-1-plan.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/api-access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/api-access.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/model-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/model-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/monitoring.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/service-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/service-updates.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/storage-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/storage-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-open-horizon-mcp-server
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-open-horizon-mcp-server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-open-horizon-mcp-server/MCP_VALUE_PROPOSITION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP_VALUE_PROPOSITION.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-open-horizon-mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-open-horizon-mcp-server/open-horizon-mcp-blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    open-horizon-mcp-blog.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-container-converter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-container-converter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGENTS.md
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGENTS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-development-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build and Development Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build and Development Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-style-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Style Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Style Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typescriptjavascript-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript/JavaScript Conventions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TypeScript/JavaScript Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imports-and-exports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imports and Exports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-and-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types and Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-external-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mocking External Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Comments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-horizon-sdf-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Horizon SDF Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Horizon SDF Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-authentication-srcpublisherexchange-authts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange Authentication (src/publisher/exchange-auth.ts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-publishing-srcpublisherexchange-publisherts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange Publishing (src/publisher/exchange-publisher.ts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface-srccliindexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Interface (src/cli/index.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI Interface (src/cli/index.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-and-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation and Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-server-srcmcpserverts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Server (src/mcp/server.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP Server (src/mcp/server.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-mcp-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available MCP Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-configuration-for-ai-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Configuration (for AI assistants)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-tui-srctui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive TUI (src/tui/)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive TUI (src/tui/)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the TUI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger-utility-srcutilsloggerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logger Utility (src/utils/logger.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logger Utility (src/utils/logger.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-classes-srcutilserrorsts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Classes (src/utils/errors.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Classes (src/utils/errors.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Class
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-error-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Error Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-fixtures-testsfixtures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Fixtures (tests/fixtures/)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Fixtures (tests/fixtures/)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile-fixtures-testsfixturesdockerfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dockerfile Fixtures (tests/fixtures/dockerfiles/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdf-fixtures-testsfixturessdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDF Fixtures (tests/fixtures/sdfs/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-request-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull Request Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooling-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tooling Preferences
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tooling Preferences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ide-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDE Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Compose Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-development-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Compose Development Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose Development Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-single-sdf-vs-multi-sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Single-SDF vs Multi-SDF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-mapping-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Mapping Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-multi-container-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Multi-Container Conversions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Integration Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-tool-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Tool Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-pitfalls-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls and Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-compose-support-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker-compose-support-plan.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-compose-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mcp-compose-tools.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase2-compose-sdf-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    phase2-compose-sdf-generation.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-secrets-manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-secrets-manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARCHITECTURE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/CODE_OF_CONDUCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CODE_OF_CONDUCT.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONTRIBUTING.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/INSTALL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSTALL.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/RATIONALE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RATIONALE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/USAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    USAGE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-development-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build and Development Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build and Development Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-style-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Style Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Style Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typescriptjavascript-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript/JavaScript Conventions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TypeScript/JavaScript Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imports-and-exports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imports and Exports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-and-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types and Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-external-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mocking External Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Comments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-horizon-sdf-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Horizon SDF Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Horizon SDF Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-authentication-srcpublisherexchange-authts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange Authentication (src/publisher/exchange-auth.ts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-publishing-srcpublisherexchange-publisherts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange Publishing (src/publisher/exchange-publisher.ts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface-srccliindexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Interface (src/cli/index.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI Interface (src/cli/index.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-and-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation and Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-server-srcmcpserverts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Server (src/mcp/server.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP Server (src/mcp/server.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-mcp-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available MCP Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-configuration-for-ai-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Configuration (for AI assistants)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-tui-srctui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive TUI (src/tui/)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive TUI (src/tui/)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the TUI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tui-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TUI Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger-utility-srcutilsloggerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logger Utility (src/utils/logger.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logger Utility (src/utils/logger.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-classes-srcutilserrorsts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Classes (src/utils/errors.ts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Classes (src/utils/errors.ts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Class
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-error-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Error Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-fixtures-testsfixtures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Fixtures (tests/fixtures/)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Fixtures (tests/fixtures/)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile-fixtures-testsfixturesdockerfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dockerfile Fixtures (tests/fixtures/dockerfiles/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdf-fixtures-testsfixturessdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDF Fixtures (tests/fixtures/sdfs/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-request-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull Request Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooling-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tooling Preferences
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tooling Preferences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ide-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDE Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Compose Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-development-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Compose Development Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose Development Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-single-sdf-vs-multi-sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Single-SDF vs Multi-SDF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-mapping-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Mapping Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-multi-container-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Multi-Container Conversions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Integration Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-tool-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Tool Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-pitfalls-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls and Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="agent-guidelines-for-container-converter">Agent Guidelines for Container Converter</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p>This is a TypeScript/Node.js tool that converts Dockerfiles into Open Horizon Service Definition Files (SDFs). The tool parses Dockerfiles, extracts service information, and generates valid SDF JSON files for deployment on Open Horizon edge computing platforms.</p>
+<h2 id="build-and-development-commands">Build and Development Commands</h2>
+<h3 id="installation">Installation</h3>
+<pre><code class="language-bash">npm install
+</code></pre>
+<h3 id="development">Development</h3>
+<pre><code class="language-bash">npm run dev          # Start development server with hot reload
+npm run build        # Build production bundle
+npm run build:dev    # Build development bundle
+</code></pre>
+<h3 id="testing">Testing</h3>
+<pre><code class="language-bash">npm test                    # Run all tests
+npm run test:watch         # Run tests in watch mode
+npm run test:coverage      # Run tests with coverage report
+npm run test -- --testNamePattern=&quot;specific test name&quot;  # Run single test
+npm run test -- --testPathPattern=&quot;test-file-name&quot;      # Run tests in specific file
+</code></pre>
+<h3 id="code-quality">Code Quality</h3>
+<pre><code class="language-bash">npm run lint               # Run ESLint
+npm run lint:fix          # Auto-fix ESLint issues
+npm run format            # Format code with Prettier
+npm run typecheck         # Run TypeScript type checking
+npm run typecheck:watch   # Watch mode for type checking
+</code></pre>
+<h3 id="validation">Validation</h3>
+<pre><code class="language-bash">npm run validate          # Run full validation (lint + typecheck + test)
+hzn service verify -f &lt;sdf-file&gt;        # Validate SDF locally with Open Horizon CLI
+hzn exchange service verify &lt;sdf-file&gt;  # Validate SDF against Exchange
+</code></pre>
+<h2 id="code-style-guidelines">Code Style Guidelines</h2>
+<h3 id="typescriptjavascript-conventions">TypeScript/JavaScript Conventions</h3>
+<h4 id="imports-and-exports">Imports and Exports</h4>
+<ul>
+<li>Use ES6 imports/exports exclusively</li>
+<li>Group imports by type: external libraries, internal modules, types</li>
+<li>Sort imports alphabetically within groups</li>
+<li>Use absolute imports for internal modules when possible</li>
+</ul>
+<pre><code class="language-typescript">// Good
+import { promises as fs } from 'fs';
+import path from 'path';
+
+import { DockerfileParser } from '../parser/dockerfile-parser';
+import { SDFGenerator } from '../generator/sdf-generator';
+import type { ServiceDefinition } from '../types/sdf';
+
+// Bad - mixed styles, no grouping
+import type { ServiceDefinition } from '../types/sdf';
+import { DockerfileParser } from '../parser/dockerfile-parser';
+import path from 'path';
+import { promises as fs } from 'fs';
+</code></pre>
+<h4 id="naming-conventions">Naming Conventions</h4>
+<ul>
+<li><strong>Variables/Functions</strong>: camelCase (<code>parseDockerfile</code>, <code>serviceName</code>)</li>
+<li><strong>Classes/Types</strong>: PascalCase (<code>DockerfileParser</code>, <code>ServiceDefinition</code>)</li>
+<li><strong>Constants</strong>: UPPER_SNAKE_CASE (<code>DEFAULT_VERSION</code>, <code>SUPPORTED_ARCHITECTURES</code>)</li>
+<li><strong>Files</strong>: kebab-case (<code>dockerfile-parser.ts</code>, <code>service-definition.ts</code>)</li>
+<li><strong>Directories</strong>: kebab-case (<code>src/parser/</code>, <code>src/generator/</code>)</li>
+</ul>
+<h4 id="types-and-interfaces">Types and Interfaces</h4>
+<ul>
+<li>Use explicit types for all function parameters and return values</li>
+<li>Prefer interfaces over types for object definitions</li>
+<li>Use union types for discriminated unions</li>
+<li>Avoid <code>any</code> type; use <code>unknown</code> when type is truly unknown</li>
+</ul>
+<pre><code class="language-typescript">// Good
+interface ServiceMetadata {
+  name: string;
+  version: string;
+  architecture: 'amd64' | 'arm64' | 'arm';
+}
+
+function parseDockerfile(path: string): Promise&lt;DockerfileAST&gt; {
+  // implementation
+}
+
+// Bad - missing types, using any
+function parseDockerfile(path) {
+  return something as any;
+}
+</code></pre>
+<h4 id="error-handling">Error Handling</h4>
+<ul>
+<li>Use custom error classes that extend <code>Error</code></li>
+<li>Include context and recovery suggestions in error messages</li>
+<li>Prefer async/await with try/catch over Promise chains</li>
+<li>Validate inputs at function boundaries</li>
+</ul>
+<pre><code class="language-typescript">// Good
+class DockerfileParseError extends Error {
+  constructor(message: string, public readonly line?: number) {
+    super(`Dockerfile parsing failed: ${message}${line ? ` at line ${line}` : ''}`);
+    this.name = 'DockerfileParseError';
+  }
+}
+
+async function readDockerfile(path: string): Promise&lt;string&gt; {
+  try {
+    return await fs.readFile(path, 'utf-8');
+  } catch (error) {
+    if (error instanceof Error &amp;&amp; 'code' in error &amp;&amp; error.code === 'ENOENT') {
+      throw new DockerfileParseError(`File not found: ${path}`);
+    }
+    throw new DockerfileParseError(`Failed to read file: ${error.message}`);
+  }
+}
+</code></pre>
+<h3 id="code-structure">Code Structure</h3>
+<h4 id="file-organization">File Organization</h4>
+<pre><code>src/
+├── cli/           # Command-line interface
+├── mcp/           # MCP Server implementation
+├── tui/           # Interactive terminal UI (MCP Client)
+├── parser/        # Dockerfile parsing logic
+├── generator/     # SDF generation logic
+├── validator/     # SDF validation logic
+├── publisher/     # Exchange authentication and publishing
+├── types/         # TypeScript type definitions
+├── utils/         # Shared utilities
+└── index.ts       # Main entry point
+
+tests/
+├── unit/          # Unit tests
+├── integration/   # Integration tests
+└── fixtures/      # Test data and examples
+</code></pre>
+<h4 id="class-design">Class Design</h4>
+<ul>
+<li>Single Responsibility Principle: each class should have one reason to change</li>
+<li>Dependency Injection for testability</li>
+<li>Interface segregation for flexibility</li>
+</ul>
+<pre><code class="language-typescript">// Good
+interface DockerfileParser {
+  parse(content: string): Promise&lt;DockerfileAST&gt;;
+}
+
+interface SDFGenerator {
+  generate(ast: DockerfileAST, metadata: ServiceMetadata): ServiceDefinition;
+}
+
+class ContainerConverter {
+  constructor(
+    private parser: DockerfileParser,
+    private generator: SDFGenerator
+  ) {}
+
+  async convert(dockerfilePath: string): Promise&lt;ServiceDefinition&gt; {
+    const content = await fs.readFile(dockerfilePath, 'utf-8');
+    const ast = await this.parser.parse(content);
+    return this.generator.generate(ast, this.inferMetadata(ast));
+  }
+}
+</code></pre>
+<h3 id="testing-guidelines">Testing Guidelines</h3>
+<h4 id="test-structure">Test Structure</h4>
+<ul>
+<li>Use descriptive test names that explain the behavior being tested</li>
+<li>Arrange-Act-Assert (AAA) pattern</li>
+<li>One assertion per test when possible</li>
+<li>Use meaningful test data and fixtures</li>
+</ul>
+<pre><code class="language-typescript">describe('DockerfileParser', () =&gt; {
+  describe('parse', () =&gt; {
+    it('should parse FROM instruction correctly', async () =&gt; {
+      // Arrange
+      const parser = new DockerfileParser();
+      const dockerfile = 'FROM node:18-alpine\nEXPOSE 3000';
+
+      // Act
+      const result = await parser.parse(dockerfile);
+
+      // Assert
+      expect(result.baseImage).toBe('node:18-alpine');
+      expect(result.exposedPorts).toEqual([3000]);
+    });
+
+    it('should throw DockerfileParseError for invalid syntax', async () =&gt; {
+      const parser = new DockerfileParser();
+      const invalidDockerfile = 'INVALID instruction';
+
+      await expect(parser.parse(invalidDockerfile))
+        .rejects.toThrow(DockerfileParseError);
+    });
+  });
+});
+</code></pre>
+<h4 id="test-coverage">Test Coverage</h4>
+<ul>
+<li>Aim for &gt;90% code coverage</li>
+<li>Cover both happy path and error scenarios</li>
+<li>Test edge cases and boundary conditions</li>
+<li>Use integration tests for end-to-end workflows</li>
+</ul>
+<h4 id="mocking-external-dependencies">Mocking External Dependencies</h4>
+<ul>
+<li>Mock <code>child_process.exec</code> for CLI-dependent tests</li>
+<li>Use <code>jest.mock('child_process')</code> and mock the callback pattern</li>
+<li>Note: Node's <code>promisify(exec)</code> expects callback with <code>(error, { stdout, stderr })</code></li>
+<li>Mock <code>fs/promises</code> for file system operations in unit tests</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<h4 id="code-comments">Code Comments</h4>
+<ul>
+<li>Use JSDoc for public APIs</li>
+<li>Explain complex business logic</li>
+<li>Document assumptions and limitations</li>
+</ul>
+<pre><code class="language-typescript">/**
+ * Converts a Dockerfile to an Open Horizon Service Definition File
+ * @param dockerfilePath - Path to the Dockerfile to convert
+ * @param options - Conversion options
+ * @returns Promise resolving to the generated SDF
+ * @throws {DockerfileParseError} If the Dockerfile cannot be parsed
+ * @throws {ValidationError} If the generated SDF is invalid
+ */
+export async function convertDockerfile(
+  dockerfilePath: string,
+  options: ConversionOptions = {}
+): Promise&lt;ServiceDefinition&gt; {
+  // Complex logic here...
+}
+</code></pre>
+<h4 id="commit-messages">Commit Messages</h4>
+<ul>
+<li>Use conventional commits format</li>
+<li>Include scope when relevant</li>
+<li>Be descriptive but concise</li>
+</ul>
+<pre><code>feat(parser): add support for multi-stage Dockerfiles
+fix(generator): handle empty ENV instructions correctly
+test: add integration test for complex service conversion
+docs: update CLI usage examples
+</code></pre>
+<h3 id="security-considerations">Security Considerations</h3>
+<h4 id="input-validation">Input Validation</h4>
+<ul>
+<li>Validate all file paths before reading</li>
+<li>Sanitize user inputs that become part of SDFs</li>
+<li>Check file sizes to prevent resource exhaustion</li>
+</ul>
+<h4 id="secrets-handling">Secrets Handling</h4>
+<ul>
+<li>Never log sensitive information</li>
+<li>Use environment variables for credentials</li>
+<li>Validate Open Horizon Exchange credentials before use</li>
+</ul>
+<pre><code class="language-typescript">// Good - secure credential handling
+async function authenticateExchange(credentials: ExchangeCredentials): Promise&lt;void&gt; {
+  // Validate credentials format
+  if (!credentials.apiKey || !credentials.url) {
+    throw new Error('Invalid exchange credentials');
+  }
+
+  // Use credentials without logging
+  try {
+    await hzn.authenticate(credentials);
+  } catch (error) {
+    throw new Error('Exchange authentication failed');
+  }
+}
+</code></pre>
+<h3 id="performance-guidelines">Performance Guidelines</h3>
+<h4 id="async-operations">Async Operations</h4>
+<ul>
+<li>Use async/await consistently</li>
+<li>Handle concurrent operations with Promise.all when independent</li>
+<li>Implement proper cancellation for long-running operations</li>
+</ul>
+<h4 id="memory-management">Memory Management</h4>
+<ul>
+<li>Stream large files instead of loading entirely into memory</li>
+<li>Clean up resources in finally blocks</li>
+<li>Avoid memory leaks in long-running processes</li>
+</ul>
+<h3 id="open-horizon-sdf-compliance">Open Horizon SDF Compliance</h3>
+<h4 id="required-fields">Required Fields</h4>
+<ul>
+<li>Always include: <code>label</code>, <code>description</code>, <code>url</code>, <code>version</code>, <code>arch</code>, <code>sharable</code>, <code>deployment</code></li>
+<li>Validate SDF structure before output using <code>SDFValidator.validateSchema()</code></li>
+<li>Use sensible defaults for optional fields</li>
+</ul>
+<h4 id="schema-validation">Schema Validation</h4>
+<ul>
+<li>Use <code>SDFValidator</code> class for validation (<code>src/validator/sdf-validator.ts</code>)</li>
+<li><code>validateSchema()</code> - Local structure validation without CLI</li>
+<li><code>validateWithCli()</code> - Validation using <code>hzn service verify</code> command</li>
+<li><code>validateFull()</code> - Combined schema + CLI validation</li>
+<li>Provide clear error messages with field paths for validation failures</li>
+<li>Return structured <code>ValidationResult</code> with errors array</li>
+</ul>
+<h4 id="exchange-authentication-srcpublisherexchange-authts">Exchange Authentication (<code>src/publisher/exchange-auth.ts</code>)</h4>
+<ul>
+<li><code>getCredentialsFromEnv()</code> - Read from <code>HZN_ORG_ID</code>, <code>HZN_EXCHANGE_USER_AUTH</code>, <code>HZN_EXCHANGE_URL</code></li>
+<li><code>loadCredentialsFromFile()</code> - Parse <code>.cfg</code> and <code>.env</code> file formats</li>
+<li><code>validateCredentials()</code> - Local format validation</li>
+<li><code>verifyExchangeConnection()</code> - Test connectivity via <code>hzn exchange status</code></li>
+<li><code>verifyUserAuth()</code> - Validate credentials via <code>hzn exchange user list</code></li>
+</ul>
+<h4 id="exchange-publishing-srcpublisherexchange-publisherts">Exchange Publishing (<code>src/publisher/exchange-publisher.ts</code>)</h4>
+<ul>
+<li><code>publishService(options)</code> - Publish SDF via <code>hzn exchange service publish</code></li>
+<li><code>checkServiceExists()</code> - Check if service already exists in Exchange</li>
+<li><code>getPublishedVersions()</code> - List published versions for a service</li>
+<li><code>unpublishService()</code> - Remove service from Exchange</li>
+<li>Supports <code>overwrite</code> and <code>dryRun</code> options</li>
+<li>Credentials passed via environment variables (safer than CLI args)</li>
+</ul>
+<h3 id="cli-interface-srccliindexts">CLI Interface (<code>src/cli/index.ts</code>)</h3>
+<p>The <code>container-converter</code> CLI provides a complete interface for converting Dockerfiles to SDFs.</p>
+<h4 id="basic-usage">Basic Usage</h4>
+<pre><code class="language-bash"># Convert Dockerfile to SDF
+container-converter Dockerfile
+
+# With output path
+container-converter Dockerfile -o my-service.json
+
+# With full metadata
+container-converter Dockerfile -o my-service.json -n my-service --svc-version 1.0.0 -a arm64 --org myorg
+</code></pre>
+<h4 id="cli-options">CLI Options</h4>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o, --output &lt;path&gt;</code></td>
+<td>Output path for generated SDF</td>
+</tr>
+<tr>
+<td><code>-n, --name &lt;name&gt;</code></td>
+<td>Service name (inferred if not provided)</td>
+</tr>
+<tr>
+<td><code>--svc-version &lt;version&gt;</code></td>
+<td>Service version (default: 1.0.0)</td>
+</tr>
+<tr>
+<td><code>-a, --arch &lt;arch&gt;</code></td>
+<td>Target architecture (default: amd64)</td>
+</tr>
+<tr>
+<td><code>--org &lt;org&gt;</code></td>
+<td>Organization ID</td>
+</tr>
+<tr>
+<td><code>--description &lt;desc&gt;</code></td>
+<td>Service description</td>
+</tr>
+<tr>
+<td><code>--validate</code></td>
+<td>Validate SDF with Open Horizon CLI</td>
+</tr>
+<tr>
+<td><code>--publish</code></td>
+<td>Publish to Open Horizon Exchange</td>
+</tr>
+<tr>
+<td><code>--config &lt;path&gt;</code></td>
+<td>Path to Exchange config file (.cfg)</td>
+</tr>
+<tr>
+<td><code>--creds &lt;path&gt;</code></td>
+<td>Path to credentials file (.env)</td>
+</tr>
+<tr>
+<td><code>--overwrite</code></td>
+<td>Overwrite existing service in Exchange</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Validate publish without publishing</td>
+</tr>
+</tbody>
+</table>
+<h4 id="validation-and-publishing">Validation and Publishing</h4>
+<pre><code class="language-bash"># Validate generated SDF
+container-converter Dockerfile --validate
+
+# Publish to Exchange (with env vars set)
+container-converter Dockerfile --publish
+
+# Publish with config files
+container-converter Dockerfile --publish --config agent-install.cfg --creds mycreds.env
+
+# Dry run (validate publish without actually publishing)
+container-converter Dockerfile --publish --dry-run
+</code></pre>
+<h4 id="exit-codes">Exit Codes</h4>
+<ul>
+<li><code>0</code> - Success</li>
+<li><code>1</code> - Error (parsing, validation, or publish failure)</li>
+</ul>
+<h3 id="mcp-server-srcmcpserverts">MCP Server (<code>src/mcp/server.ts</code>)</h3>
+<p>The <code>container-converter-mcp</code> binary runs an MCP (Model Context Protocol) server that exposes container-converter functionality as tools for AI assistants.</p>
+<h4 id="running-the-mcp-server">Running the MCP Server</h4>
+<pre><code class="language-bash"># Run directly with tsx
+npx tsx src/mcp/server.ts
+
+# Or after building
+container-converter-mcp
+</code></pre>
+<h4 id="available-mcp-tools">Available MCP Tools</h4>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>convert_dockerfile</code></td>
+<td>Convert a Dockerfile to an SDF</td>
+</tr>
+<tr>
+<td><code>validate_sdf</code></td>
+<td>Validate an SDF (schema and/or CLI)</td>
+</tr>
+<tr>
+<td><code>publish_sdf</code></td>
+<td>Publish SDF to Open Horizon Exchange</td>
+</tr>
+<tr>
+<td><code>check_hzn_cli</code></td>
+<td>Check if hzn CLI is available and get version</td>
+</tr>
+<tr>
+<td><code>list_exchange_services</code></td>
+<td>List services in the Exchange</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tool-parameters">Tool Parameters</h4>
+<p><strong>convert_dockerfile</strong>
+- <code>dockerfile_path</code> (required): Path to Dockerfile
+- <code>name</code>, <code>version</code>, <code>arch</code>, <code>org</code>, <code>description</code>: Optional metadata
+- <code>output_path</code>: Optional path to save generated SDF</p>
+<p><strong>validate_sdf</strong>
+- <code>sdf</code> (required): File path or SDF object
+- <code>use_cli</code>: Also validate with hzn CLI (default: true)</p>
+<p><strong>publish_sdf</strong>
+- <code>sdf</code> (required): File path or SDF object
+- <code>config_path</code>, <code>creds_path</code>: Optional credential file paths
+- <code>overwrite</code>, <code>dry_run</code>: Optional flags</p>
+<h4 id="mcp-configuration-for-ai-assistants">MCP Configuration (for AI assistants)</h4>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;container-converter&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;tsx&quot;, &quot;/path/to/src/mcp/server.ts&quot;]
+    }
+  }
+}
+</code></pre>
+<h3 id="interactive-tui-srctui">Interactive TUI (<code>src/tui/</code>)</h3>
+<p>The <code>container-converter-tui</code> binary provides an interactive terminal UI for conversational container conversion workflows.</p>
+<h4 id="running-the-tui">Running the TUI</h4>
+<pre><code class="language-bash"># Run directly with tsx
+npx tsx src/tui/index.tsx
+
+# Or after building
+container-converter-tui
+</code></pre>
+<h4 id="tui-commands">TUI Commands</h4>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>convert &lt;dockerfile&gt;</code></td>
+<td>Convert a Dockerfile to SDF</td>
+</tr>
+<tr>
+<td><code>validate &lt;sdf-file&gt;</code></td>
+<td>Validate an SDF file</td>
+</tr>
+<tr>
+<td><code>publish &lt;sdf-file&gt;</code></td>
+<td>Publish SDF to Exchange</td>
+</tr>
+<tr>
+<td><code>check cli</code></td>
+<td>Check hzn CLI availability</td>
+</tr>
+<tr>
+<td><code>list services</code></td>
+<td>List Exchange services</td>
+</tr>
+<tr>
+<td><code>preview</code></td>
+<td>Preview current SDF</td>
+</tr>
+<tr>
+<td><code>save &lt;path&gt;</code></td>
+<td>Save current SDF to file</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td>Show available commands</td>
+</tr>
+<tr>
+<td><code>quit</code></td>
+<td>Exit the application</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tui-features">TUI Features</h4>
+<ul>
+<li>Conversational interface with command history</li>
+<li>Visual progress indicators (spinners)</li>
+<li>SDF preview and editing workflow</li>
+<li>Color-coded output (info, success, warning, error)</li>
+<li>Keyboard shortcuts (Ctrl+C to exit)</li>
+</ul>
+<h3 id="logger-utility-srcutilsloggerts">Logger Utility (<code>src/utils/logger.ts</code>)</h3>
+<p>Configurable logging system with multiple log levels.</p>
+<h4 id="usage">Usage</h4>
+<pre><code class="language-typescript">import { logger, createLogger, LogLevel } from './utils/logger';
+
+// Use default logger
+logger.info('Processing file');
+logger.debug('Detailed debug info', { key: 'value' });
+logger.warn('Something might be wrong');
+logger.error('An error occurred');
+
+// Create module-specific logger
+const parserLogger = createLogger('parser');
+parserLogger.info('Parsing started');
+
+// Timing operations
+const done = logger.time('Operation');
+// ... do work ...
+done(); // Logs: &quot;Operation completed in Xms&quot;
+</code></pre>
+<h4 id="log-levels">Log Levels</h4>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DEBUG</code></td>
+<td>Detailed debugging information</td>
+</tr>
+<tr>
+<td><code>INFO</code></td>
+<td>General informational messages</td>
+</tr>
+<tr>
+<td><code>WARN</code></td>
+<td>Warning messages</td>
+</tr>
+<tr>
+<td><code>ERROR</code></td>
+<td>Error messages</td>
+</tr>
+<tr>
+<td><code>SILENT</code></td>
+<td>No output</td>
+</tr>
+</tbody>
+</table>
+<h4 id="environment-variables">Environment Variables</h4>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LOG_LEVEL</code></td>
+<td>Set log level (DEBUG, INFO, WARN, ERROR, SILENT)</td>
+</tr>
+<tr>
+<td><code>DEBUG</code></td>
+<td>Enable debug logging (any value)</td>
+</tr>
+<tr>
+<td><code>NO_COLOR</code></td>
+<td>Disable colored output</td>
+</tr>
+</tbody>
+</table>
+<h3 id="error-classes-srcutilserrorsts">Error Classes (<code>src/utils/errors.ts</code>)</h3>
+<p>Custom error classes with structured context and suggestions.</p>
+<h4 id="base-class">Base Class</h4>
+<pre><code class="language-typescript">class ContainerConverterError extends Error {
+  code: string;                    // Error code for programmatic handling
+  context?: Record&lt;string, unknown&gt;; // Additional context
+  suggestions?: string[];          // Resolution suggestions
+
+  format(): string;                // Format error for display
+}
+</code></pre>
+<h4 id="available-error-classes">Available Error Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Error Class</th>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DockerfileParseError</code></td>
+<td><code>DOCKERFILE_PARSE_ERROR</code></td>
+<td>Dockerfile parsing failures</td>
+</tr>
+<tr>
+<td><code>SDFGenerationError</code></td>
+<td><code>SDF_GENERATION_ERROR</code></td>
+<td>SDF generation failures</td>
+</tr>
+<tr>
+<td><code>ValidationError</code></td>
+<td><code>VALIDATION_ERROR</code></td>
+<td>SDF validation failures</td>
+</tr>
+<tr>
+<td><code>ExchangeAuthError</code></td>
+<td><code>EXCHANGE_AUTH_ERROR</code></td>
+<td>Exchange authentication issues</td>
+</tr>
+<tr>
+<td><code>PublishError</code></td>
+<td><code>PUBLISH_ERROR</code></td>
+<td>Service publishing failures</td>
+</tr>
+<tr>
+<td><code>FileError</code></td>
+<td><code>FILE_ERROR</code></td>
+<td>File operation failures</td>
+</tr>
+<tr>
+<td><code>CliNotFoundError</code></td>
+<td><code>CLI_NOT_FOUND</code></td>
+<td>CLI tool not available</td>
+</tr>
+<tr>
+<td><code>NetworkError</code></td>
+<td><code>NETWORK_ERROR</code></td>
+<td>Network connection issues</td>
+</tr>
+</tbody>
+</table>
+<h4 id="usage_1">Usage</h4>
+<pre><code class="language-typescript">import { 
+  DockerfileParseError, 
+  isContainerConverterError, 
+  formatError 
+} from './utils/errors';
+
+// Throw with context
+throw new DockerfileParseError('Invalid instruction', { 
+  line: 42,
+  context: { instruction: 'INVALID' }
+});
+
+// Check error type
+if (isContainerConverterError(error)) {
+  console.log(error.format()); // Formatted with suggestions
+}
+
+// Format any error
+console.log(formatError(error));
+</code></pre>
+<h3 id="test-fixtures-testsfixtures">Test Fixtures (<code>tests/fixtures/</code>)</h3>
+<p>Test data for unit and integration tests.</p>
+<h4 id="dockerfile-fixtures-testsfixturesdockerfiles">Dockerfile Fixtures (<code>tests/fixtures/dockerfiles/</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>simple.Dockerfile</code></td>
+<td>Basic Node.js application</td>
+</tr>
+<tr>
+<td><code>complex.Dockerfile</code></td>
+<td>Multi-stage build with multiple ports/volumes</td>
+</tr>
+<tr>
+<td><code>python-app.Dockerfile</code></td>
+<td>Python Flask application with labels</td>
+</tr>
+<tr>
+<td><code>golang-service.Dockerfile</code></td>
+<td>Go microservice multi-stage build</td>
+</tr>
+<tr>
+<td><code>minimal.Dockerfile</code></td>
+<td>Minimal Dockerfile (only FROM)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sdf-fixtures-testsfixturessdfs">SDF Fixtures (<code>tests/fixtures/sdfs/</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>simple.json</code></td>
+<td>Valid SDF for testing validation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="development-workflow">Development Workflow</h3>
+<h4 id="branching-strategy">Branching Strategy</h4>
+<ul>
+<li><code>main</code>: Production-ready code</li>
+<li><code>develop</code>: Integration branch</li>
+<li><code>feature/*</code>: New features</li>
+<li><code>bugfix/*</code>: Bug fixes</li>
+<li><code>hotfix/*</code>: Critical fixes</li>
+</ul>
+<h4 id="pull-request-process">Pull Request Process</h4>
+<ul>
+<li>All changes require PR review</li>
+<li>Run full test suite before merging</li>
+<li>Update documentation for API changes</li>
+<li>Ensure CI/CD passes</li>
+</ul>
+<h3 id="tooling-preferences">Tooling Preferences</h3>
+<h4 id="ide-configuration">IDE Configuration</h4>
+<ul>
+<li>Use VS Code with recommended extensions</li>
+<li>Configure format on save</li>
+<li>Enable strict TypeScript checking</li>
+</ul>
+<h4 id="package-management">Package Management</h4>
+<ul>
+<li>Use npm for package management</li>
+<li>Keep dependencies minimal and up-to-date</li>
+<li>Use <code>npm audit</code> regularly for security</li>
+</ul>
+<h2 id="docker-compose-support">Docker Compose Support</h2>
+<p><strong>Status</strong>: Phase 5 In Progress - Documentation &amp; Examples ✅</p>
+<p>The project has been successfully extended to support docker-compose.yml files in addition to Dockerfiles. See <a href="docs/docker-compose-support-plan.md">docs/docker-compose-support-plan.md</a> for the complete implementation plan.</p>
+<h3 id="current-status">Current Status</h3>
+<p><strong>✅ Phase 1: Foundation (COMPLETE)</strong>
+- ComposeParser implemented (<code>src/parser/compose-parser.ts</code> - 180 lines)
+- Compose type definitions created (<code>src/types/compose.ts</code>)
+- 35 passing unit tests
+- Test fixtures in <code>tests/fixtures/compose/</code></p>
+<p><strong>✅ Phase 2: SDF Generation (COMPLETE)</strong>
+- ComposeSdfGenerator implemented (<code>src/generator/compose-sdf-generator.ts</code> - 330 lines)
+- Single-SDF and multi-SDF generation strategies
+- Strategy inference logic (≤3 services + no deps → single-SDF)
+- 39 passing unit tests
+- Complete service mapping (ports, env, volumes, commands, tmpfs, privileged)</p>
+<p><strong>✅ Phase 3: CLI Integration (COMPLETE)</strong>
+- Input type detection (dockerfile vs compose)
+- --type, --strategy, --output-dir CLI options
+- Single-SDF and multi-SDF conversion paths
+- Validation for all SDFs in multi-SDF mode
+- Publishing for all SDFs (one-by-one, continue on failure)
+- 13 passing integration tests
+- Full backward compatibility with Dockerfiles</p>
+<p><strong>✅ Phase 4: MCP/TUI Integration (COMPLETE)</strong>
+- MCP Server: <code>convert_compose</code> and <code>parse_compose</code> tools
+- MCP Server: Enhanced <code>validate_sdf</code> and <code>publish_sdf</code> for arrays
+- TUI: <code>convert compose</code>, <code>parse compose</code>, <code>strategy</code> commands
+- TUI: Enhanced preview/save/publish for multi-SDF
+- 60+ new tests (MCP, TUI, integration)
+- Complete documentation (<code>docs/mcp-compose-tools.md</code>)
+- <strong>Total tests: 446+ (up from 386)</strong></p>
+<p><strong>🔄 Phase 5: In Progress</strong>
+- ✅ README updated with comprehensive Compose examples
+- ✅ Strategy selection guidelines documented
+- ✅ Enhanced migration guide with step-by-step instructions
+- ✅ AGENTS.md updated with Docker Compose guidelines
+- ⏳ Additional real-world examples (if needed)</p>
+<h3 id="docker-compose-development-guidelines">Docker Compose Development Guidelines</h3>
+<h4 id="when-to-use-single-sdf-vs-multi-sdf">When to Use Single-SDF vs Multi-SDF</h4>
+<p><strong>Use Single-SDF when:</strong>
+- Application has 1-3 services
+- No service dependencies (<code>depends_on</code>)
+- Services are tightly coupled (always deploy together)
+- Simple development/testing scenarios
+- All services target same architecture</p>
+<p><strong>Use Multi-SDF when:</strong>
+- Application has 4+ services
+- Services have dependencies
+- Services need independent versioning
+- Building reusable service components
+- Production deployments
+- Following Open Horizon best practices</p>
+<p><strong>Example Decision Tree:</strong></p>
+<pre><code class="language-typescript">function inferStrategy(composeData: ComposeData): GenerationStrategy {
+  const serviceCount = Object.keys(composeData.services).length;
+  const hasDependencies = Object.values(composeData.services).some(
+    (service) =&gt; service.depends_on
+  );
+  const hasComplexNetworking =
+    composeData.networks &amp;&amp; Object.keys(composeData.networks).length &gt; 1;
+
+  // Use multi-SDF for complex deployments
+  if (serviceCount &gt; 3 || hasDependencies || hasComplexNetworking) {
+    return 'multi-sdf';
+  }
+
+  return 'single-sdf';
+}
+</code></pre>
+<h4 id="feature-mapping-reference">Feature Mapping Reference</h4>
+<p><strong>Fully Supported Features:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Compose Field</th>
+<th>SDF Mapping</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td><code>ServiceConfig.image</code></td>
+<td>Required - must be pre-built</td>
+</tr>
+<tr>
+<td><code>ports</code></td>
+<td><code>ServiceConfig.ports</code></td>
+<td>All formats supported (short, long)</td>
+</tr>
+<tr>
+<td><code>environment</code></td>
+<td><code>ServiceConfig.environment</code></td>
+<td>Array and object formats</td>
+</tr>
+<tr>
+<td><code>command</code></td>
+<td><code>ServiceConfig.command</code></td>
+<td>Combined with entrypoint</td>
+</tr>
+<tr>
+<td><code>entrypoint</code></td>
+<td><code>ServiceConfig.command</code></td>
+<td>Prepended to command</td>
+</tr>
+<tr>
+<td><code>volumes</code> (bind)</td>
+<td><code>ServiceConfig.binds</code></td>
+<td>Bind mounts only</td>
+</tr>
+<tr>
+<td><code>tmpfs</code></td>
+<td><code>ServiceConfig.tmpfs</code></td>
+<td>Direct mapping</td>
+</tr>
+<tr>
+<td><code>privileged</code></td>
+<td><code>ServiceConfig.privileged</code></td>
+<td>Direct mapping</td>
+</tr>
+<tr>
+<td><code>depends_on</code></td>
+<td><code>requiredServices</code></td>
+<td>Multi-SDF only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Partially Supported Features:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Compose Field</th>
+<th>Status</th>
+<th>Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>networks</code></td>
+<td>⚠️ Warn</td>
+<td>Open Horizon manages networking</td>
+</tr>
+<tr>
+<td><code>volumes</code> (named)</td>
+<td>⚠️ Warn</td>
+<td>Recommend bind mounts instead</td>
+</tr>
+<tr>
+<td><code>restart</code></td>
+<td>ℹ️ Info</td>
+<td>Open Horizon handles via policy</td>
+</tr>
+<tr>
+<td><code>labels</code></td>
+<td>ℹ️ Info</td>
+<td>Can map to metadata if needed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unsupported Features:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Compose Field</th>
+<th>Status</th>
+<th>Alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>build</code></td>
+<td>❌ Error</td>
+<td>Pre-build and push to registry</td>
+</tr>
+<tr>
+<td><code>secrets</code></td>
+<td>❌ Warn</td>
+<td>Use environment variables</td>
+</tr>
+<tr>
+<td><code>configs</code></td>
+<td>❌ Warn</td>
+<td>Use environment variables or bind mounts</td>
+</tr>
+<tr>
+<td><code>healthcheck</code></td>
+<td>❌ Warn</td>
+<td>Open Horizon uses agreements</td>
+</tr>
+<tr>
+<td><code>deploy</code></td>
+<td>❌ Warn</td>
+<td>Open Horizon handles orchestration</td>
+</tr>
+</tbody>
+</table>
+<h4 id="testing-multi-container-conversions">Testing Multi-Container Conversions</h4>
+<p><strong>Test Fixtures Available:</strong></p>
+<pre><code>tests/fixtures/compose/
+├── simple.docker-compose.yml              # Single service
+├── multi-service.docker-compose.yml       # Multiple services, no deps
+├── with-dependencies.docker-compose.yml   # Services with depends_on
+├── wordpress.docker-compose.yml           # Real-world example
+├── complex-features.docker-compose.yml    # Advanced features
+└── v2-legacy.docker-compose.yml          # Legacy v2.x format
+</code></pre>
+<p><strong>Test Strategy:</strong></p>
+<ol>
+<li><strong>Unit Tests</strong> - Test parser and generator separately</li>
+<li><strong>Integration Tests</strong> - Test full conversion workflow</li>
+<li><strong>Real-World Tests</strong> - Use actual Compose files (WordPress, EdgeX)</li>
+</ol>
+<p><strong>Example Test Pattern:</strong></p>
+<pre><code class="language-typescript">describe('Multi-SDF Generation', () =&gt; {
+  it('should generate separate SDFs for each service', async () =&gt; {
+    const composeData = await parser.parseFile('with-dependencies.docker-compose.yml');
+    const result = generator.generate(composeData, { strategy: 'multi-sdf' });
+
+    expect(result.sdfs).toHaveProperty('web');
+    expect(result.sdfs).toHaveProperty('api');
+    expect(result.sdfs).toHaveProperty('db');
+  });
+
+  it('should map depends_on to requiredServices', async () =&gt; {
+    const composeData = await parser.parseFile('with-dependencies.docker-compose.yml');
+    const result = generator.generate(composeData, { strategy: 'multi-sdf' });
+
+    const apiSdf = result.sdfs.api;
+    expect(apiSdf.requiredServices).toContainEqual(
+      expect.objectContaining({ url: expect.stringContaining('db') })
+    );
+  });
+
+  it('should build correct dependency graph', async () =&gt; {
+    const composeData = await parser.parseFile('with-dependencies.docker-compose.yml');
+    const result = generator.generate(composeData, { strategy: 'multi-sdf' });
+
+    expect(result.dependencyGraph.db).toEqual([]);
+    expect(result.dependencyGraph.api).toContain('db');
+    expect(result.dependencyGraph.web).toContain('api');
+  });
+});
+</code></pre>
+<h4 id="error-handling-best-practices">Error Handling Best Practices</h4>
+<p><strong>Required Image Validation:</strong></p>
+<pre><code class="language-typescript">if (!composeService.image) {
+  throw new SDFGenerationError(
+    `Service ${serviceName} must specify an 'image'. ` +
+    `'build' is not supported - pre-build images and push to a registry.`,
+    {
+      context: { serviceName, hasImage: false, hasBuild: !!composeService.build },
+      suggestions: [
+        'Build your image: docker build -t myregistry.io/service:1.0 .',
+        'Push to registry: docker push myregistry.io/service:1.0',
+        'Update compose file to use image: myregistry.io/service:1.0'
+      ]
+    }
+  );
+}
+</code></pre>
+<p><strong>Network Warnings:</strong></p>
+<pre><code class="language-typescript">if (composeData.networks &amp;&amp; Object.keys(composeData.networks).length &gt; 0) {
+  logger.warn(
+    'Custom networks detected. Open Horizon manages networking automatically. ' +
+    'Services can communicate using service names as hostnames.'
+  );
+}
+</code></pre>
+<p><strong>Named Volume Warnings:</strong></p>
+<pre><code class="language-typescript">if (composeData.volumes &amp;&amp; Object.keys(composeData.volumes).length &gt; 0) {
+  logger.warn(
+    'Named volumes detected. Consider using bind mounts for edge deployments: ' +
+    'volumes: [&quot;/host/path:/container/path:rw&quot;]'
+  );
+}
+</code></pre>
+<h4 id="cli-integration-patterns">CLI Integration Patterns</h4>
+<p><strong>Input Type Detection:</strong></p>
+<pre><code class="language-typescript">function detectInputType(filePath: string): 'dockerfile' | 'compose' {
+  const basename = path.basename(filePath).toLowerCase();
+
+  // Check filename patterns
+  if (
+    basename === 'docker-compose.yml' ||
+    basename === 'docker-compose.yaml' ||
+    basename === 'compose.yml' ||
+    basename === 'compose.yaml'
+  ) {
+    return 'compose';
+  }
+
+  if (basename === 'dockerfile' || basename.includes('dockerfile')) {
+    return 'dockerfile';
+  }
+
+  // Fallback: check file content
+  const content = fs.readFileSync(filePath, 'utf-8');
+  if (content.trim().startsWith('services:') || content.includes('\nservices:')) {
+    return 'compose';
+  }
+
+  return 'dockerfile';
+}
+</code></pre>
+<p><strong>Multi-SDF Output Handling:</strong></p>
+<pre><code class="language-typescript">// For multi-SDF, create output directory
+if (strategy === 'multi-sdf') {
+  const outputDir = options.outputDir || './sdfs';
+  await fs.mkdir(outputDir, { recursive: true });
+
+  for (const [serviceName, sdf] of Object.entries(result.sdfs)) {
+    const outputPath = path.join(outputDir, `${serviceName}.json`);
+    await fs.writeFile(outputPath, JSON.stringify(sdf, null, 2));
+    logger.info(`Generated: ${outputPath}`);
+  }
+}
+</code></pre>
+<p><strong>Validation for Multi-SDF:</strong></p>
+<pre><code class="language-typescript">// Validate all SDFs
+if (options.validate) {
+  for (const [serviceName, sdf] of Object.entries(result.sdfs)) {
+    const validationResult = await validator.validateFull(sdf);
+    if (!validationResult.valid) {
+      logger.error(`Validation failed for ${serviceName}:`, validationResult.errors);
+      process.exit(1);
+    }
+    logger.info(`✓ Validated: ${serviceName}`);
+  }
+}
+</code></pre>
+<p><strong>Publishing for Multi-SDF:</strong></p>
+<pre><code class="language-typescript">// Publish in dependency order (topological sort)
+if (options.publish) {
+  const publishOrder = topologicalSort(result.dependencyGraph);
+
+  for (const serviceName of publishOrder) {
+    const sdf = result.sdfs[serviceName];
+    try {
+      await publishService({ credentials, sdf, overwrite: options.overwrite });
+      logger.info(`✓ Published: ${serviceName}`);
+    } catch (error) {
+      logger.error(`Failed to publish ${serviceName}:`, error);
+      if (!options.continueOnError) {
+        process.exit(1);
+      }
+    }
+  }
+}
+</code></pre>
+<h4 id="mcp-tool-integration">MCP Tool Integration</h4>
+<p><strong>convert_compose Tool:</strong></p>
+<pre><code class="language-typescript">{
+  name: 'convert_compose',
+  description: 'Convert docker-compose.yml to Open Horizon SDF(s)',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      compose_path: { type: 'string', description: 'Path to docker-compose.yml' },
+      strategy: {
+        type: 'string',
+        enum: ['single-sdf', 'multi-sdf', 'auto'],
+        description: 'Generation strategy (auto-inferred if omitted)'
+      },
+      output_dir: { type: 'string', description: 'Output directory for multi-SDF' },
+      name: { type: 'string', description: 'Project name' },
+      version: { type: 'string', description: 'Service version' },
+      arch: { type: 'string', description: 'Target architecture' },
+      org: { type: 'string', description: 'Organization ID' }
+    },
+    required: ['compose_path']
+  }
+}
+</code></pre>
+<p><strong>parse_compose Tool:</strong></p>
+<pre><code class="language-typescript">{
+  name: 'parse_compose',
+  description: 'Parse docker-compose.yml and return structured data',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      compose_path: { type: 'string', description: 'Path to docker-compose.yml' }
+    },
+    required: ['compose_path']
+  }
+}
+</code></pre>
+<h4 id="common-pitfalls-and-solutions">Common Pitfalls and Solutions</h4>
+<p><strong>Pitfall 1: Forgetting to Pre-build Images</strong></p>
+<pre><code class="language-yaml"># ❌ This will fail
+services:
+  web:
+    build: ./web
+</code></pre>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-bash"># Build and push first
+docker build -t myregistry.io/web:1.0 ./web
+docker push myregistry.io/web:1.0
+
+# Then update compose file
+services:
+  web:
+    image: myregistry.io/web:1.0
+</code></pre>
+<p><strong>Pitfall 2: Using Named Volumes on Edge</strong></p>
+<pre><code class="language-yaml"># ⚠️ May not work on all edge devices
+volumes:
+  - db-data:/var/lib/mysql
+</code></pre>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-yaml"># Use bind mounts instead
+volumes:
+  - /data/mysql:/var/lib/mysql:rw
+</code></pre>
+<p><strong>Pitfall 3: Complex Network Configurations</strong></p>
+<pre><code class="language-yaml"># ⚠️ Open Horizon manages networking
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+</code></pre>
+<p><strong>Solution:</strong> Remove custom networks. Services communicate via service names automatically.</p>
+<p><strong>Pitfall 4: Assuming Docker Compose Behavior</strong></p>
+<pre><code class="language-yaml"># ⚠️ restart policies work differently
+restart: always
+</code></pre>
+<p><strong>Solution:</strong> Configure restart behavior via Open Horizon node policies, not in SDF.</p>
+<h4 id="performance-considerations">Performance Considerations</h4>
+<p><strong>Large Compose Files:</strong></p>
+<ul>
+<li>Parser handles files up to 10MB efficiently</li>
+<li>Multi-SDF generation scales linearly with service count</li>
+<li>Validation time depends on <code>hzn</code> CLI performance</li>
+</ul>
+<p><strong>Optimization Tips:</strong></p>
+<ol>
+<li>Use <code>--strategy single-sdf</code> for simple apps (faster)</li>
+<li>Skip CLI validation during development (<code>--validate</code> only for production)</li>
+<li>Batch publish operations when possible</li>
+<li>Cache parsed Compose data for repeated conversions</li>
+</ol>
+<h4 id="future-enhancements">Future Enhancements</h4>
+<p><strong>Pattern Generation (Phase 6):</strong></p>
+<pre><code class="language-typescript">// Generate Open Horizon pattern from multi-SDF
+function generatePattern(sdfs: Record&lt;string, ServiceDefinition&gt;): Pattern {
+  return {
+    label: 'Generated Pattern',
+    services: Object.entries(sdfs).map(([name, sdf]) =&gt; ({
+      serviceUrl: sdf.url,
+      serviceVersions: [{ version: sdf.version }]
+    }))
+  };
+}
+</code></pre>
+<p><strong>Build Support (Phase 7):</strong></p>
+<pre><code class="language-typescript">// Auto-build and push images before conversion
+async function buildAndPush(composeData: ComposeData): Promise&lt;ComposeData&gt; {
+  for (const [name, service] of Object.entries(composeData.services)) {
+    if (service.build) {
+      await buildImage(service.build, name);
+      await pushImage(name);
+      service.image = `${registry}/${name}:${version}`;
+      delete service.build;
+    }
+  }
+  return composeData;
+}
+</code></pre>
+<p>This document will be updated as the project evolves and new patterns emerge.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,5082 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified documentation portal for the Open Horizon Services organization. Aggregates docs from all service, utility, skills, and web repositories.">
+      
+      
+        <meta name="author" content="Open Horizon Services">
+      
+      
+        <link rel="canonical" href="https://open-horizon-services.github.io/_repos/service-open-horizon-mcp-server/open-horizon-mcp-blog/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../utility-container-converter/AGENTS/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>open-horizon-mcp-blog.md - Open Horizon Services Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#supercharging-open-horizon-management-with-claude-and-ibm-codeengine-mcp-a-practical-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Open Horizon Services Documentation" class="md-header__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Horizon Services Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              open-horizon-mcp-blog.md
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../service-envizi-integration-hub/10-excel/readme/" class="md-tabs__link">
+          
+  
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../utility-container-converter/AGENTS/" class="md-tabs__link">
+          
+  
+  
+  Utilities
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Open Horizon Services Documentation" class="md-nav__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Open Horizon Services Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub-backend
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub-backend
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-envizi-integration-hub-backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-ollama
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-ollama
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/deployment/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/prerequisites.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/deployment/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/quickstart.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/deployment/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/troubleshooting.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/issue-1-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    issue-1-implementation.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/issue-1-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    issue-1-plan.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/api-access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/api-access.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/model-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/model-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/monitoring.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/service-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/service-updates.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../service-ollama/operations/storage-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/storage-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-open-horizon-mcp-server
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-open-horizon-mcp-server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MCP_VALUE_PROPOSITION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP_VALUE_PROPOSITION.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    open-horizon-mcp-blog.md
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    open-horizon-mcp-blog.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-mcp-and-its-value-proposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding MCP and Its Value Proposition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding MCP and Its Value Proposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-model-context-protocol-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the Model Context Protocol (MCP)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-mcp-matters-for-open-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MCP Matters for Open Horizon
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-and-running-the-open-horizon-mcp-server-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up and Running the Open Horizon MCP Server Locally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up and Running the Open Horizon MCP Server Locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Clone the Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Configure Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-build-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Build the Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-start-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Start the Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-the-server-is-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Verify the Server is Running
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-local-server-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Local Server Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-open-horizon-mcp-server-to-ibm-cloud-code-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying the Open Horizon MCP Server to IBM Cloud Code Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the Open Horizon MCP Server to IBM Cloud Code Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites-for-cloud-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites for Cloud Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-for-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare for Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-build-and-push-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Build and Push the Docker Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-deploy-to-ibm-cloud-code-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Deploy to IBM Cloud Code Engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Verify the Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-ibm-cloud-code-engine-for-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of IBM Cloud Code Engine for MCP Servers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leveraging-code-engine-fleet-coming-soon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leveraging Code Engine Fleet (Coming Soon)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-cloud-deployment-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Cloud Deployment Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-claude-desktop-to-use-the-open-horizon-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring Claude Desktop to Use the Open Horizon MCP Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Claude Desktop to Use the Open Horizon MCP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-locate-the-claude-desktop-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Locate the Claude Desktop Configuration File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-edit-the-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Edit the Configuration File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-the-open-horizon-mcp-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add the Open Horizon MCP Server Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Add the Open Horizon MCP Server Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-for-a-local-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: For a Local MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-for-a-cloud-deployed-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: For a Cloud-Deployed MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-using-environment-variables-for-sensitive-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Using Environment Variables for Sensitive Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-save-and-restart-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Save and Restart Claude Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Verify the Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-how-claude-desktop-connects-to-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding How Claude Desktop Connects to MCP Servers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-open-horizon-mcp-server-with-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the Open Horizon MCP Server with Claude Desktop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the Open Horizon MCP Server with Claude Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-tools-and-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Tools and Capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available Tools and Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-management-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Management Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-management-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Management Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-management-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Management Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-conversations-with-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Conversations with Claude
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Conversations with Claude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-exploring-your-edge-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Exploring Your Edge Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-deploying-a-service-to-edge-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Deploying a Service to Edge Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-troubleshooting-node-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Troubleshooting Node Registration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-working-with-claude-and-the-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices for Working with Claude and the MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-claude-using-other-mcp-clients-with-the-open-horizon-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond Claude: Using Other MCP Clients with the Open Horizon MCP Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beyond Claude: Using Other MCP Clients with the Open Horizon MCP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternative-mcp-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative MCP Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrating-with-custom-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrating with Custom Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-the-mcp-cli-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Using the MCP CLI Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-the-open-protocol-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of the Open Protocol Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-and-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion and Next Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusion and Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap-the-power-of-combining-open-horizon-mcp-claude-and-ibm-codeengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recap: The Power of Combining Open Horizon, MCP, Claude, and IBM CodeEngine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beyond-the-basics-extending-the-open-horizon-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond the Basics: Extending the Open Horizon MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-directions-with-ibm-cloud-code-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Directions with IBM Cloud Code Engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-directions-for-ai-assisted-edge-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Directions for AI-Assisted Edge Computing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-involved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Involved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-container-converter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-container-converter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-container-converter/AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGENTS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-container-converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-container-converter/docker-compose-support-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker-compose-support-plan.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-container-converter/mcp-compose-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mcp-compose-tools.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-container-converter/phase2-compose-sdf-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    phase2-compose-sdf-generation.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-secrets-manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-secrets-manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARCHITECTURE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/CODE_OF_CONDUCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CODE_OF_CONDUCT.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONTRIBUTING.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/INSTALL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSTALL.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/RATIONALE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RATIONALE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility-secrets-manager/USAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    USAGE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-mcp-and-its-value-proposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding MCP and Its Value Proposition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding MCP and Its Value Proposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-model-context-protocol-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the Model Context Protocol (MCP)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-mcp-matters-for-open-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MCP Matters for Open Horizon
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-and-running-the-open-horizon-mcp-server-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up and Running the Open Horizon MCP Server Locally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up and Running the Open Horizon MCP Server Locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Clone the Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Configure Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-build-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Build the Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-start-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Start the Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-the-server-is-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Verify the Server is Running
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-local-server-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Local Server Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-open-horizon-mcp-server-to-ibm-cloud-code-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying the Open Horizon MCP Server to IBM Cloud Code Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the Open Horizon MCP Server to IBM Cloud Code Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites-for-cloud-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites for Cloud Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-for-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare for Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-build-and-push-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Build and Push the Docker Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-deploy-to-ibm-cloud-code-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Deploy to IBM Cloud Code Engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Verify the Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-ibm-cloud-code-engine-for-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of IBM Cloud Code Engine for MCP Servers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leveraging-code-engine-fleet-coming-soon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leveraging Code Engine Fleet (Coming Soon)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-cloud-deployment-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Cloud Deployment Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-claude-desktop-to-use-the-open-horizon-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring Claude Desktop to Use the Open Horizon MCP Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Claude Desktop to Use the Open Horizon MCP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-locate-the-claude-desktop-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Locate the Claude Desktop Configuration File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-edit-the-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Edit the Configuration File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-the-open-horizon-mcp-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add the Open Horizon MCP Server Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Add the Open Horizon MCP Server Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-for-a-local-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: For a Local MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-for-a-cloud-deployed-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: For a Cloud-Deployed MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-using-environment-variables-for-sensitive-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Using Environment Variables for Sensitive Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-save-and-restart-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Save and Restart Claude Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Verify the Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-how-claude-desktop-connects-to-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding How Claude Desktop Connects to MCP Servers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-open-horizon-mcp-server-with-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the Open Horizon MCP Server with Claude Desktop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the Open Horizon MCP Server with Claude Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-tools-and-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Tools and Capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available Tools and Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-management-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Management Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-management-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Management Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-management-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Management Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-conversations-with-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Conversations with Claude
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Conversations with Claude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-exploring-your-edge-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Exploring Your Edge Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-deploying-a-service-to-edge-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Deploying a Service to Edge Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-troubleshooting-node-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Troubleshooting Node Registration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-working-with-claude-and-the-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices for Working with Claude and the MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-claude-using-other-mcp-clients-with-the-open-horizon-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond Claude: Using Other MCP Clients with the Open Horizon MCP Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beyond Claude: Using Other MCP Clients with the Open Horizon MCP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternative-mcp-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative MCP Clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrating-with-custom-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrating with Custom Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-the-mcp-cli-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Using the MCP CLI Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-the-open-protocol-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of the Open Protocol Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-and-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion and Next Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusion and Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap-the-power-of-combining-open-horizon-mcp-claude-and-ibm-codeengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recap: The Power of Combining Open Horizon, MCP, Claude, and IBM CodeEngine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beyond-the-basics-extending-the-open-horizon-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond the Basics: Extending the Open Horizon MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-directions-with-ibm-cloud-code-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Directions with IBM Cloud Code Engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-directions-for-ai-assisted-edge-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Directions for AI-Assisted Edge Computing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-involved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Involved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thoughts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="supercharging-open-horizon-management-with-claude-and-ibm-codeengine-mcp-a-practical-guide">Supercharging Open Horizon Management with Claude and IBM CodeEngine MCP: A Practical Guide</h1>
+<h2 id="introduction">Introduction</h2>
+<p>In the rapidly evolving landscape of edge computing, managing distributed devices efficiently has become a critical challenge. Open Horizon, an open-source edge computing platform, provides powerful tools for deploying and managing workloads across edge devices. However, interacting with these tools traditionally requires specialized knowledge and command-line expertise.</p>
+<p>Enter the Model Context Protocol (MCP) and large language models like Claude. Together, they transform how we interact with complex systems like Open Horizon, making them accessible through natural language conversations. This blog post explores how to set up and use an Open Horizon MCP server, both locally and in IBM Cloud Code Engine, to enable AI-assisted edge computing management.</p>
+<p>By the end of this guide, you'll understand:
+- What MCP is and why it's valuable for Open Horizon management
+- How to run the Open Horizon MCP server locally
+- How to deploy the server to IBM Cloud Code Engine and leverage its serverless capabilities
+- How to configure Claude Desktop to interact with your MCP server
+- How to use Claude to manage your Open Horizon environment through natural language</p>
+<p>Let's dive in and explore how these technologies can work together to simplify edge computing management.</p>
+<h2 id="understanding-mcp-and-its-value-proposition">Understanding MCP and Its Value Proposition</h2>
+<h3 id="what-is-the-model-context-protocol-mcp">What is the Model Context Protocol (MCP)?</h3>
+<p>The Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and data sources in a structured way. Think of it as a "USB-C port for AI" - a standardized interface that allows AI assistants like Claude to connect to various systems and perform actions on your behalf.</p>
+<p>Unlike traditional APIs that require developers to write code for each integration, MCP provides a consistent way for AI models to:
+- Discover available tools and capabilities
+- Execute operations with proper parameters
+- Receive structured responses
+- Maintain context across interactions</p>
+<h3 id="why-mcp-matters-for-open-horizon">Why MCP Matters for Open Horizon</h3>
+<p>Open Horizon is a powerful edge computing platform, but its management often requires specialized knowledge and command-line expertise. By exposing Open Horizon's capabilities through an MCP server, we create several key benefits:</p>
+<ol>
+<li>
+<p><strong>Simplified Management</strong>: Users can interact with Open Horizon using natural language rather than memorizing complex commands.</p>
+</li>
+<li>
+<p><strong>Knowledge Democratization</strong>: The expertise needed to manage edge devices becomes accessible to team members without specialized training.</p>
+</li>
+<li>
+<p><strong>Operational Efficiency</strong>: Tasks that previously required multiple steps and careful syntax can be accomplished through simple conversational requests.</p>
+</li>
+<li>
+<p><strong>Reduced Training Requirements</strong>: New team members can become productive faster, with the AI guiding them through complex operations.</p>
+</li>
+<li>
+<p><strong>Better Decision Making</strong>: The AI can provide contextual explanations and recommendations based on the current state of your edge environment.</p>
+</li>
+</ol>
+<p>As stated in the Open Horizon MCP Server's value proposition document:</p>
+<blockquote>
+<p>"Exposing Open Horizon's capabilities through an MCP server enables AI agents to autonomously deploy, update, and manage containerized workloads across large numbers of distributed edge devices. Unlike traditional chatbots which rely on static knowledge and require explicit user requests, an MCP-enabled agent can manage and reason across thousands of edge devices simultaneously using real-time data to make dynamic decisions and trigger self-healing actions or re-task devices based on changing needs."</p>
+</blockquote>
+<p>Now that we understand the value, let's see how to set up and use this powerful combination of technologies.</p>
+<h2 id="setting-up-and-running-the-open-horizon-mcp-server-locally">Setting Up and Running the Open Horizon MCP Server Locally</h2>
+<p>Running the Open Horizon MCP server locally is a great way to get started with AI-assisted edge computing management. It allows you to test the functionality in a controlled environment before deploying to production. Let's walk through the process step by step.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before we begin, make sure you have the following installed:</p>
+<ul>
+<li><strong>Node.js</strong> (v16 or higher)</li>
+<li><strong>npm</strong> (v7 or higher)</li>
+<li><strong>Git</strong> for cloning the repository</li>
+<li><strong>Access to an Open Horizon Exchange instance</strong> (you'll need the URL and credentials)</li>
+</ul>
+<h3 id="step-1-clone-the-repository">Step 1: Clone the Repository</h3>
+<p>First, let's clone the Open Horizon MCP server repository:</p>
+<pre><code class="language-bash">git clone https://github.com/your-org/open-horizon-mcp-server.git
+cd open-horizon-mcp-server
+</code></pre>
+<h3 id="step-2-install-dependencies">Step 2: Install Dependencies</h3>
+<p>Next, install the required Node.js dependencies:</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+<h3 id="step-3-configure-environment-variables">Step 3: Configure Environment Variables</h3>
+<p>The MCP server needs to connect to your Open Horizon Exchange instance. Create a <code>.env</code> file in the root directory with the following variables:</p>
+<pre><code>EXCHANGE_URL=&lt;your-exchange-url&gt;
+EXCHANGE_ORG=&lt;your-organization&gt;
+EXCHANGE_CREDENTIAL=&lt;your-base64-encoded-credentials&gt;
+PORT=3000
+</code></pre>
+<p>For example:</p>
+<pre><code>EXCHANGE_URL=http://open-horizon.example.com:3091/v1/orgs
+EXCHANGE_ORG=myorg
+EXCHANGE_CREDENTIAL=bXlvcmcvbXl1c2VyOnBhc3N3b3Jk
+PORT=3000
+</code></pre>
+<p>The <code>EXCHANGE_CREDENTIAL</code> should be a Base64-encoded string of your username and password in the format <code>org/user:password</code>. You can generate this using:</p>
+<pre><code class="language-bash">echo -n &quot;myorg/myuser:password&quot; | base64
+</code></pre>
+<h3 id="step-4-build-the-project">Step 4: Build the Project</h3>
+<p>Compile the TypeScript code:</p>
+<pre><code class="language-bash">npm run build
+</code></pre>
+<h3 id="step-5-start-the-server">Step 5: Start the Server</h3>
+<p>Now you can start the MCP server:</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+<p>You should see output similar to:</p>
+<pre><code>Open Horizon MCP Server listening on port: 3000
+</code></pre>
+<h3 id="step-6-verify-the-server-is-running">Step 6: Verify the Server is Running</h3>
+<p>To verify that the server is running correctly, you can check the health endpoint:</p>
+<pre><code class="language-bash">curl http://localhost:3000/health
+</code></pre>
+<p>You should receive a response like:</p>
+<pre><code class="language-json">{&quot;status&quot;:&quot;healthy&quot;}
+</code></pre>
+<h3 id="understanding-the-local-server-architecture">Understanding the Local Server Architecture</h3>
+<p>When running locally, the Open Horizon MCP server:</p>
+<ol>
+<li><strong>Listens on the configured port</strong> (default: 3000) for incoming MCP requests</li>
+<li><strong>Maintains stateful sessions</strong> for each client connection</li>
+<li><strong>Authenticates with the Open Horizon Exchange</strong> using the provided credentials</li>
+<li><strong>Exposes tools</strong> for managing nodes, services, and policies</li>
+</ol>
+<p>The server implements the Model Context Protocol, which allows AI assistants like Claude to discover and use the available tools. Each tool is registered with:</p>
+<ul>
+<li>A unique name (e.g., <code>list-nodes</code>)</li>
+<li>A description that helps the AI understand when to use it</li>
+<li>A schema defining the expected parameters</li>
+<li>A callback function that executes the actual API calls to the Open Horizon Exchange</li>
+</ul>
+<p>This architecture makes it easy to extend the server with new capabilities by adding additional tools in the <code>src/tools</code> directory.</p>
+<p>Now that we have our server running locally, let's look at how to deploy it to the cloud for production use.</p>
+<h2 id="deploying-the-open-horizon-mcp-server-to-ibm-cloud-code-engine">Deploying the Open Horizon MCP Server to IBM Cloud Code Engine</h2>
+<p>While running the MCP server locally is great for development and testing, deploying it to IBM Cloud Code Engine provides significant advantages for production use. Code Engine is a fully managed, serverless platform that's ideal for hosting MCP servers because it offers:</p>
+<ul>
+<li><strong>Zero infrastructure management</strong> - focus on your code, not servers</li>
+<li><strong>Automatic scaling</strong> - from zero to thousands of instances based on demand</li>
+<li><strong>Cost efficiency</strong> - pay only for what you use, with scale-to-zero when idle</li>
+<li><strong>Built-in security</strong> - secure container execution and network isolation</li>
+<li><strong>Global availability</strong> - deploy close to your users for lower latency</li>
+</ul>
+<h3 id="prerequisites-for-cloud-deployment">Prerequisites for Cloud Deployment</h3>
+<p>Before deploying to IBM Cloud Code Engine, you'll need:</p>
+<ul>
+<li><strong>IBM Cloud account</strong> with Code Engine service enabled</li>
+<li><strong>IBM Cloud CLI</strong> installed and configured</li>
+<li><strong>Docker</strong> installed for building container images</li>
+<li><strong>Container Registry access</strong> (IBM Container Registry or another registry)</li>
+</ul>
+<h3 id="step-1-prepare-for-deployment">Step 1: Prepare for Deployment</h3>
+<p>The Open Horizon MCP server includes a deployment script in the <code>bin/deploy.js</code> file that simplifies the process. Before using it, you'll need to create a configuration file for your environment.</p>
+<p>Create a file named <code>.env-local.json</code> in the root directory with your IBM Cloud Code Engine configuration:</p>
+<pre><code class="language-json">{
+  &quot;dev&quot;: {
+    &quot;EXCHANGE_URL&quot;: &quot;http://your-exchange-url:3091/v1/orgs&quot;,
+    &quot;EXCHANGE_ORG&quot;: &quot;your-organization&quot;,
+    &quot;EXCHANGE_CREDENTIAL&quot;: &quot;your-base64-encoded-credentials&quot;,
+    &quot;REGISTRY_ACCESS_SECRET&quot;: &quot;your-registry-secret-name&quot;
+  },
+  &quot;prod&quot;: {
+    &quot;EXCHANGE_URL&quot;: &quot;http://your-production-exchange-url:3091/v1/orgs&quot;,
+    &quot;EXCHANGE_ORG&quot;: &quot;your-organization&quot;,
+    &quot;EXCHANGE_CREDENTIAL&quot;: &quot;your-base64-encoded-credentials&quot;,
+    &quot;REGISTRY_ACCESS_SECRET&quot;: &quot;your-registry-secret-name&quot;
+  }
+}
+</code></pre>
+<h3 id="step-2-build-and-push-the-docker-image">Step 2: Build and Push the Docker Image</h3>
+<p>The Open Horizon MCP server uses a multi-stage Dockerfile that creates an optimized container image. The deployment script handles building and pushing the image to your container registry.</p>
+<p>To build for AMD64 architecture (most cloud environments):</p>
+<pre><code class="language-bash">npm run build:docker:amd64
+</code></pre>
+<p>For ARM64 architecture:</p>
+<pre><code class="language-bash">npm run build:docker:arm64
+</code></pre>
+<h3 id="step-3-deploy-to-ibm-cloud-code-engine">Step 3: Deploy to IBM Cloud Code Engine</h3>
+<p>Once your Docker image is built and pushed to the registry, you can deploy to Code Engine using the provided script:</p>
+<pre><code class="language-bash"># Deploy to development environment
+npm run deploy:dev
+
+# Or deploy to production environment
+npm run deploy:prod
+</code></pre>
+<p>These commands use the <code>bin/deploy.js</code> script, which:</p>
+<ol>
+<li>Builds the TypeScript code</li>
+<li>Creates a Docker image for the specified platform</li>
+<li>Tags the image with your registry information</li>
+<li>Pushes the image to the container registry</li>
+<li>Creates or updates the Code Engine application with the new image</li>
+<li>Sets environment variables from your <code>.env-local.json</code> file</li>
+</ol>
+<h3 id="step-4-verify-the-deployment">Step 4: Verify the Deployment</h3>
+<p>After deployment, you can verify that your MCP server is running in Code Engine:</p>
+<pre><code class="language-bash"># Get the application URL
+npm run --appname=open-horizon-mcp-server-dev appUrl
+
+# Check the application status
+npm run --appname=open-horizon-mcp-server-dev appInfo
+
+# View application logs
+npm run --appname=open-horizon-mcp-server-dev appLogs
+</code></pre>
+<p>The application URL will be something like:</p>
+<pre><code>https://open-horizon-mcp-server-dev.abcdefgh.us-south.codeengine.appdomain.cloud
+</code></pre>
+<p>You can verify the server is running by checking the health endpoint:</p>
+<pre><code class="language-bash">curl https://open-horizon-mcp-server-dev.abcdefgh.us-south.codeengine.appdomain.cloud/health
+</code></pre>
+<h3 id="benefits-of-ibm-cloud-code-engine-for-mcp-servers">Benefits of IBM Cloud Code Engine for MCP Servers</h3>
+<p>Deploying your Open Horizon MCP server to IBM Cloud Code Engine offers several key advantages:</p>
+<ol>
+<li>
+<p><strong>Elastic Scalability</strong>: Code Engine automatically scales your MCP server based on incoming requests. During periods of high demand (like when multiple users are interacting with Claude), it scales up to handle the load. When traffic decreases, it scales down to save costs—even to zero when not in use.</p>
+</li>
+<li>
+<p><strong>Global Availability</strong>: Deploy your MCP server in multiple regions to reduce latency for users around the world. This is especially valuable for organizations with globally distributed edge devices and teams.</p>
+</li>
+<li>
+<p><strong>Simplified Operations</strong>: Code Engine eliminates the need to manage servers, containers, or Kubernetes clusters. This reduces operational overhead and lets you focus on enhancing your MCP server's capabilities.</p>
+</li>
+<li>
+<p><strong>Cost Optimization</strong>: With the pay-per-use model, you only pay for the actual compute resources consumed during request processing. For MCP servers that handle intermittent requests, this can result in significant cost savings compared to always-on deployments.</p>
+</li>
+<li>
+<p><strong>Enterprise-Grade Security</strong>: Code Engine provides built-in security features like private networking, secrets management, and integration with IBM Cloud IAM for access control.</p>
+</li>
+</ol>
+<h3 id="leveraging-code-engine-fleet-coming-soon">Leveraging Code Engine Fleet (Coming Soon)</h3>
+<p>IBM Cloud Code Engine is introducing a new feature called "Fleet" that will be particularly valuable for MCP server deployments:</p>
+<ol>
+<li>
+<p><strong>Multi-Region Deployment</strong>: Fleet will allow you to deploy your MCP server across multiple regions with a single command, ensuring high availability and disaster recovery.</p>
+</li>
+<li>
+<p><strong>Intelligent Traffic Routing</strong>: Requests will be automatically routed to the nearest healthy instance, reducing latency for users regardless of their location.</p>
+</li>
+<li>
+<p><strong>Consistent Configuration</strong>: Fleet will maintain consistent configuration across all regions, simplifying management of your global MCP server deployment.</p>
+</li>
+<li>
+<p><strong>Centralized Monitoring</strong>: Get a unified view of your MCP server's performance and usage across all regions, making it easier to identify and resolve issues.</p>
+</li>
+</ol>
+<p>When Code Engine Fleet becomes available, you'll be able to enhance your MCP server deployment with these capabilities, making it even more resilient and responsive for users around the world.</p>
+<h3 id="understanding-the-cloud-deployment-architecture">Understanding the Cloud Deployment Architecture</h3>
+<p>When deployed to IBM Cloud Code Engine, the Open Horizon MCP server:</p>
+<ol>
+<li><strong>Runs as a containerized application</strong> using the Docker image we built</li>
+<li><strong>Scales automatically</strong> based on incoming traffic (even to zero when not in use)</li>
+<li><strong>Maintains high availability</strong> through Code Engine's infrastructure</li>
+<li><strong>Securely stores credentials</strong> as environment variables</li>
+<li><strong>Exposes a public HTTPS endpoint</strong> for AI assistants to connect to</li>
+</ol>
+<p>The deployment uses several best practices:</p>
+<ul>
+<li><strong>Multi-stage Docker builds</strong> to minimize image size</li>
+<li><strong>Non-root user</strong> for improved security</li>
+<li><strong>Health checks</strong> for reliability monitoring</li>
+<li><strong>Environment-specific configurations</strong> for dev/test/prod separation</li>
+</ul>
+<p>Now that our MCP server is deployed to the cloud, let's configure Claude Desktop to connect to it.</p>
+<h2 id="configuring-claude-desktop-to-use-the-open-horizon-mcp-server">Configuring Claude Desktop to Use the Open Horizon MCP Server</h2>
+<p>Claude Desktop is a powerful AI assistant that can be extended with MCP servers to provide specialized capabilities. In this section, we'll configure Claude Desktop to connect to our Open Horizon MCP server, whether it's running locally or in the cloud.</p>
+<h3 id="prerequisites_1">Prerequisites</h3>
+<p>Before configuring Claude Desktop:</p>
+<ul>
+<li><strong>Install Claude Desktop</strong> on your computer (available for macOS and Windows)</li>
+<li><strong>Ensure your MCP server is running</strong> either locally or on IBM Cloud Code Engine</li>
+<li><strong>Have your Open Horizon Exchange credentials ready</strong></li>
+</ul>
+<h3 id="step-1-locate-the-claude-desktop-configuration-file">Step 1: Locate the Claude Desktop Configuration File</h3>
+<p>Claude Desktop stores its configuration in a JSON file. The location depends on your operating system:</p>
+<ul>
+<li><strong>macOS</strong>: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+<li><strong>Windows</strong>: <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+</ul>
+<h3 id="step-2-edit-the-configuration-file">Step 2: Edit the Configuration File</h3>
+<p>Open the configuration file in your favorite text editor. You'll see a structure like this:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    // Existing MCP server configurations may be here
+  }
+}
+</code></pre>
+<h3 id="step-3-add-the-open-horizon-mcp-server-configuration">Step 3: Add the Open Horizon MCP Server Configuration</h3>
+<p>Add a new entry for your Open Horizon MCP server. You have two options depending on where your server is running:</p>
+<h4 id="option-a-for-a-local-mcp-server">Option A: For a Local MCP Server</h4>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;open-horizon-mcp-local&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;, 
+        &quot;mcp-remote&quot;, 
+        &quot;http://localhost:3000/mcp&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-org:your-organization&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-url:http://your-exchange-url:3091/v1/orgs&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-credential:your-base64-encoded-credentials&quot;
+      ]
+    }
+  }
+}
+</code></pre>
+<h4 id="option-b-for-a-cloud-deployed-mcp-server">Option B: For a Cloud-Deployed MCP Server</h4>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;open-horizon-mcp-cloud&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;, 
+        &quot;mcp-remote&quot;, 
+        &quot;https://your-app-name.region.codeengine.appdomain.cloud/mcp&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-org:your-organization&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-url:http://your-exchange-url:3091/v1/orgs&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-credential:your-base64-encoded-credentials&quot;,
+        &quot;--header&quot;,
+        &quot;Authorization:Bearer your-auth-token&quot;
+      ]
+    }
+  }
+}
+</code></pre>
+<p>Replace the placeholders with your actual values:
+- <code>your-organization</code>: Your Open Horizon organization name
+- <code>your-exchange-url</code>: The URL of your Open Horizon Exchange
+- <code>your-base64-encoded-credentials</code>: Your Base64-encoded credentials
+- <code>your-app-name.region.codeengine.appdomain.cloud</code>: The URL of your deployed Code Engine application
+- <code>your-auth-token</code>: If your MCP server requires authentication</p>
+<h3 id="step-4-using-environment-variables-for-sensitive-information">Step 4: Using Environment Variables for Sensitive Information</h3>
+<p>For better security, you can use environment variables for sensitive information:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;open-horizon-mcp&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;, 
+        &quot;mcp-remote&quot;, 
+        &quot;https://your-app-name.region.codeengine.appdomain.cloud/mcp&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-org:playground&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-url:http://your-exchange-url:3091/v1/orgs&quot;,
+        &quot;--header&quot;,
+        &quot;exchange-credential:${EXCHANGE_CREDENTIAL}&quot;,
+        &quot;--header&quot;,
+        &quot;Authorization:Bearer ${MCP_AUTH_TOKEN}&quot;
+      ],
+      &quot;env&quot;: {
+        &quot;EXCHANGE_CREDENTIAL&quot;: &quot;your-base64-encoded-credentials&quot;,
+        &quot;MCP_AUTH_TOKEN&quot;: &quot;your-auth-token&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="step-5-save-and-restart-claude-desktop">Step 5: Save and Restart Claude Desktop</h3>
+<p>After editing the configuration file, save it and restart Claude Desktop for the changes to take effect.</p>
+<h3 id="step-6-verify-the-connection">Step 6: Verify the Connection</h3>
+<p>To verify that Claude Desktop is successfully connected to your Open Horizon MCP server:</p>
+<ol>
+<li>Open Claude Desktop</li>
+<li>Start a new conversation</li>
+<li>Ask Claude to list the available nodes in your Open Horizon Exchange:
+   <code>"List all nodes registered in the Open Horizon Exchange"</code></li>
+</ol>
+<p>If everything is configured correctly, Claude should use the MCP server to fetch and display the list of nodes.</p>
+<h3 id="understanding-how-claude-desktop-connects-to-mcp-servers">Understanding How Claude Desktop Connects to MCP Servers</h3>
+<p>When you configure an MCP server in Claude Desktop:</p>
+<ol>
+<li>Claude Desktop launches a local process using the specified <code>command</code> and <code>args</code></li>
+<li>The <code>mcp-remote</code> tool establishes a connection to your MCP server</li>
+<li>Claude communicates with the MCP server through this connection</li>
+<li>The MCP server authenticates with the Open Horizon Exchange using the provided credentials</li>
+<li>Claude gains access to all the tools registered in the MCP server</li>
+</ol>
+<p>This architecture allows Claude to securely interact with your Open Horizon environment without needing direct access to your credentials or systems.</p>
+<p>Now that we've configured Claude Desktop to use our MCP server, let's explore how to use it to manage your Open Horizon environment.</p>
+<h2 id="using-the-open-horizon-mcp-server-with-claude-desktop">Using the Open Horizon MCP Server with Claude Desktop</h2>
+<p>Now that we have our Open Horizon MCP server running and Claude Desktop configured to use it, let's explore how to leverage this powerful combination to manage your Open Horizon environment through natural language conversations.</p>
+<h3 id="available-tools-and-capabilities">Available Tools and Capabilities</h3>
+<p>The Open Horizon MCP server provides a rich set of tools that Claude can use to help you manage your edge computing environment. These tools are grouped into three main categories:</p>
+<h4 id="node-management-tools">Node Management Tools</h4>
+<ul>
+<li><strong>list-nodes</strong>: List all registered nodes</li>
+<li><strong>get-node-policy</strong>: Get the policy for a specific node</li>
+<li><strong>register-node-policy</strong>: Register a node with a policy</li>
+<li><strong>unregister-node</strong>: Remove a node from the Exchange</li>
+</ul>
+<h4 id="service-management-tools">Service Management Tools</h4>
+<ul>
+<li><strong>list-services</strong>: List all available services</li>
+<li><strong>get-service-details</strong>: Get detailed information about a service</li>
+<li><strong>publish-service</strong>: Publish a new service to the Exchange</li>
+<li><strong>delete-service</strong>: Remove a service from the Exchange</li>
+<li><strong>generate-service-definition</strong>: Create a service definition template</li>
+</ul>
+<h4 id="policy-management-tools">Policy Management Tools</h4>
+<ul>
+<li><strong>list-deployment-policies</strong>: List all deployment policies</li>
+<li><strong>get-policy-details</strong>: Get detailed information about a policy</li>
+<li><strong>check-policy-deployments</strong>: See which workloads use a specific policy</li>
+<li><strong>check-policy-compatibility</strong>: Check which services are compatible with a policy</li>
+<li><strong>delete-policy</strong>: Remove a policy from the Exchange</li>
+</ul>
+<h3 id="example-conversations-with-claude">Example Conversations with Claude</h3>
+<p>Let's look at some example conversations that demonstrate how to use Claude with the Open Horizon MCP server for common edge computing management tasks.</p>
+<h4 id="example-1-exploring-your-edge-environment">Example 1: Exploring Your Edge Environment</h4>
+<pre><code>You: I'm new to Open Horizon. Can you help me understand what's in my environment?
+
+Claude: I'd be happy to help you explore your Open Horizon environment. Let's start by checking what nodes and services you have.
+
+First, let me list all the nodes registered in your Open Horizon Exchange:
+
+[Claude uses the list-nodes tool and displays the results]
+
+These are all the edge devices registered in your environment. Now, let's see what services are available:
+
+[Claude uses the list-services tool and displays the results]
+
+Would you like me to explain any specific node or service in more detail?
+</code></pre>
+<h4 id="example-2-deploying-a-service-to-edge-nodes">Example 2: Deploying a Service to Edge Nodes</h4>
+<pre><code>You: I want to deploy the &quot;hello-world&quot; service to nodes with the &quot;location:office&quot; property.
+
+Claude: I'll help you deploy the &quot;hello-world&quot; service to nodes with the &quot;location:office&quot; property. This involves creating a deployment policy that targets those specific nodes.
+
+First, let me check if the &quot;hello-world&quot; service exists:
+
+[Claude uses the get-service-details tool to verify the service exists]
+
+Now, I'll create a deployment policy that targets nodes with the &quot;location:office&quot; property. Here's what the policy would look like:
+
+{
+  &quot;label&quot;: &quot;hello-world-office-deployment&quot;,
+  &quot;description&quot;: &quot;Deploy hello-world to office locations&quot;,
+  &quot;service&quot;: {
+    &quot;name&quot;: &quot;hello-world&quot;,
+    &quot;org&quot;: &quot;your-organization&quot;,
+    &quot;arch&quot;: &quot;amd64&quot;,
+    &quot;serviceVersions&quot;: [
+      {
+        &quot;version&quot;: &quot;1.0.0&quot;,
+        &quot;priority&quot;: {
+          &quot;priority_value&quot;: 1,
+          &quot;retries&quot;: 1,
+          &quot;retry_durations&quot;: 3600
+        }
+      }
+    ]
+  },
+  &quot;constraints&quot;: [
+    &quot;location == office&quot;
+  ]
+}
+
+Would you like me to publish this deployment policy to your Exchange?
+
+[After your confirmation, Claude would use the appropriate tools to create and publish the policy]
+</code></pre>
+<h4 id="example-3-troubleshooting-node-registration">Example 3: Troubleshooting Node Registration</h4>
+<pre><code>You: Node &quot;edge-device-001&quot; isn't running the services I expected. Can you help me troubleshoot?
+
+Claude: I'll help you troubleshoot why &quot;edge-device-001&quot; isn't running the expected services. Let's investigate step by step.
+
+First, let me check if the node is registered and get its policy:
+
+[Claude uses the get-node-policy tool to retrieve the node's policy]
+
+Now, let's see which services should be compatible with this node based on its policy:
+
+[Claude uses the check-policy-compatibility tool to determine compatible services]
+
+I notice that the node's policy has constraints that might be preventing the service from deploying. The node requires &quot;memory &gt;= 2048&quot; but your service is configured for &quot;memory &gt;= 4096&quot;.
+
+You have two options:
+1. Update the node policy to accommodate the service requirements
+2. Modify the service to work with the node's constraints
+
+Would you like me to help you update the node policy?
+</code></pre>
+<h3 id="best-practices-for-working-with-claude-and-the-mcp-server">Best Practices for Working with Claude and the MCP Server</h3>
+<p>To get the most out of Claude and the Open Horizon MCP server, follow these best practices:</p>
+<h2 id="beyond-claude-using-other-mcp-clients-with-the-open-horizon-mcp-server">Beyond Claude: Using Other MCP Clients with the Open Horizon MCP Server</h2>
+<p>While we've focused on using Claude Desktop with the Open Horizon MCP server in this guide, it's important to note that the Model Context Protocol is an open standard. This means that any MCP-compatible client can interact with your Open Horizon MCP server, not just Claude.</p>
+<h3 id="alternative-mcp-clients">Alternative MCP Clients</h3>
+<p>Here are some other MCP clients that you can use with your Open Horizon MCP server:</p>
+<ol>
+<li>
+<p><strong>Other Claude Interfaces</strong>: Beyond Claude Desktop, you can use other Claude interfaces that support MCP, such as Claude API with MCP extensions or Claude web interfaces that support MCP connections.</p>
+</li>
+<li>
+<p><strong>Open Source MCP Clients</strong>: There are several open-source MCP client implementations that can connect to your server, including:</p>
+</li>
+<li>MCP CLI tools for command-line interactions</li>
+<li>MCP client libraries for various programming languages (JavaScript, Python, etc.)</li>
+<li>
+<p>Custom MCP clients built for specific use cases</p>
+</li>
+<li>
+<p><strong>Other AI Assistants</strong>: As more AI assistants adopt the MCP standard, you'll be able to use them with your Open Horizon MCP server without any changes to the server itself.</p>
+</li>
+</ol>
+<h3 id="integrating-with-custom-applications">Integrating with Custom Applications</h3>
+<p>You can also build custom applications that use the MCP protocol to interact with your Open Horizon MCP server. This opens up possibilities for:</p>
+<ol>
+<li>
+<p><strong>Custom Web Interfaces</strong>: Build specialized web UIs for managing Open Horizon that use your MCP server as the backend.</p>
+</li>
+<li>
+<p><strong>Mobile Applications</strong>: Create mobile apps that allow field technicians to manage edge devices through your MCP server.</p>
+</li>
+<li>
+<p><strong>Integration with DevOps Tools</strong>: Connect your CI/CD pipelines to Open Horizon through the MCP server for automated deployments.</p>
+</li>
+<li>
+<p><strong>Monitoring Dashboards</strong>: Build dashboards that use the MCP server to fetch and display real-time information about your edge devices.</p>
+</li>
+</ol>
+<h3 id="example-using-the-mcp-cli-tool">Example: Using the MCP CLI Tool</h3>
+<p>Here's a simple example of using an MCP CLI tool to interact with your Open Horizon MCP server:</p>
+<pre><code class="language-bash"># Install the MCP CLI tool
+npm install -g mcp-cli
+
+# Connect to your MCP server
+mcp-cli connect https://your-app-name.region.codeengine.appdomain.cloud/mcp \
+  --header &quot;exchange-org:your-organization&quot; \
+  --header &quot;exchange-url:http://your-exchange-url:3091/v1/orgs&quot; \
+  --header &quot;exchange-credential:your-base64-encoded-credentials&quot;
+
+# List available tools
+mcp-cli list-tools
+
+# Execute a tool
+mcp-cli execute list-nodes
+</code></pre>
+<h3 id="benefits-of-the-open-protocol-approach">Benefits of the Open Protocol Approach</h3>
+<p>The fact that the Open Horizon MCP server uses an open protocol provides several benefits:</p>
+<ol>
+<li>
+<p><strong>Future-Proof</strong>: As new AI assistants and tools emerge that support MCP, they'll be able to work with your existing server.</p>
+</li>
+<li>
+<p><strong>No Vendor Lock-In</strong>: You're not tied to any specific AI assistant or platform; you can switch between different MCP clients as needed.</p>
+</li>
+<li>
+<p><strong>Extensibility</strong>: You can create custom clients tailored to specific user roles or use cases within your organization.</p>
+</li>
+<li>
+<p><strong>Interoperability</strong>: Your MCP server can be part of a larger ecosystem of MCP-compatible tools and services.</p>
+</li>
+</ol>
+<p>By deploying your Open Horizon MCP server on IBM Cloud Code Engine, you're creating a flexible, scalable interface to your edge computing environment that can be accessed by a wide range of clients and integrated into various workflows and applications.</p>
+<ol>
+<li><strong>Be Specific in Your Requests</strong></li>
+<li>Instead of: "Show me the nodes"</li>
+<li>
+<p>Use: "List all nodes registered in the Open Horizon Exchange"</p>
+</li>
+<li>
+<p><strong>Include Key Terms</strong></p>
+</li>
+<li>Include terms like "nodes", "services", "policies", and "Open Horizon" in your requests</li>
+<li>
+<p>Example: "Show me all the services in the Open Horizon Exchange"</p>
+</li>
+<li>
+<p><strong>Provide Context</strong></p>
+</li>
+<li>When referring to specific nodes or services, provide their full names</li>
+<li>
+<p>Example: "Get details about the service named 'hello-world' in the Open Horizon Exchange"</p>
+</li>
+<li>
+<p><strong>Ask for Explanations</strong></p>
+</li>
+<li>Claude can explain Open Horizon concepts and the results it retrieves</li>
+<li>
+<p>Example: "Explain what the constraints in this node policy mean"</p>
+</li>
+<li>
+<p><strong>Build Complex Workflows Incrementally</strong></p>
+</li>
+<li>Start with simple requests and build up to more complex operations</li>
+<li>Let Claude guide you through multi-step processes</li>
+</ol>
+<h3 id="security-considerations">Security Considerations</h3>
+<p>When using Claude with the Open Horizon MCP server, keep these security considerations in mind:</p>
+<ol>
+<li><strong>Credential Management</strong></li>
+<li>Store credentials securely using environment variables</li>
+<li>Regularly rotate your authentication tokens</li>
+<li>
+<p>Use the minimum required permissions for your Exchange credentials</p>
+</li>
+<li>
+<p><strong>Access Control</strong></p>
+</li>
+<li>Be mindful of who has access to your Claude Desktop with the MCP configuration</li>
+<li>
+<p>Consider using separate credentials with limited permissions for demonstration purposes</p>
+</li>
+<li>
+<p><strong>Sensitive Operations</strong></p>
+</li>
+<li>Double-check Claude's suggestions before confirming destructive operations</li>
+<li>Consider implementing additional approval workflows for critical changes</li>
+</ol>
+<p>By following these practices, you can safely and effectively use Claude with the Open Horizon MCP server to manage your edge computing environment.</p>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
+<h3 id="recap-the-power-of-combining-open-horizon-mcp-claude-and-ibm-codeengine">Recap: The Power of Combining Open Horizon, MCP, Claude, and IBM CodeEngine</h3>
+<p>In this blog post, we've explored how to combine four powerful technologies:</p>
+<ol>
+<li><strong>Open Horizon</strong>: A robust edge computing platform for managing distributed devices</li>
+<li><strong>Model Context Protocol (MCP)</strong>: A standardized interface for AI-tool interactions</li>
+<li><strong>Claude</strong>: An advanced AI assistant capable of natural language understanding</li>
+<li><strong>IBM Cloud Code Engine</strong>: A serverless platform that provides scalable, cost-effective hosting</li>
+</ol>
+<p>Together, these technologies transform how we manage edge computing environments. By exposing Open Horizon's capabilities through an MCP server deployed on IBM Cloud Code Engine and connecting Claude to it, we've created a system that allows anyone to manage complex edge computing operations through simple, natural language conversations.</p>
+<p>The benefits of this approach include:</p>
+<ul>
+<li><strong>Simplified management</strong> through conversational interfaces</li>
+<li><strong>Democratized access</strong> to powerful edge computing capabilities</li>
+<li><strong>Reduced training requirements</strong> for new team members</li>
+<li><strong>Improved operational efficiency</strong> through AI assistance</li>
+<li><strong>Better decision making</strong> with contextual insights</li>
+<li><strong>Cost-effective scaling</strong> with Code Engine's serverless architecture</li>
+<li><strong>Global availability</strong> for distributed teams and edge devices</li>
+</ul>
+<h3 id="beyond-the-basics-extending-the-open-horizon-mcp-server">Beyond the Basics: Extending the Open Horizon MCP Server</h3>
+<p>The Open Horizon MCP server we've explored is just the beginning. Here are some ways you could extend it:</p>
+<ol>
+<li>
+<p><strong>Add Custom Tools</strong>: Create new tools for specific use cases in your organization
+   <code>typescript
+   // Example: Create a tool to analyze node health
+   export function registerNodeHealthTool(server: McpServer) {
+     server.tool(
+       'analyze-node-health',
+       'Analyze the health of a specific node',
+       { nodeId: z.string().describe('ID of the node to analyze') },
+       async (params, context) =&gt; {
+         // Implementation here
+       }
+     );
+   }</code></p>
+</li>
+<li>
+<p><strong>Integrate with Monitoring Systems</strong>: Connect the MCP server to your monitoring infrastructure to provide real-time insights
+   <code>typescript
+   // Example: Create a resource that fetches monitoring data
+   server.resource('node-metrics', 'Node performance metrics', async () =&gt; {
+     // Fetch metrics from your monitoring system
+     return {
+       contents: [
+         {
+           text: metricsData,
+           uri: 'node-metrics',
+           mimeType: 'text/plain'
+         }
+       ]
+     };
+   });</code></p>
+</li>
+<li>
+<p><strong>Implement Automated Workflows</strong>: Create tools that perform complex sequences of operations
+   <code>typescript
+   // Example: Create a tool to deploy a service to all nodes in a region
+   export function registerRegionalDeploymentTool(server: McpServer) {
+     server.tool(
+       'deploy-to-region',
+       'Deploy a service to all nodes in a specific region',
+       {
+         serviceName: z.string().describe('Name of the service to deploy'),
+         region: z.string().describe('Region to deploy to')
+       },
+       async (params, context) =&gt; {
+         // Implementation here
+       }
+     );
+   }</code></p>
+</li>
+</ol>
+<h3 id="future-directions-with-ibm-cloud-code-engine">Future Directions with IBM Cloud Code Engine</h3>
+<p>As IBM Cloud Code Engine continues to evolve, we can expect even more powerful capabilities for hosting MCP servers:</p>
+<ol>
+<li>
+<p><strong>Global Fleet Deployments</strong>: Deploy your MCP server across multiple regions with Code Engine Fleet for improved availability and reduced latency</p>
+</li>
+<li>
+<p><strong>Integrated Observability</strong>: Leverage IBM Cloud Monitoring and Logging services for comprehensive visibility into your MCP server's performance</p>
+</li>
+<li>
+<p><strong>Event-Driven Architecture</strong>: Connect your MCP server to event sources like IBM Event Streams for real-time responses to changes in your environment</p>
+</li>
+<li>
+<p><strong>Hybrid Cloud Integration</strong>: Extend your MCP server to interact with systems across public cloud, private cloud, and on-premises environments</p>
+</li>
+</ol>
+<h3 id="future-directions-for-ai-assisted-edge-computing">Future Directions for AI-Assisted Edge Computing</h3>
+<p>As MCP and AI assistants continue to evolve, we can expect even more powerful capabilities for managing edge computing environments:</p>
+<ol>
+<li>
+<p><strong>Autonomous Management</strong>: AI agents that can proactively monitor and manage edge devices with minimal human intervention</p>
+</li>
+<li>
+<p><strong>Multi-Agent Collaboration</strong>: Multiple specialized AI agents working together to manage different aspects of your edge computing environment</p>
+</li>
+<li>
+<p><strong>Predictive Maintenance</strong>: AI systems that can predict issues before they occur and take preventive actions</p>
+</li>
+<li>
+<p><strong>Natural Language Policy Definition</strong>: Creating and managing policies through conversational interfaces rather than JSON files</p>
+</li>
+<li>
+<p><strong>Cross-Platform Integration</strong>: Extending the MCP approach to integrate with other systems beyond Open Horizon</p>
+</li>
+</ol>
+<h3 id="getting-involved">Getting Involved</h3>
+<p>The Open Horizon MCP server is an open-source project, and contributions are welcome. Here are some ways to get involved:</p>
+<ol>
+<li>
+<p><strong>Try it out</strong>: Set up the server and experiment with using Claude to manage your Open Horizon environment</p>
+</li>
+<li>
+<p><strong>Contribute</strong>: Add new tools, fix bugs, or improve documentation</p>
+</li>
+<li>
+<p><strong>Share your experience</strong>: Write about your use cases and how this approach has helped your organization</p>
+</li>
+<li>
+<p><strong>Join the community</strong>: Connect with other users and developers working on similar projects</p>
+</li>
+</ol>
+<h3 id="final-thoughts">Final Thoughts</h3>
+<p>The combination of Open Horizon, MCP, Claude, and IBM Cloud Code Engine represents a significant step forward in making edge computing more accessible and manageable. By enabling natural language interactions with complex systems through a scalable, serverless architecture, we're removing barriers to adoption and empowering more people to leverage the power of edge computing.</p>
+<p>As you implement this solution in your own environment, remember that the goal is not just to make existing operations easier, but to enable new possibilities that weren't practical before. With AI-assisted management and serverless deployment, you can scale your edge computing initiatives further and faster than ever before.</p>
+<p>Happy edge computing!</p>
+<hr />
+<p><em>This blog post was created with the assistance of Claude, demonstrating the power of AI collaboration in technical content creation.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4584 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Unified documentation portal for the Open Horizon Services organization. Aggregates docs from all service, utility, skills, and web repositories.">
+      
+      
+        <meta name="author" content="Open Horizon Services">
+      
+      
+        <link rel="canonical" href="https://open-horizon-services.github.io/_repos/service-ollama/operations/storage-management/">
+      
+      
+        <link rel="prev" href="../service-updates/">
+      
+      
+        <link rel="next" href="../../../service-open-horizon-mcp-server/MCP_VALUE_PROPOSITION/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>operations/storage-management.md - Open Horizon Services Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#storage-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Open Horizon Services Documentation" class="md-header__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Horizon Services Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              operations/storage-management.md
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../service-envizi-integration-hub/10-excel/readme/" class="md-tabs__link">
+          
+  
+  
+  Services
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../utility-container-converter/AGENTS/" class="md-tabs__link">
+          
+  
+  
+  Utilities
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Open Horizon Services Documentation" class="md-nav__button md-logo" aria-label="Open Horizon Services Documentation" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Open Horizon Services Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/open-horizon-services/open-horizon-services.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    open-horizon-services/open-horizon-services.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-envizi-integration-hub-backend
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-envizi-integration-hub-backend
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/10-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/11-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/20-invoices/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-invoices/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/21-utility-bills/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-utility-bills/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/30-turbonomic/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30-turbonomic/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/50-developer/01-create-data-services-in-envizi/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/01-create-data-services-in-envizi/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/50-developer/02-prepare-configuration-file/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/02-prepare-configuration-file/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/50-developer/03-start-app-in-local/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/03-start-app-in-local/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/50-developer/04-update-config-settings-in-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/04-update-config-settings-in-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/50-developer/05-run-in-docker/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/05-run-in-docker/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/50-developer/06-create-docker-image/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/06-create-docker-image/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/50-developer/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    50-developer/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/60-demo/01-excel/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/01-excel/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/60-demo/02-webhook/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-demo/02-webhook/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60-utils/01-configuring-redhat-enterprise-linux-for-running-web-app/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/62-faqs/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62-faqs/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/90-blog/readme-developer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme-developer.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/90-blog/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90-blog/readme.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-envizi-integration-hub-backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-ollama
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-ollama
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/prerequisites.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/quickstart.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deployment/troubleshooting.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issue-1-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    issue-1-implementation.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issue-1-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    issue-1-plan.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/api-access.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/model-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/monitoring.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/service-updates.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/storage-management.md
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    operations/storage-management.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-storage-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Storage Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-persistent-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring Persistent Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Persistent Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-current-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Current Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-storage-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative Storage Locations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternative Storage Locations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-use-different-host-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Use Different Host Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-docker-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Use Docker Volume
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-use-external-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Use External Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-storage-configuration-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply Storage Configuration Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-backup-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Backup Procedures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Backup Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-all-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup All Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-specific-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Specific Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-backup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Backup Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-restoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Restoration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Restoration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restore-from-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restore from Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restore from Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Restore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-specific-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restore Specific Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-models-after-restoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Models After Restoration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-persistence-across-service-restarts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Persistence Across Service Restarts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Persistence Across Service Restarts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-persistence-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Persistence Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-storage-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Storage Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-storage-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Storage Growth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-unused-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove Unused Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean-temporary-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clean Temporary Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deduplicate-blobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deduplicate Blobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Migration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrate-to-new-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate to New Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrate-to-larger-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate to Larger Volume
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-full" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Full
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slow-storage-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slow Storage Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    service-open-horizon-mcp-server
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    service-open-horizon-mcp-server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-open-horizon-mcp-server/MCP_VALUE_PROPOSITION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP_VALUE_PROPOSITION.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-open-horizon-mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-open-horizon-mcp-server/open-horizon-mcp-blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    open-horizon-mcp-blog.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-container-converter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-container-converter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-container-converter/AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGENTS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-container-converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-container-converter/docker-compose-support-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker-compose-support-plan.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-container-converter/mcp-compose-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mcp-compose-tools.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-container-converter/phase2-compose-sdf-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    phase2-compose-sdf-generation.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-secrets-manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    utility-secrets-manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARCHITECTURE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/CODE_OF_CONDUCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CODE_OF_CONDUCT.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CONTRIBUTING.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/INSTALL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSTALL.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/LICENSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/MAINTAINERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MAINTAINERS.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/RATIONALE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RATIONALE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    README.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utility-secrets-manager/USAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    USAGE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-storage-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Storage Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-persistent-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring Persistent Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Persistent Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-current-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Current Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-storage-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative Storage Locations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternative Storage Locations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-use-different-host-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Use Different Host Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-docker-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Use Docker Volume
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-use-external-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Use External Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-storage-configuration-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply Storage Configuration Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-backup-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Backup Procedures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Backup Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-all-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup All Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-specific-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Specific Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-backup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Backup Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-restoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Restoration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Restoration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restore-from-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restore from Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restore from Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Restore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-specific-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restore Specific Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-models-after-restoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Models After Restoration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-persistence-across-service-restarts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Persistence Across Service Restarts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Persistence Across Service Restarts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-persistence-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Persistence Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-storage-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Storage Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-storage-growth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Storage Growth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-unused-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove Unused Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean-temporary-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clean Temporary Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deduplicate-blobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deduplicate Blobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Migration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrate-to-new-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate to New Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrate-to-larger-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate to Larger Volume
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-full" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Full
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slow-storage-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slow Storage Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="storage-management">Storage Management</h1>
+<p>This guide covers procedures for managing persistent model storage across service updates and node restarts.</p>
+<h2 id="overview">Overview</h2>
+<p>Ollama stores models in persistent storage to ensure they remain available across container restarts and service updates. Proper storage management is critical for reliable operation.</p>
+<h2 id="storage-architecture">Storage Architecture</h2>
+<h3 id="default-storage-configuration">Default Storage Configuration</h3>
+<p>The Ollama service uses the following storage configuration:</p>
+<p><strong>Host Path:</strong> <code>/var/ollama</code>
+<strong>Container Path:</strong> <code>/root/.ollama</code>
+<strong>Mount Type:</strong> Bind mount (read-write)</p>
+<p><strong>Service Definition:</strong></p>
+<pre><code class="language-json">{
+  &quot;deployment&quot;: {
+    &quot;services&quot;: {
+      &quot;ollama&quot;: {
+        &quot;binds&quot;: [
+          &quot;/var/ollama:/root/.ollama:rw&quot;
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="storage-layout">Storage Layout</h3>
+<pre><code>/var/ollama/
+├── models/
+│   ├── manifests/
+│   │   └── registry.ollama.ai/
+│   │       └── library/
+│   │           ├── llama2/
+│   │           ├── mistral/
+│   │           └── codellama/
+│   └── blobs/
+│       ├── sha256-abc123...
+│       ├── sha256-def456...
+│       └── sha256-ghi789...
+└── tmp/
+</code></pre>
+<p><strong>Key Directories:</strong>
+- <code>models/manifests/</code>: Model metadata and version information
+- <code>models/blobs/</code>: Actual model data (deduplicated)
+- <code>tmp/</code>: Temporary files during model downloads</p>
+<h2 id="configuring-persistent-storage">Configuring Persistent Storage</h2>
+<h3 id="verify-current-configuration">Verify Current Configuration</h3>
+<pre><code class="language-bash"># Check mount point
+docker inspect $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) | jq '.[0].Mounts'
+
+# Check storage usage
+df -h /var/ollama
+
+# Check directory contents
+ls -lh /var/ollama
+</code></pre>
+<p><strong>Expected Output:</strong></p>
+<pre><code class="language-json">[
+  {
+    &quot;Type&quot;: &quot;bind&quot;,
+    &quot;Source&quot;: &quot;/var/ollama&quot;,
+    &quot;Destination&quot;: &quot;/root/.ollama&quot;,
+    &quot;Mode&quot;: &quot;rw&quot;,
+    &quot;RW&quot;: true,
+    &quot;Propagation&quot;: &quot;rprivate&quot;
+  }
+]
+</code></pre>
+<h3 id="alternative-storage-locations">Alternative Storage Locations</h3>
+<p>If <code>/var/ollama</code> is not suitable, configure a different location:</p>
+<h4 id="option-1-use-different-host-directory">Option 1: Use Different Host Directory</h4>
+<pre><code class="language-bash"># Create new directory
+sudo mkdir -p /mnt/models/ollama
+sudo chmod 755 /mnt/models/ollama
+
+# Update service definition
+vi horizon/service.definition.json
+</code></pre>
+<p><strong>Change:</strong></p>
+<pre><code class="language-json">{
+  &quot;binds&quot;: [
+    &quot;/mnt/models/ollama:/root/.ollama:rw&quot;
+  ]
+}
+</code></pre>
+<h4 id="option-2-use-docker-volume">Option 2: Use Docker Volume</h4>
+<pre><code class="language-bash"># Create named volume
+docker volume create ollama-models
+
+# Update service definition
+vi horizon/service.definition.json
+</code></pre>
+<p><strong>Change:</strong></p>
+<pre><code class="language-json">{
+  &quot;binds&quot;: [
+    &quot;ollama-models:/root/.ollama:rw&quot;
+  ]
+}
+</code></pre>
+<h4 id="option-3-use-external-storage">Option 3: Use External Storage</h4>
+<pre><code class="language-bash"># Mount external drive
+sudo mkdir -p /mnt/external
+sudo mount /dev/sdb1 /mnt/external
+
+# Create ollama directory
+sudo mkdir -p /mnt/external/ollama
+sudo chmod 755 /mnt/external/ollama
+
+# Make mount persistent
+echo &quot;/dev/sdb1 /mnt/external ext4 defaults 0 2&quot; | sudo tee -a /etc/fstab
+
+# Update service definition
+vi horizon/service.definition.json
+</code></pre>
+<p><strong>Change:</strong></p>
+<pre><code class="language-json">{
+  &quot;binds&quot;: [
+    &quot;/mnt/external/ollama:/root/.ollama:rw&quot;
+  ]
+}
+</code></pre>
+<h3 id="apply-storage-configuration-changes">Apply Storage Configuration Changes</h3>
+<p>After modifying storage configuration:</p>
+<pre><code class="language-bash"># Increment service version
+export SERVICE_VERSION=&quot;0.1.1&quot;
+
+# Update version in service definition
+sed -i 's/&quot;version&quot;: &quot;0.1.0&quot;/&quot;version&quot;: &quot;0.1.1&quot;/' horizon/service.definition.json
+
+# Validate and publish
+make validate-service
+make publish-service
+make publish-deployment-policy
+</code></pre>
+<h2 id="model-backup-procedures">Model Backup Procedures</h2>
+<h3 id="manual-backup">Manual Backup</h3>
+<h4 id="backup-all-models">Backup All Models</h4>
+<pre><code class="language-bash"># Create backup directory
+sudo mkdir -p /backup/ollama
+
+# Backup models directory
+sudo tar -czf /backup/ollama/models-$(date +%Y%m%d-%H%M%S).tar.gz -C /var/ollama models
+
+# Verify backup
+ls -lh /backup/ollama/
+</code></pre>
+<h4 id="backup-specific-model">Backup Specific Model</h4>
+<pre><code class="language-bash"># Identify model location
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list
+
+# Backup specific model blobs
+MODEL_NAME=&quot;llama2&quot;
+sudo tar -czf /backup/ollama/${MODEL_NAME}-$(date +%Y%m%d).tar.gz \
+  -C /var/ollama/models/manifests/registry.ollama.ai/library/${MODEL_NAME} .
+</code></pre>
+<h3 id="automated-backup-script">Automated Backup Script</h3>
+<pre><code class="language-bash">#!/bin/bash
+# backup-models.sh
+
+BACKUP_DIR=&quot;/backup/ollama&quot;
+SOURCE_DIR=&quot;/var/ollama&quot;
+RETENTION_DAYS=30
+
+# Create backup directory
+mkdir -p &quot;$BACKUP_DIR&quot;
+
+# Create backup
+BACKUP_FILE=&quot;$BACKUP_DIR/models-$(date +%Y%m%d-%H%M%S).tar.gz&quot;
+echo &quot;Creating backup: $BACKUP_FILE&quot;
+tar -czf &quot;$BACKUP_FILE&quot; -C &quot;$SOURCE_DIR&quot; models
+
+# Verify backup
+if [ $? -eq 0 ]; then
+  echo &quot;✓ Backup created successfully&quot;
+  ls -lh &quot;$BACKUP_FILE&quot;
+else
+  echo &quot;✗ Backup failed&quot;
+  exit 1
+fi
+
+# Remove old backups
+echo &quot;Removing backups older than $RETENTION_DAYS days&quot;
+find &quot;$BACKUP_DIR&quot; -name &quot;models-*.tar.gz&quot; -mtime +$RETENTION_DAYS -delete
+
+echo &quot;Backup complete&quot;
+</code></pre>
+<p><strong>Schedule with Cron:</strong></p>
+<pre><code class="language-bash"># Edit crontab
+crontab -e
+
+# Add daily backup at 2 AM
+0 2 * * * /usr/local/bin/backup-models.sh &gt;&gt; /var/log/ollama-backup.log 2&gt;&amp;1
+</code></pre>
+<h3 id="remote-backup">Remote Backup</h3>
+<pre><code class="language-bash"># Backup to remote server via rsync
+rsync -avz --progress /var/ollama/models/ backup-server:/backups/ollama/models/
+
+# Backup to S3 (requires AWS CLI)
+aws s3 sync /var/ollama/models/ s3://my-bucket/ollama-backups/models/
+
+# Backup to network share
+sudo mount -t cifs //nas-server/backups /mnt/nas -o credentials=/etc/nas-creds
+sudo rsync -av /var/ollama/models/ /mnt/nas/ollama/models/
+</code></pre>
+<h2 id="model-restoration">Model Restoration</h2>
+<h3 id="restore-from-backup">Restore from Backup</h3>
+<h4 id="full-restore">Full Restore</h4>
+<pre><code class="language-bash"># Stop service (if running)
+docker stop $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;)
+
+# Clear existing models (optional)
+sudo rm -rf /var/ollama/models/*
+
+# Restore from backup
+sudo tar -xzf /backup/ollama/models-20240115-020000.tar.gz -C /var/ollama
+
+# Verify restoration
+ls -lh /var/ollama/models/
+
+# Restart service
+# (Service will restart automatically via Open Horizon)
+</code></pre>
+<h4 id="restore-specific-model">Restore Specific Model</h4>
+<pre><code class="language-bash"># Extract specific model
+MODEL_NAME=&quot;llama2&quot;
+sudo tar -xzf /backup/ollama/${MODEL_NAME}-20240115.tar.gz \
+  -C /var/ollama/models/manifests/registry.ollama.ai/library/${MODEL_NAME}
+
+# Verify model
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list
+</code></pre>
+<h3 id="verify-models-after-restoration">Verify Models After Restoration</h3>
+<pre><code class="language-bash"># List models
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list
+
+# Test each model
+for model in $(docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list | tail -n +2 | awk '{print $1}'); do
+  echo &quot;Testing $model...&quot;
+  docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama run &quot;$model&quot; &quot;test&quot; --verbose
+done
+</code></pre>
+<h2 id="model-persistence-across-service-restarts">Model Persistence Across Service Restarts</h2>
+<h3 id="verify-persistence">Verify Persistence</h3>
+<pre><code class="language-bash"># List current models
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list
+
+# Restart container
+docker restart $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;)
+
+# Wait for restart
+sleep 10
+
+# Verify models still available
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list
+</code></pre>
+<p><strong>Expected Behavior:</strong>
+- Models remain available after restart
+- No re-download required
+- Same model list before and after</p>
+<h3 id="troubleshooting-persistence-issues">Troubleshooting Persistence Issues</h3>
+<p><strong>Problem: Models Lost After Restart</strong></p>
+<pre><code class="language-bash"># Check mount configuration
+docker inspect $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) | jq '.[0].Mounts'
+
+# Verify host directory exists
+ls -la /var/ollama/models/
+
+# Check permissions
+ls -ld /var/ollama
+# Should show: drwxr-xr-x or similar
+
+# Fix permissions if needed
+sudo chmod 755 /var/ollama
+sudo chown -R root:root /var/ollama
+</code></pre>
+<p><strong>Problem: Models Corrupted After Restart</strong></p>
+<pre><code class="language-bash"># Check for disk errors
+dmesg | grep -i error
+
+# Verify filesystem
+sudo fsck /dev/sda1  # Adjust device as needed
+
+# Restore from backup
+sudo tar -xzf /backup/ollama/models-latest.tar.gz -C /var/ollama
+</code></pre>
+<h2 id="storage-monitoring">Storage Monitoring</h2>
+<h3 id="check-storage-usage">Check Storage Usage</h3>
+<pre><code class="language-bash"># Overall disk usage
+df -h /var/ollama
+
+# Detailed breakdown
+du -sh /var/ollama/*
+du -sh /var/ollama/models/*
+
+# Largest files
+du -h /var/ollama/models/blobs/ | sort -h | tail -20
+</code></pre>
+<h3 id="monitor-storage-growth">Monitor Storage Growth</h3>
+<pre><code class="language-bash">#!/bin/bash
+# monitor-storage.sh
+
+while true; do
+  USAGE=$(df -h /var/ollama | tail -1 | awk '{print $5}' | sed 's/%//')
+  USED=$(df -h /var/ollama | tail -1 | awk '{print $3}')
+  AVAIL=$(df -h /var/ollama | tail -1 | awk '{print $4}')
+
+  echo &quot;$(date): Used: $USED | Available: $AVAIL | Usage: $USAGE%&quot;
+
+  if [ &quot;$USAGE&quot; -gt 80 ]; then
+    echo &quot;WARNING: Storage usage above 80%&quot;
+  fi
+
+  sleep 3600  # Check every hour
+done
+</code></pre>
+<h3 id="storage-alerts">Storage Alerts</h3>
+<pre><code class="language-bash">#!/bin/bash
+# storage-alert.sh
+
+THRESHOLD=85
+USAGE=$(df -h /var/ollama | tail -1 | awk '{print $5}' | sed 's/%//')
+
+if [ &quot;$USAGE&quot; -gt &quot;$THRESHOLD&quot; ]; then
+  echo &quot;ALERT: Ollama storage usage at ${USAGE}%&quot;
+  echo &quot;Consider removing unused models or expanding storage&quot;
+
+  # List models by size
+  echo &quot;Models by size:&quot;
+  docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list
+
+  # Send notification (example)
+  # mail -s &quot;Ollama Storage Alert&quot; admin@example.com &lt; /tmp/alert.txt
+fi
+</code></pre>
+<h2 id="storage-optimization">Storage Optimization</h2>
+<h3 id="remove-unused-models">Remove Unused Models</h3>
+<pre><code class="language-bash"># List models with sizes
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama list
+
+# Remove unused models
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama rm &lt;model-name&gt;
+
+# Check freed space
+df -h /var/ollama
+</code></pre>
+<h3 id="clean-temporary-files">Clean Temporary Files</h3>
+<pre><code class="language-bash"># Remove temporary files
+sudo rm -rf /var/ollama/tmp/*
+
+# Verify cleanup
+du -sh /var/ollama/tmp/
+</code></pre>
+<h3 id="deduplicate-blobs">Deduplicate Blobs</h3>
+<p>Ollama automatically deduplicates model data using content-addressable storage. No manual deduplication needed.</p>
+<p><strong>Verify Deduplication:</strong></p>
+<pre><code class="language-bash"># Count blob files
+ls /var/ollama/models/blobs/ | wc -l
+
+# Check for shared blobs between models
+# (Blobs with same SHA256 are shared)
+</code></pre>
+<h2 id="storage-migration">Storage Migration</h2>
+<h3 id="migrate-to-new-location">Migrate to New Location</h3>
+<pre><code class="language-bash"># Stop service
+docker stop $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;)
+
+# Create new location
+sudo mkdir -p /new/location/ollama
+sudo chmod 755 /new/location/ollama
+
+# Copy data
+sudo rsync -av /var/ollama/ /new/location/ollama/
+
+# Verify copy
+diff -r /var/ollama/models/ /new/location/ollama/models/
+
+# Update service definition
+vi horizon/service.definition.json
+# Change binds to: &quot;/new/location/ollama:/root/.ollama:rw&quot;
+
+# Publish updated service
+export SERVICE_VERSION=&quot;0.1.2&quot;
+make publish-service
+make publish-deployment-policy
+
+# Verify new location
+docker inspect $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) | jq '.[0].Mounts'
+</code></pre>
+<h3 id="migrate-to-larger-volume">Migrate to Larger Volume</h3>
+<pre><code class="language-bash"># Add new disk
+# Partition and format new disk
+sudo fdisk /dev/sdb
+sudo mkfs.ext4 /dev/sdb1
+
+# Mount new disk
+sudo mkdir -p /mnt/models
+sudo mount /dev/sdb1 /mnt/models
+
+# Copy data
+sudo rsync -av /var/ollama/ /mnt/models/ollama/
+
+# Update fstab
+echo &quot;/dev/sdb1 /mnt/models ext4 defaults 0 2&quot; | sudo tee -a /etc/fstab
+
+# Update service definition
+# Change binds to: &quot;/mnt/models/ollama:/root/.ollama:rw&quot;
+
+# Publish and verify
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><strong>Regular Backups:</strong></li>
+<li>Daily automated backups</li>
+<li>Retain backups for 30 days</li>
+<li>
+<p>Test restoration periodically</p>
+</li>
+<li>
+<p><strong>Storage Monitoring:</strong></p>
+</li>
+<li>Monitor usage daily</li>
+<li>Alert at 80% capacity</li>
+<li>
+<p>Plan expansion before 90%</p>
+</li>
+<li>
+<p><strong>Model Management:</strong></p>
+</li>
+<li>Remove unused models promptly</li>
+<li>Document model inventory</li>
+<li>
+<p>Track model sizes</p>
+</li>
+<li>
+<p><strong>Disaster Recovery:</strong></p>
+</li>
+<li>Maintain off-site backups</li>
+<li>Document restoration procedures</li>
+<li>
+<p>Test recovery annually</p>
+</li>
+<li>
+<p><strong>Performance:</strong></p>
+</li>
+<li>Use fast storage (SSD preferred)</li>
+<li>Ensure adequate IOPS</li>
+<li>Monitor disk latency</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="storage-full">Storage Full</h3>
+<pre><code class="language-bash"># Check usage
+df -h /var/ollama
+
+# Identify large files
+du -h /var/ollama | sort -h | tail -20
+
+# Remove unused models
+docker exec $(docker ps -qf &quot;ancestor=ollama/ollama:latest&quot;) ollama rm &lt;model&gt;
+
+# Clean temporary files
+sudo rm -rf /var/ollama/tmp/*
+</code></pre>
+<h3 id="slow-storage-performance">Slow Storage Performance</h3>
+<pre><code class="language-bash"># Test write speed
+dd if=/dev/zero of=/var/ollama/test bs=1M count=1000
+rm /var/ollama/test
+
+# Check disk I/O
+iostat -x 1
+
+# Check for errors
+dmesg | grep -i error
+</code></pre>
+<h3 id="permission-issues">Permission Issues</h3>
+<pre><code class="language-bash"># Fix ownership
+sudo chown -R root:root /var/ollama
+
+# Fix permissions
+sudo chmod 755 /var/ollama
+sudo chmod -R 644 /var/ollama/models/
+sudo find /var/ollama/models/ -type d -exec chmod 755 {} \;
+</code></pre>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Review <a href="../api-access/">API Access</a> for testing functionality</li>
+<li>See <a href="../monitoring/">Monitoring</a> for ongoing health checks</li>
+<li>Check <a href="../model-management/">Model Management</a> for managing models</li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://github.com/ollama/ollama/blob/main/docs/faq.md#where-are-models-stored">Ollama Storage</a></li>
+<li><a href="https://docs.docker.com/storage/">Docker Storage</a></li>
+<li><a href="https://www.kernel.org/doc/html/latest/filesystems/">Linux Filesystem</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
