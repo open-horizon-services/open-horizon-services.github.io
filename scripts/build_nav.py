@@ -206,45 +206,66 @@ def _stage_docs(repo: dict, dest: Path) -> Optional[str]:
 
 def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
     """
-    Sparse-clone README.md, parse it for locally linked .md files, then
-    re-checkout with those files included so relative links resolve.
+    Shallow-clone the repo in full (depth=1), then keep only README.md and
+    any locally linked .md files — everything else is deleted.
+    A full shallow clone is used instead of sparse-checkout because
+    sparse patterns for specific filenames require cone mode which varies
+    across git versions and fails on plain filenames like 'README.md'.
     """
     name = repo["name"]
     clone_url = repo["clone_url"]
 
-    # First pass: clone README.md only
-    if not _clone_sparse(clone_url, dest, ["README.md"]):
+    try:
+        subprocess.run(
+            ["git", "clone", "--depth", "1", "--no-local", clone_url, str(dest)],
+            check=True, capture_output=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        print(f"  ⚠ clone failed for {name}: {exc.stderr.decode().strip()}", file=sys.stderr)
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
-    readme_path = dest / "README.md"
-    if not readme_path.exists():
-        print(f"  ⚠ README.md not found after clone for {name}", file=sys.stderr)
-        shutil.rmtree(dest, ignore_errors=True)
-        return None
-
-    # Parse README for locally linked .md files
-    readme_text = readme_path.read_text(encoding="utf-8", errors="replace")
-    linked = _linked_md_files(readme_text)
-
-    if linked:
-        # Second pass: expand sparse-checkout to include linked files
-        paths = ["README.md"] + linked
-        try:
-            subprocess.run(
-                ["git", "sparse-checkout", "set"] + paths,
-                cwd=str(dest), check=True, capture_output=True,
-            )
-        except subprocess.CalledProcessError:
-            pass  # non-fatal: README alone is still useful
-
-    # Remove .git directory — we only need the working tree files
+    # Remove .git immediately — we don't need history
     git_dir = dest / ".git"
     if git_dir.exists():
         shutil.rmtree(git_dir)
 
+    # Find README.md (case-insensitive)
+    readme_path = dest / "README.md"
+    if not readme_path.exists():
+        matches = list(dest.glob("[Rr][Ee][Aa][Dd][Mm][Ee].md"))
+        readme_path = matches[0] if matches else None
+
+    if readme_path is None:
+        print(f"  ⚠ no README.md found for {name}, skipping", file=sys.stderr)
+        shutil.rmtree(dest, ignore_errors=True)
+        return None
+
+    # Determine which .md files to keep: README + locally linked files
+    readme_text = readme_path.read_text(encoding="utf-8", errors="replace")
+    linked = set(_linked_md_files(readme_text))
+    keep = {readme_path.name} | linked
+
+    # Delete everything that isn't a kept .md file or its parent directory tree
+    # Strategy: collect absolute paths to keep, delete all other files
+    keep_abs = set()
+    for k in keep:
+        keep_abs.add((dest / k).resolve())
+
+    for f in list(dest.rglob("*")):
+        if f.is_file() and f.resolve() not in keep_abs:
+            f.unlink()
+
+    # Remove empty directories left behind
+    for d in sorted(dest.rglob("*"), reverse=True):
+        if d.is_dir():
+            try:
+                d.rmdir()  # only succeeds if empty
+            except OSError:
+                pass
+
     if not list(dest.rglob("*.md")):
-        print(f"  ⚠ no .md files for {name}, skipping", file=sys.stderr)
+        print(f"  ⚠ no .md files for {name} after filtering, skipping", file=sys.stderr)
         shutil.rmtree(dest, ignore_errors=True)
         return None
 
@@ -335,6 +356,70 @@ def write_build_config(
 
 
 # ---------------------------------------------------------------------------
+# Home page generation
+# ---------------------------------------------------------------------------
+
+INDEX_PAGE = "docs/index.md"
+
+def write_index_page(
+    nav: list,
+    output_path: str = INDEX_PAGE,
+    dry_run: bool = False,
+) -> None:
+    """
+    Rewrite docs/index.md with a grouped repo index derived from the nav.
+    Each prefix group becomes a section; each repo becomes a link.
+    """
+    lines = [
+        "# Open Horizon Services Documentation",
+        "",
+        "Welcome to the unified documentation portal for the "
+        "[Open Horizon Services](https://github.com/open-horizon-services) organization.",
+        "",
+        "This portal automatically aggregates documentation from all organization "
+        "repositories. Browse by category below, or use the navigation sidebar and "
+        "search bar to find specific topics.",
+        "",
+        "---",
+        "",
+    ]
+
+    # nav[0] is {"Home": "index.md"} — skip it
+    for section in nav[1:]:
+        for group_label, repos in section.items():
+            lines.append(f"## {group_label}")
+            lines.append("")
+            for repo_entry in repos:
+                for repo_name, sub_nav in repo_entry.items():
+                    # Link to the first page in the sub-nav
+                    first_path = list(sub_nav[0].values())[0] if sub_nav else "#"
+                    display = repo_name
+                    lines.append(f"- [{display}]({first_path})")
+            lines.append("")
+            lines.append("---")
+            lines.append("")
+
+    lines.append(
+        '!!! tip "Contributing Documentation"\n'
+        "    To have your repository's documentation included here, add a `/docs` "
+        "directory with Markdown files to your repository. The portal rebuilds "
+        "automatically on each push."
+    )
+
+    content = "\n".join(lines) + "\n"
+
+    if dry_run:
+        print("\n--- Generated index.md (dry-run, first 20 lines) ---")
+        for line in lines[:20]:
+            print(line)
+        return
+
+    with open(output_path, "w") as f:
+        f.write(content)
+    print(f"✓ Written {output_path}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -411,8 +496,9 @@ def main() -> None:
         prefixes,
     )
 
-    # Write config
+    # Write config and regenerate home page index
     write_build_config(nav, dry_run=args.dry_run)
+    write_index_page(nav, dry_run=args.dry_run)
 
     if not args.dry_run:
         print(f"\nDone. Run: mkdocs serve -f {MKDOCS_BUILD}")
