@@ -36,6 +36,9 @@ theme:
   logo: assets/logo.svg
   favicon: assets/logo.svg
 
+extra_css:
+  - assets/extra.css
+
 plugins:
   - search
   - monorepo

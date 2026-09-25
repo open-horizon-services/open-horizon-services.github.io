@@ -19,3 +19,6 @@ env/
 
 # Local environment variables (never commit real tokens)
 .env
+
+# macOS
+.DS_Store
