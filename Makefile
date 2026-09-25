@@ -9,7 +9,7 @@ stage: ## Fetch org repo docs into _docs/ and write mkdocs_build.yml
 serve: stage ## Stage docs then start the MkDocs preview server at http://127.0.0.1:8000
 	mkdocs serve -f mkdocs_build.yml
 
-dry-run: ## Show which repos would be included without cloning anything
+dry-run: ## Show which repositories would be included without cloning anything
 	python scripts/build_nav.py --dry-run
 
 test: ## Run unit tests
