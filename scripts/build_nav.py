@@ -242,11 +242,18 @@ def _rename_readmes(root: Path) -> None:
                 md.rename(target)
 
 
-def _inject_repo_front_matter(root: Path, repo_name: str, repo_html_url: str) -> None:
+def _inject_repo_front_matter(
+    root: Path,
+    repo_name: str,
+    repo_html_url: str,
+    stars: int = 0,
+    forks: int = 0,
+) -> None:
     """
     Prepend YAML front matter to the top-level index.md in *root* so that the
     MkDocs Material theme override can display the correct GitHub repository
-    link in the top nav bar for each repo's documentation page.
+    link and star/fork counts in the top nav bar for each repo's documentation
+    page.
 
     Only touches the root-level index.md (the landing page for the repo).
     Skips files that already have a front matter block.
@@ -265,6 +272,8 @@ def _inject_repo_front_matter(root: Path, repo_name: str, repo_html_url: str) ->
         f"---\n"
         f"repo_url: {repo_html_url}\n"
         f"repo_name: {short_name}\n"
+        f"repo_stars: {stars}\n"
+        f"repo_forks: {forks}\n"
         f"---\n\n"
     )
     index.write_text(front_matter + content, encoding="utf-8")
@@ -294,7 +303,11 @@ def _stage_docs(repo: dict, dest: Path) -> Optional[str]:
         return None
 
     _rename_readmes(dest)
-    _inject_repo_front_matter(dest, name, repo["html_url"])
+    _inject_repo_front_matter(
+        dest, name, repo["html_url"],
+        stars=repo.get("stargazers_count", 0),
+        forks=repo.get("forks_count", 0),
+    )
     return str(dest)
 
 
@@ -373,7 +386,11 @@ def _stage_readme(repo: dict, dest: Path) -> Optional[str]:
         return None
 
     _rename_readmes(dest)
-    _inject_repo_front_matter(dest, name, repo["html_url"])
+    _inject_repo_front_matter(
+        dest, name, repo["html_url"],
+        stars=repo.get("stargazers_count", 0),
+        forks=repo.get("forks_count", 0),
+    )
     return str(dest)
 
 

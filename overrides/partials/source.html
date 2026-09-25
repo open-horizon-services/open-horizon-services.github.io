@@ -1,20 +1,43 @@
 {#-
   Override of partials/source.html — allows per-page front matter to set
-  repo_url and repo_name so the top-nav GitHub link points to the repo
-  being displayed rather than the documentation site repo.
+  repo_url, repo_name, repo_stars, and repo_forks so the top-nav GitHub
+  widget shows the correct repository and its star/fork counts for each
+  repo documentation page.
 
   Front matter keys (set by build_nav.py during staging):
-    repo_url:  https://github.com/open-horizon-services/<repo-name>
-    repo_name: open-horizon-services/<repo-name>
+    repo_url:   https://github.com/open-horizon-services/<repo-name>
+    repo_name:  open-horizon-services/<repo-name>
+    repo_stars: <int>   — stargazers_count from the GitHub API at build time
+    repo_forks: <int>   — forks_count from the GitHub API at build time
+
+  Pages without per-page repo_url (home, section indexes) render nothing.
+
+  Star/fork counts are baked in at build time — no client-side GitHub API
+  calls, no sessionStorage caching, no race conditions across pages.
 -#}
 {% set effective_repo_url  = page.meta.get('repo_url',  config.repo_url)  if page and page.meta else config.repo_url %}
 {% set effective_repo_name = page.meta.get('repo_name', config.repo_name) if page and page.meta else config.repo_name %}
+{% set has_per_page_repo   = (effective_repo_url != config.repo_url) %}
+{% if has_per_page_repo %}
+  {% set repo_stars = page.meta.get('repo_stars', none) %}
+  {% set repo_forks = page.meta.get('repo_forks', none) %}
 <a href="{{ effective_repo_url }}" title="{{ lang.t('source') }}" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     {% set icon = config.theme.icon.repo or "fontawesome/brands/git-alt" %}
     {% include ".icons/" ~ icon ~ ".svg" %}
   </div>
-  <div class="md-source__repository">
+  <div class="md-source__repository{% if repo_stars is not none or repo_forks is not none %} md-source__repository--active{% endif %}">
     {{ effective_repo_name }}
+    {% if repo_stars is not none or repo_forks is not none %}
+    <ul class="md-source__facts">
+      {% if repo_stars is not none %}
+      <li class="md-source__fact md-source__fact--stars">{{ repo_stars }}</li>
+      {% endif %}
+      {% if repo_forks is not none %}
+      <li class="md-source__fact md-source__fact--forks">{{ repo_forks }}</li>
+      {% endif %}
+    </ul>
+    {% endif %}
   </div>
 </a>
+{% endif %}

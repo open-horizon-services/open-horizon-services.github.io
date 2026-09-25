@@ -40,6 +40,15 @@ plugins:
   - search
   - monorepo
 
+# Suppress warnings for broken relative links inside staged third-party repo
+# content — those docs may reference files that weren't pulled into the staging
+# directory (e.g. api/ trees, hidden .agent/ directories).  Keeping these at
+# 'info' prevents --strict builds from failing on content we don't control.
+validation:
+  links:
+    not_found: info
+    unrecognized_links: info
+
 # Prefix groups used by scripts/build_nav.py to discover org repos.
 # Add or remove prefixes here without changing any scripts.
 extra:

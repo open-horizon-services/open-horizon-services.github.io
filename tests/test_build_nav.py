@@ -257,6 +257,25 @@ class TestInjectRepoFrontMatter:
         assert "repo_name: open-horizon-services/service-foo\n" in content
         assert "# Hello\n" in content
 
+    def test_injects_stars_and_forks(self, tmp_path):
+        (tmp_path / "index.md").write_text("# Hello\n")
+        build_nav._inject_repo_front_matter(
+            tmp_path, "service-foo", "https://github.com/open-horizon-services/service-foo",
+            stars=42, forks=7,
+        )
+        content = (tmp_path / "index.md").read_text()
+        assert "repo_stars: 42\n" in content
+        assert "repo_forks: 7\n" in content
+
+    def test_stars_forks_default_to_zero(self, tmp_path):
+        (tmp_path / "index.md").write_text("# Hello\n")
+        build_nav._inject_repo_front_matter(
+            tmp_path, "service-foo", "https://github.com/open-horizon-services/service-foo"
+        )
+        content = (tmp_path / "index.md").read_text()
+        assert "repo_stars: 0\n" in content
+        assert "repo_forks: 0\n" in content
+
     def test_does_not_overwrite_existing_front_matter(self, tmp_path):
         original = "---\nrepo_url: https://custom.example.com\n---\n\n# Hello\n"
         (tmp_path / "index.md").write_text(original)

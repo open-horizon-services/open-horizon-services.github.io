@@ -16,4 +16,4 @@ test: ## Run unit tests
 	python -m pytest tests/ -v
 
 clean: ## Remove staged docs, build output, and generated config
-	rm -rf _docs/ site/ mkdocs_build.yml __pycache__ .pytest_cache
+	rm -rf docs/_repos/ docs/_sections/ site/ mkdocs_build.yml __pycache__ .pytest_cache
