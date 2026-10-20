@@ -895,6 +895,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#service-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2211,6 +2222,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#service-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2303,8 +2325,21 @@
 
 
 <h1 id="service-grafana">service-grafana</h1>
-<p><img alt="Copyright" src="https://grafana.com/docs/copyright-notice/" /></p>
 <p>This is an Open Horizon configuration to deploy a vanilla instance of the open-source <a href="https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/">Grafana</a> software.  The Grafana UI is designed to run in a web browser, so you will need to navigate to <a href="http://localhost:3000/">http://localhost:3000/</a> to use the software once it has been deployed.</p>
+<h2 id="service-structure">Service Structure</h2>
+<p>This service follows the standard Open Horizon service structure created by <code>hzn dev service new</code>. All service definition files are organized in the <code>horizon/</code> directory:</p>
+<pre><code>service-grafana/
+├── horizon/
+│   ├── dependencies/             # Service dependencies (if any)
+│   ├── deployment.policy.json    # Deployment policy (for publishing to Exchange)
+│   ├── hzn.json                  # HZN CLI configuration with metadata variables
+│   ├── node.policy.json          # Example node policy
+│   ├── service.definition.json   # Core service definition
+│   ├── service.policy.json       # Service policy for policy-based deployment
+│   └── userinput.json            # User input variable values
+├── Makefile                      # Build and deployment automation
+└── README.md                     # This file
+</code></pre>
 <h2 id="prerequisites">Prerequisites</h2>
 <p><strong>Management Hub:</strong> <a href="https://open-horizon.github.io/quick-start">Install the Open Horizon Management Hub</a> or have access to an existing hub in order to publish this service and register your edge node.  You may also choose to use a downstream commercial distribution based on Open Horizon, such as IBM's Edge Application Manager.  If you'd like to use the Open Horizon community hub, you may <a href="https://wiki.lfedge.org/display/LE/Open+Horizon+Management+Hub+Developer+Instance">apply for a temporary account</a> and have credentials sent to you.</p>
 <p><strong>Edge Node:</strong> You will need an x86 computer running Linux or macOS, or a Raspberry Pi computer (arm64) running Raspberry Pi OS or Ubuntu to install and use Grafana deployed by Open Horizon.  You will need to install the Open Horizon agent software, anax, on the edge node and register it with a hub.</p>
